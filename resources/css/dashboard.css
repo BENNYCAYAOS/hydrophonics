@@ -1,0 +1,3404 @@
+/* =========================================================
+   HYDROSMART DASHBOARD
+   RESPONSIVE + COLORFUL CARD DESIGN
+========================================================= */
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.dashboard-header.control-dashboard-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 10px 18px;
+
+    min-height: 64px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff 0%,
+            #ecfeff 48%,
+            #f0fdf4 100%
+        );
+
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 15px rgba(15, 23, 42, .05);
+
+    overflow: hidden;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+}
+
+.dashboard-header.control-dashboard-header:hover {
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, .09);
+}
+
+
+/* =====================================================
+   HEADER LEFT ACCENT
+===================================================== */
+
+.dashboard-header.control-dashboard-header::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #2563eb,
+            #06b6d4,
+            #10b981
+        );
+
+    border-radius: 16px 0 0 16px;
+
+    transition:
+        width .25s ease;
+}
+
+.dashboard-header.control-dashboard-header:hover::before {
+    width: 5px;
+}
+
+
+/* =====================================================
+   HEADER DECORATIVE GLOW
+===================================================== */
+
+.dashboard-header.control-dashboard-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: -65px;
+    top: -85px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, .11),
+            rgba(6, 182, 212, .05),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    transition:
+        transform .4s ease;
+}
+
+.dashboard-header.control-dashboard-header:hover::after {
+    transform: scale(1.25);
+}
+
+
+/* =====================================================
+   HEADER DIRECT CHILDREN
+===================================================== */
+
+.dashboard-header.control-dashboard-header > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =====================================================
+   HEADER LEFT CONTENT
+===================================================== */
+
+.dashboard-header.control-dashboard-header > div:first-child {
+    min-width: 0;
+    flex: 1;
+}
+
+
+/* =====================================================
+   HEADER EYEBROW
+===================================================== */
+
+.dashboard-header.control-dashboard-header .dashboard-eyebrow {
+    margin: 0 0 1px;
+
+    color: #2563eb;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+    line-height: 1.1;
+}
+
+
+/* =====================================================
+   HEADER TITLE
+===================================================== */
+
+.dashboard-header.control-dashboard-header h1 {
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 24px;
+    font-weight: 800;
+
+    line-height: 1.15;
+}
+
+
+/* =====================================================
+   HEADER SUBTITLE
+===================================================== */
+
+.dashboard-header.control-dashboard-header
+> div:first-child
+> p:last-child {
+    margin: 2px 0 0;
+
+    color: #64748b;
+
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+
+/* =====================================================
+   LIVE STATUS
+===================================================== */
+
+.dashboard-header.control-dashboard-header .dashboard-live {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    flex-shrink: 0;
+
+    padding: 5px 10px;
+
+    border: 1px solid #bbf7d0;
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #ecfdf5
+        );
+
+    color: #15803d;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    line-height: 1;
+    white-space: nowrap;
+
+    box-shadow:
+        0 3px 10px rgba(22, 163, 74, .07);
+
+    transition:
+        box-shadow .2s ease,
+        transform .2s ease;
+}
+
+.dashboard-header.control-dashboard-header
+.dashboard-live:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 14px rgba(22, 163, 74, .12);
+}
+
+
+/* =====================================================
+   LIVE STATUS DOT
+===================================================== */
+
+.dashboard-header.control-dashboard-header
+.dashboard-live
+span {
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 3px #dcfce7;
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD CONTENT
+========================================================= */
+
+.dashboard-grid,
+.dashboard-section {
+    width: 100%;
+    max-width: 1400px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SENSOR GRID
+========================================================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   SENSOR CARD
+========================================================= */
+
+.sensor-card {
+    position: relative;
+
+    min-width: 0;
+
+    padding: 17px 18px;
+
+    border: 1px solid #dbe5e5;
+    border-radius: 17px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 4px 14px rgba(15, 23, 42, .045);
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+
+/* =========================================================
+   SENSOR CARD COLORS
+   USE ACTUAL CARD CLASSES
+========================================================= */
+
+
+/* =====================================================
+   WATER LEVEL
+   TEAL / GREEN
+===================================================== */
+
+.sensor-card.water-card {
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdfa 0%,
+            #ecfdf5 55%,
+            #ffffff 100%
+        );
+
+    border-color: #99f6e4;
+}
+
+.sensor-card.water-card::before {
+    background:
+        linear-gradient(
+            90deg,
+            #0f766e,
+            #14b8a6
+        );
+}
+
+
+/* =====================================================
+   pH
+   PURPLE
+===================================================== */
+
+.sensor-card.ph-card {
+    background:
+        linear-gradient(
+            135deg,
+            #faf5ff 0%,
+            #f5f3ff 55%,
+            #ffffff 100%
+        );
+
+    border-color: #e9d5ff;
+}
+
+.sensor-card.ph-card::before {
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #a855f7
+        );
+}
+
+
+/* =====================================================
+   EC
+   BLUE
+===================================================== */
+
+.sensor-card.ec-card {
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff 0%,
+            #eff8ff 55%,
+            #ffffff 100%
+        );
+
+    border-color: #bfdbfe;
+}
+
+.sensor-card.ec-card::before {
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #3b82f6
+        );
+}
+
+
+/* =====================================================
+   WATER TEMPERATURE
+   ORANGE
+===================================================== */
+
+.sensor-card.temp-card {
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed 0%,
+            #fffaf5 55%,
+            #ffffff 100%
+        );
+
+    border-color: #fed7aa;
+}
+
+.sensor-card.temp-card::before {
+    background:
+        linear-gradient(
+            90deg,
+            #ea580c,
+            #f97316
+        );
+}
+
+
+/* =====================================================
+   SENSOR CARD INNER GLOW
+===================================================== */
+
+.sensor-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    right: -85px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, .65) 0%,
+            rgba(255, 255, 255, .25) 45%,
+            transparent 72%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   SENSOR CARD TOP ACCENT
+===================================================== */
+
+.sensor-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 4px;
+
+    opacity: .9;
+
+    transition:
+        height .25s ease,
+        opacity .25s ease;
+}
+
+
+/* =====================================================
+   SENSOR CARD HOVER
+===================================================== */
+
+.sensor-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 14px 30px rgba(15, 23, 42, .10);
+}
+
+.sensor-card:hover::before {
+    height: 5px;
+    opacity: 1;
+}
+
+
+/* =====================================================
+   pH HOVER
+===================================================== */
+
+.sensor-card.ph-card:hover {
+    border-color: #c4b5fd;
+
+    background:
+        linear-gradient(
+            135deg,
+            #faf5ff 0%,
+            #f5f3ff 55%,
+            #ffffff 100%
+        );
+
+    box-shadow:
+        0 14px 30px rgba(124, 58, 237, .13);
+}
+
+
+/* =====================================================
+   EC HOVER
+===================================================== */
+
+.sensor-card.ec-card:hover {
+    border-color: #93c5fd;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff 0%,
+            #f0f7ff 55%,
+            #ffffff 100%
+        );
+
+    box-shadow:
+        0 14px 30px rgba(37, 99, 235, .13);
+}
+
+
+/* =====================================================
+   WATER TEMPERATURE HOVER
+===================================================== */
+
+.sensor-card.temp-card:hover {
+    border-color: #fdba74;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed 0%,
+            #fffaf5 55%,
+            #ffffff 100%
+        );
+
+    box-shadow:
+        0 14px 30px rgba(234, 88, 12, .13);
+}
+
+
+/* =====================================================
+   WATER LEVEL HOVER
+===================================================== */
+
+.sensor-card.water-card:hover {
+    border-color: #5eead4;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdfa 0%,
+            #ecfdf5 55%,
+            #ffffff 100%
+        );
+
+    box-shadow:
+        0 14px 30px rgba(15, 118, 110, .13);
+}
+
+
+/* =====================================================
+   CARD TOP
+===================================================== */
+
+.sensor-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.sensor-card-heading {
+    min-width: 0;
+}
+
+.sensor-card-heading h2 {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    line-height: 1.25;
+}
+
+.sensor-card-heading p {
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+
+/* =====================================================
+   SENSOR ICON
+===================================================== */
+
+.sensor-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.sensor-icon .material-icons {
+    font-size: 21px;
+}
+
+
+/* =====================================================
+   pH ICON
+===================================================== */
+
+.ph-icon {
+    color: #7c3aed;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3e8ff,
+            #faf5ff
+        );
+
+    border: 1px solid #d8b4fe;
+}
+
+
+/* =====================================================
+   EC ICON
+===================================================== */
+
+.ec-icon {
+    color: #2563eb;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #eff6ff
+        );
+
+    border: 1px solid #93c5fd;
+}
+
+
+/* =====================================================
+   TEMPERATURE ICON
+===================================================== */
+
+.temp-icon {
+    color: #ea580c;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffedd5,
+            #fff7ed
+        );
+
+    border: 1px solid #fdba74;
+}
+
+
+/* =====================================================
+   WATER LEVEL ICON
+===================================================== */
+
+.water-icon {
+    color: #0f766e;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ccfbf1,
+            #f0fdfa
+        );
+
+    border: 1px solid #5eead4;
+}
+
+
+/* =====================================================
+   SENSOR ICON HOVER
+===================================================== */
+
+.sensor-card:hover .sensor-icon {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 6px 15px rgba(15, 23, 42, .10);
+}
+
+
+/* =====================================================
+   ICON COLOR-SPECIFIC HOVER
+===================================================== */
+
+.sensor-card.ph-card:hover .ph-icon {
+    box-shadow:
+        0 7px 17px rgba(124, 58, 237, .18);
+}
+
+.sensor-card.ec-card:hover .ec-icon {
+    box-shadow:
+        0 7px 17px rgba(37, 99, 235, .18);
+}
+
+.sensor-card.temp-card:hover .temp-icon {
+    box-shadow:
+        0 7px 17px rgba(234, 88, 12, .18);
+}
+
+.sensor-card.water-card:hover .water-icon {
+    box-shadow:
+        0 7px 17px rgba(15, 118, 110, .18);
+}
+
+
+/* =====================================================
+   HIDDEN GAUGES
+===================================================== */
+
+.gauge-container {
+    display: none !important;
+}
+
+
+/* =====================================================
+   SENSOR READING
+===================================================== */
+
+.sensor-reading {
+    display: flex;
+    align-items: baseline;
+
+    gap: 5px;
+
+    margin-top: 22px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.sensor-value {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    letter-spacing: -.7px;
+    line-height: 1;
+
+    transition:
+        transform .25s ease;
+}
+
+.sensor-card:hover .sensor-value {
+    transform: scale(1.03);
+}
+
+.sensor-unit {
+    color: #64748b;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   VALUE COLOR ACCENTS
+===================================================== */
+
+.ph-card .sensor-value {
+    color: #6d28d9;
+}
+
+.ec-card .sensor-value {
+    color: #1d4ed8;
+}
+
+.temp-card .sensor-value {
+    color: #c2410c;
+}
+
+.water-card .sensor-value {
+    color: #0f766e;
+}
+
+
+/* =====================================================
+   SAFE RANGE
+===================================================== */
+
+.safe-range {
+    margin-top: 9px;
+
+    color: #64748b;
+
+    font-size: 10px;
+    line-height: 1.3;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =====================================================
+   STATUS BADGES
+===================================================== */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 11px;
+
+    min-width: 90px;
+    min-height: 28px;
+
+    padding: 6px 11px;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    line-height: 1;
+    white-space: nowrap;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+    position: relative;
+    z-index: 1;
+}
+
+.sensor-card:hover .status-badge {
+    transform: translateY(-1px);
+}
+
+.status-dot {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    flex: 0 0 7px;
+
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   NORMAL
+===================================================== */
+
+.status-badge.status-normal {
+    color: #15803d;
+
+    background: #f0fdf4;
+
+    border: 1px solid #86efac;
+}
+
+.status-badge.status-normal .status-dot {
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 3px #dcfce7;
+}
+
+
+/* =====================================================
+   LOW
+===================================================== */
+
+.status-badge.status-low {
+    color: #a16207;
+
+    background: #fffbeb;
+
+    border: 1px solid #fcd34d;
+}
+
+.status-badge.status-low .status-dot {
+    background: #eab308;
+
+    box-shadow:
+        0 0 0 3px #fef3c7;
+}
+
+
+/* =====================================================
+   CRITICAL
+===================================================== */
+
+.status-badge.status-critical {
+    color: #dc2626;
+
+    background: #fef2f2;
+
+    border: 1px solid #fca5a5;
+}
+
+.status-badge.status-critical .status-dot {
+    background: #ef4444;
+
+    box-shadow:
+        0 0 0 3px #fee2e2;
+}
+
+
+/* =====================================================
+   WARNING
+===================================================== */
+
+.status-badge.status-warning {
+    color: #a16207;
+
+    background: #fffbeb;
+
+    border: 1px solid #fcd34d;
+}
+
+.status-badge.status-warning .status-dot {
+    background: #eab308;
+
+    box-shadow:
+        0 0 0 3px #fef3c7;
+}
+
+
+/* =====================================================
+   CONNECTING
+===================================================== */
+
+.status-badge.status-connecting {
+    color: #64748b;
+
+    background: #f8fafc;
+
+    border: 1px solid #cbd5e1;
+}
+
+.status-badge.status-connecting .status-dot {
+    background: #94a3b8;
+
+    box-shadow:
+        0 0 0 3px #e2e8f0;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.dashboard-section {
+    margin-bottom: 20px;
+}
+
+.section-card {
+    position: relative;
+
+    width: 100%;
+
+    padding: 20px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(15, 23, 42, .045);
+
+    box-sizing: border-box;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.section-card:hover {
+    border-color: #dbeafe;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, .07);
+}
+
+
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 17px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    min-width: 0;
+}
+
+.section-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #ecfeff
+        );
+
+    color: #0284c7;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.section-icon .material-icons {
+    font-size: 20px;
+}
+
+.section-card:hover .section-icon {
+    transform: scale(1.06);
+
+    box-shadow:
+        0 6px 15px rgba(14, 165, 233, .12);
+}
+
+.section-title h2 {
+    margin: 0;
+
+    color: #334155;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.section-title p {
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   MAIN STATUS
+===================================================== */
+
+.main-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 28px;
+
+    padding: 6px 11px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.main-status:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 10px rgba(15, 23, 42, .06);
+}
+
+
+/* =========================================================
+   MAIN TANK
+========================================================= */
+
+.tank-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+
+/* =====================================================
+   TANK INFO CARD
+===================================================== */
+
+.info-card {
+    position: relative;
+
+    min-width: 0;
+
+    padding: 17px;
+
+    border: 1px solid #dbeafe;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8fafc,
+            #f0f9ff
+        );
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+.info-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #06b6d4,
+            #3b82f6
+        );
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #93c5fd;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eff6ff
+        );
+
+    box-shadow:
+        0 9px 20px rgba(14, 165, 233, .10);
+}
+
+
+/* =====================================================
+   TANK LEVEL CARD
+===================================================== */
+
+.tank-level-card {
+    text-align: center;
+}
+
+
+/* =====================================================
+   TANK CIRCLE
+===================================================== */
+
+.tank-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 88px;
+    height: 88px;
+
+    margin: 0 auto 10px;
+
+    border: 4px solid #38bdf8;
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffffff 0%,
+            #eff6ff 70%,
+            #e0f2fe 100%
+        );
+
+    color: #0284c7;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 7px 18px rgba(14, 165, 233, .10);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.info-card:hover .tank-circle {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 10px 23px rgba(14, 165, 233, .17);
+}
+
+
+/* =====================================================
+   INFO TEXT
+===================================================== */
+
+.info-card h3 {
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.info-card > p,
+.tank-level-card p {
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+.info-card-title {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 11px;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.info-card-title .material-icons {
+    color: #0284c7;
+
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   INFO ROW
+===================================================== */
+
+.info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.info-row:last-child {
+    border-bottom: 0;
+}
+
+.info-row span {
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+.info-row strong {
+    color: #334155;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   TANK DETAILS
+===================================================== */
+
+.tank-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 11px;
+
+    margin-top: 13px;
+}
+
+.detail-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    min-width: 0;
+
+    padding: 12px 14px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #bae6fd;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0f9ff,
+            #f0fdf4
+        );
+
+    box-shadow:
+        0 5px 12px rgba(14, 165, 233, .08);
+}
+
+.detail-card span {
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+.detail-card strong {
+    color: #334155;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   MONITORING INFORMATION
+===================================================== */
+
+.monitoring-info {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 13px;
+
+    padding: 13px;
+
+    border: 1px solid #bae6fd;
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #ecfeff,
+            #f0fdf4
+        );
+
+    box-sizing: border-box;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.monitoring-info:hover {
+    border-color: #7dd3fc;
+
+    box-shadow:
+        0 6px 15px rgba(14, 165, 233, .08);
+}
+
+.monitoring-info-icon {
+    flex-shrink: 0;
+
+    color: #0284c7;
+}
+
+.monitoring-info-icon .material-icons {
+    font-size: 20px;
+}
+
+.monitoring-info h3 {
+    color: #0369a1;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.monitoring-info p {
+    margin-top: 4px;
+
+    color: #475569;
+
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   REAL-TIME GRAPHS
+========================================================= */
+
+.graph-header {
+    margin-bottom: 17px;
+}
+
+.graph-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+
+/* =========================================================
+   GRAPH CARD
+========================================================= */
+
+.graph-card {
+    position: relative;
+
+    min-width: 0;
+
+    padding: 14px;
+
+    border: 1px solid #dbeafe;
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8fafc,
+            #ffffff
+        );
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* =========================================================
+   GRAPH CARD COLORS
+   MATCH SENSOR CARD COLORS
+========================================================= */
+
+
+/* =====================================================
+   pH
+   PURPLE
+===================================================== */
+
+.graph-card:nth-child(1) {
+    background:
+        linear-gradient(
+            145deg,
+            #faf5ff 0%,
+            #f5f3ff 55%,
+            #ffffff 100%
+        );
+
+    border-color: #e9d5ff;
+}
+
+
+/* =====================================================
+   EC
+   BLUE
+===================================================== */
+
+.graph-card:nth-child(2) {
+    background:
+        linear-gradient(
+            145deg,
+            #eff6ff 0%,
+            #eff8ff 55%,
+            #ffffff 100%
+        );
+
+    border-color: #bfdbfe;
+}
+
+
+/* =====================================================
+   WATER TEMPERATURE
+   ORANGE
+===================================================== */
+
+.graph-card:nth-child(3) {
+    background:
+        linear-gradient(
+            145deg,
+            #fff7ed 0%,
+            #fffaf5 55%,
+            #ffffff 100%
+        );
+
+    border-color: #fed7aa;
+}
+
+
+/* =====================================================
+   WATER LEVEL
+   TEAL / GREEN
+===================================================== */
+
+.graph-card:nth-child(4) {
+    background:
+        linear-gradient(
+            145deg,
+            #f0fdfa 0%,
+            #ecfdf5 55%,
+            #ffffff 100%
+        );
+
+    border-color: #99f6e4;
+}
+
+
+/* =========================================================
+   GRAPH TOP ACCENT
+   MATCH SENSOR CARD ACCENTS
+========================================================= */
+
+.graph-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 4px;
+
+    opacity: .9;
+
+    transition:
+        height .25s ease,
+        opacity .25s ease;
+}
+
+
+/* =====================================================
+   pH GRAPH ACCENT
+   PURPLE
+===================================================== */
+
+.graph-card:nth-child(1)::before {
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #a855f7
+        );
+}
+
+
+/* =====================================================
+   EC GRAPH ACCENT
+   BLUE
+===================================================== */
+
+.graph-card:nth-child(2)::before {
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #3b82f6
+        );
+}
+
+
+/* =====================================================
+   WATER TEMPERATURE GRAPH ACCENT
+   ORANGE
+===================================================== */
+
+.graph-card:nth-child(3)::before {
+    background:
+        linear-gradient(
+            90deg,
+            #ea580c,
+            #f97316
+        );
+}
+
+
+/* =====================================================
+   WATER LEVEL GRAPH ACCENT
+   TEAL / GREEN
+===================================================== */
+
+.graph-card:nth-child(4)::before {
+    background:
+        linear-gradient(
+            90deg,
+            #0f766e,
+            #14b8a6
+        );
+}
+
+
+/* =========================================================
+   GRAPH GLOW
+========================================================= */
+
+.graph-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    right: -75px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, .65),
+            rgba(255, 255, 255, .20),
+            transparent 72%
+        );
+
+    pointer-events: none;
+
+    transition:
+        transform .4s ease;
+}
+
+
+/* =========================================================
+   GRAPH HOVER
+========================================================= */
+
+.graph-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 14px 30px rgba(15, 23, 42, .09);
+}
+
+.graph-card:hover::before {
+    height: 5px;
+    opacity: 1;
+}
+
+.graph-card:hover::after {
+    transform: scale(1.3);
+}
+
+
+/* =========================================================
+   GRAPH COLOR-SPECIFIC HOVER
+========================================================= */
+
+.graph-card:nth-child(1):hover {
+    border-color: #c4b5fd;
+
+    box-shadow:
+        0 14px 30px rgba(124, 58, 237, .13);
+}
+
+.graph-card:nth-child(2):hover {
+    border-color: #93c5fd;
+
+    box-shadow:
+        0 14px 30px rgba(37, 99, 235, .13);
+}
+
+.graph-card:nth-child(3):hover {
+    border-color: #fdba74;
+
+    box-shadow:
+        0 14px 30px rgba(234, 88, 12, .13);
+}
+
+.graph-card:nth-child(4):hover {
+    border-color: #5eead4;
+
+    box-shadow:
+        0 14px 30px rgba(15, 118, 110, .13);
+}
+
+
+/* =========================================================
+   GRAPH TITLE
+========================================================= */
+
+.graph-title {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 9px;
+
+    color: #334155;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    position: relative;
+    z-index: 1;
+}
+
+.graph-title .material-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    font-size: 17px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* =========================================================
+   GRAPH ICON COLORS
+   MATCH SENSOR ICON COLORS
+========================================================= */
+
+
+/* =====================================================
+   pH GRAPH ICON
+   PURPLE
+===================================================== */
+
+.graph-card:nth-child(1) .graph-title .material-icons {
+    color: #7c3aed;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3e8ff,
+            #faf5ff
+        );
+
+    border: 1px solid #d8b4fe;
+}
+
+
+/* =====================================================
+   EC GRAPH ICON
+   BLUE
+===================================================== */
+
+.graph-card:nth-child(2) .graph-title .material-icons {
+    color: #2563eb;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #eff6ff
+        );
+
+    border: 1px solid #93c5fd;
+}
+
+
+/* =====================================================
+   WATER TEMPERATURE GRAPH ICON
+   ORANGE
+===================================================== */
+
+.graph-card:nth-child(3) .graph-title .material-icons {
+    color: #ea580c;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffedd5,
+            #fff7ed
+        );
+
+    border: 1px solid #fdba74;
+}
+
+
+/* =====================================================
+   WATER LEVEL GRAPH ICON
+   TEAL / GREEN
+===================================================== */
+
+.graph-card:nth-child(4) .graph-title .material-icons {
+    color: #0f766e;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ccfbf1,
+            #f0fdfa
+        );
+
+    border: 1px solid #5eead4;
+}
+
+
+/* =========================================================
+   GRAPH ICON HOVER
+========================================================= */
+
+.graph-card:hover .graph-title .material-icons {
+    transform: scale(1.08);
+}
+
+
+/* pH */
+
+.graph-card:nth-child(1):hover
+.graph-title
+.material-icons {
+    box-shadow:
+        0 5px 12px rgba(124, 58, 237, .18);
+}
+
+
+/* EC */
+
+.graph-card:nth-child(2):hover
+.graph-title
+.material-icons {
+    box-shadow:
+        0 5px 12px rgba(37, 99, 235, .18);
+}
+
+
+/* Temperature */
+
+.graph-card:nth-child(3):hover
+.graph-title
+.material-icons {
+    box-shadow:
+        0 5px 12px rgba(234, 88, 12, .18);
+}
+
+
+/* Water Level */
+
+.graph-card:nth-child(4):hover
+.graph-title
+.material-icons {
+    box-shadow:
+        0 5px 12px rgba(15, 118, 110, .18);
+}
+
+
+/* =========================================================
+   GRAPH TITLE TEXT
+========================================================= */
+
+.graph-title span:last-child {
+    color: #334155;
+}
+
+
+/* =========================================================
+   CHART CONTAINER
+========================================================= */
+
+.chart-container {
+    position: relative;
+
+    width: 100%;
+    height: 180px;
+
+    min-width: 0;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   CHART CANVAS
+========================================================= */
+
+.chart-container canvas {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   SKELETON LOADING
+========================================================= */
+
+@keyframes skeleton-shimmer {
+
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.dashboard-header-loading,
+.dashboard-grid .is-loading,
+.main-tank-loading,
+.graph-card.is-loading,
+.graph-header-loading {
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   SKELETON BASE
+========================================================= */
+
+.skeleton-text,
+.skeleton-live,
+.sensor-card.is-loading .sensor-card-heading h2,
+.sensor-card.is-loading .sensor-card-heading p,
+.sensor-card.is-loading .sensor-icon,
+.sensor-card.is-loading .sensor-value,
+.sensor-card.is-loading .sensor-unit,
+.sensor-card.is-loading .safe-range,
+.sensor-card.is-loading .status-badge,
+.main-tank-loading .section-icon,
+.main-tank-loading .section-title h2,
+.main-tank-loading .section-title p,
+.main-tank-loading .main-status,
+.main-tank-loading .tank-circle,
+.main-tank-loading .tank-level-card h3,
+.main-tank-loading .tank-level-card p,
+.main-tank-loading .info-card-title,
+.main-tank-loading .info-row span,
+.main-tank-loading .info-row strong,
+.main-tank-loading .detail-card span,
+.main-tank-loading .detail-card strong,
+.main-tank-loading .monitoring-info-icon,
+.main-tank-loading .monitoring-info h3,
+.main-tank-loading .monitoring-info p,
+.graph-header-loading .section-icon,
+.graph-header-loading .section-title h2,
+.graph-header-loading .section-title p,
+.graph-card.is-loading .graph-title span:last-child {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SKELETON SHIMMER
+========================================================= */
+
+.skeleton-text::after,
+.skeleton-live::after,
+.sensor-card.is-loading .sensor-card-heading h2::after,
+.sensor-card.is-loading .sensor-card-heading p::after,
+.sensor-card.is-loading .sensor-icon::after,
+.sensor-card.is-loading .sensor-value::after,
+.sensor-card.is-loading .sensor-unit::after,
+.sensor-card.is-loading .safe-range::after,
+.sensor-card.is-loading .status-badge::after,
+.main-tank-loading .section-icon::after,
+.main-tank-loading .section-title h2::after,
+.main-tank-loading .section-title p::after,
+.main-tank-loading .main-status::after,
+.main-tank-loading .tank-circle::after,
+.main-tank-loading .tank-level-card h3::after,
+.main-tank-loading .tank-level-card p::after,
+.main-tank-loading .info-card-title::after,
+.main-tank-loading .info-row span::after,
+.main-tank-loading .info-row strong::after,
+.main-tank-loading .detail-card span::after,
+.main-tank-loading .detail-card strong::after,
+.main-tank-loading .monitoring-info-icon::after,
+.main-tank-loading .monitoring-info h3::after,
+.main-tank-loading .monitoring-info p::after,
+.graph-header-loading .section-icon::after,
+.graph-header-loading .section-title h2::after,
+.graph-header-loading .section-title p::after,
+.graph-card.is-loading .graph-title span:last-child::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,.75) 50%,
+            transparent 100%
+        );
+
+    transform: translateX(-100%);
+
+    animation:
+        skeleton-shimmer 1.4s infinite;
+}
+
+
+/* =========================================================
+   HEADER SKELETON
+========================================================= */
+
+.dashboard-header-loading .dashboard-eyebrow,
+.dashboard-header-loading h1,
+.dashboard-header-loading > div:first-child > p:last-child,
+.dashboard-header-loading .dashboard-live {
+    color: transparent !important;
+
+    background: #e2e8f0;
+
+    border-color: #e2e8f0;
+}
+
+.dashboard-header-loading .dashboard-eyebrow {
+    width: 85px;
+    height: 9px;
+
+    margin-bottom: 4px;
+
+    border-radius: 5px;
+}
+
+.dashboard-header-loading h1 {
+    width: 140px;
+    height: 24px;
+
+    margin-top: 5px;
+
+    border-radius: 6px;
+}
+
+.dashboard-header-loading
+> div:first-child
+> p:last-child {
+    width: 210px;
+    height: 10px;
+
+    margin-top: 5px;
+
+    border-radius: 5px;
+}
+
+.dashboard-header-loading .dashboard-live {
+    width: 120px;
+    height: 27px;
+
+    padding: 6px 10px;
+
+    border-radius: 999px;
+}
+
+.dashboard-header-loading .dashboard-live span {
+    background: #cbd5e1;
+
+    box-shadow: none;
+}
+
+.dashboard-header-loading .dashboard-eyebrow::after,
+.dashboard-header-loading h1::after,
+.dashboard-header-loading
+> div:first-child
+> p:last-child::after,
+.dashboard-header-loading .dashboard-live::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,.75) 50%,
+            transparent 100%
+        );
+
+    transform: translateX(-100%);
+
+    animation:
+        dashboard-header-shimmer 1.4s ease-out 1 forwards;
+
+    pointer-events: none;
+}
+
+@keyframes dashboard-header-shimmer {
+
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+/* =========================================================
+   DISABLE HEADER SHIMMER AFTER LOADING
+========================================================= */
+
+.dashboard-header:not(.dashboard-header-loading)
+.dashboard-eyebrow::after,
+
+.dashboard-header:not(.dashboard-header-loading)
+h1::after,
+
+.dashboard-header:not(.dashboard-header-loading)
+> div:first-child
+> p:last-child::after,
+
+.dashboard-header:not(.dashboard-header-loading)
+.dashboard-live::after {
+    content: none !important;
+
+    display: none !important;
+
+    animation: none !important;
+
+    transform: none !important;
+}
+
+
+/* =========================================================
+   SENSOR CARD SKELETON
+========================================================= */
+
+.sensor-card.is-loading .sensor-card-heading h2 {
+    width: 90px;
+    height: 16px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.sensor-card.is-loading .sensor-card-heading p {
+    width: 65px;
+    height: 10px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.sensor-card.is-loading .sensor-icon {
+    color: transparent;
+
+    background: #e2e8f0;
+}
+
+.sensor-card.is-loading .sensor-value {
+    width: 65px;
+    height: 30px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 6px;
+}
+
+.sensor-card.is-loading .sensor-unit {
+    width: 45px;
+    height: 11px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 4px;
+}
+
+.sensor-card.is-loading .safe-range {
+    width: 165px;
+    height: 10px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.sensor-card.is-loading .status-badge {
+    width: 90px;
+
+    min-width: 90px;
+    height: 28px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-color: #e2e8f0;
+}
+
+.sensor-card.is-loading .status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: #cbd5e1;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   MAIN TANK SKELETON
+========================================================= */
+
+.main-tank-loading .section-icon {
+    background: #e2e8f0;
+    color: transparent;
+}
+
+.main-tank-loading .section-title h2 {
+    width: 225px;
+    height: 19px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.main-tank-loading .section-title p {
+    width: 275px;
+    height: 10px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.main-tank-loading .main-status {
+    width: 105px;
+    height: 28px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-color: #e2e8f0;
+}
+
+.main-tank-loading .tank-circle {
+    border-color: #cbd5e1;
+
+    background: #e2e8f0;
+
+    color: transparent;
+
+    box-shadow: none;
+}
+
+.main-tank-loading .tank-level-card h3 {
+    width: 95px;
+    height: 14px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.main-tank-loading .tank-level-card p {
+    width: 125px;
+    height: 10px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.main-tank-loading .info-card-title {
+    width: 140px;
+    height: 17px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.main-tank-loading .info-row span,
+.main-tank-loading .info-row strong {
+    min-width: 55px;
+    min-height: 10px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.main-tank-loading .info-row strong {
+    min-width: 45px;
+}
+
+.main-tank-loading .detail-card span,
+.main-tank-loading .detail-card strong {
+    min-width: 75px;
+    height: 10px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.main-tank-loading .detail-card strong {
+    min-width: 40px;
+}
+
+.main-tank-loading .monitoring-info-icon {
+    width: 20px;
+    height: 20px;
+
+    color: transparent;
+
+    background: #dbeafe;
+
+    border-radius: 5px;
+}
+
+.main-tank-loading .monitoring-info h3 {
+    width: 145px;
+    height: 13px;
+
+    color: transparent;
+
+    background: #dbeafe;
+
+    border-radius: 5px;
+}
+
+.main-tank-loading .monitoring-info p {
+    width: 90%;
+    height: 10px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   GRAPH HEADER SKELETON
+========================================================= */
+
+.graph-header-loading .section-icon {
+    background: #e2e8f0;
+    color: transparent;
+}
+
+.graph-header-loading .section-title h2 {
+    width: 210px;
+    height: 19px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.graph-header-loading .section-title p {
+    width: 235px;
+    height: 10px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   GRAPH SKELETON
+========================================================= */
+
+.graph-card.is-loading .graph-title span:last-child {
+    width: 105px;
+    height: 12px;
+
+    color: transparent;
+
+    background: #e2e8f0;
+
+    border-radius: 5px;
+}
+
+.graph-card.is-loading .chart-container {
+    position: relative;
+
+    overflow: hidden;
+}
+
+.graph-card.is-loading .chart-container::before {
+    content: "";
+
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+
+    bottom: 20px;
+
+    height: 2px;
+
+    background: #cbd5e1;
+
+    box-shadow:
+        0 -45px 0 #e2e8f0,
+        0 -90px 0 #e2e8f0;
+}
+
+.graph-card.is-loading .chart-container::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.55),
+            transparent
+        );
+
+    transform: translateX(-100%);
+
+    animation:
+        skeleton-shimmer 1.4s infinite;
+}
+
+.graph-card.is-loading canvas {
+    visibility: hidden;
+}
+
+.graph-card:not(.is-loading)
+.chart-container::after {
+    content: none !important;
+
+    display: none !important;
+
+    animation: none !important;
+
+    transform: none !important;
+}
+
+.graph-card:not(.is-loading)
+.graph-title span:last-child::after {
+    content: none !important;
+
+    display: none !important;
+
+    animation: none !important;
+
+    transform: none !important;
+}
+
+.graph-header:not(.graph-header-loading)
+.section-icon::after,
+
+.graph-header:not(.graph-header-loading)
+.section-title h2::after,
+
+.graph-header:not(.graph-header-loading)
+.section-title p::after {
+    content: none !important;
+
+    display: none !important;
+
+    animation: none !important;
+
+    transform: none !important;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+   1200px DOWN
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .dashboard-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   900px DOWN
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .dashboard-header.control-dashboard-header {
+        max-width: 100%;
+    }
+
+    .dashboard-grid,
+    .dashboard-section {
+        max-width: 100%;
+    }
+
+    .tank-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .tank-level-card {
+        grid-column: 1 / -1;
+    }
+
+    .tank-details {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .graph-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   768px DOWN
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .dashboard-grid,
+    .dashboard-section {
+        width: 100%;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .dashboard-header.control-dashboard-header {
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 8px;
+
+        width: 100%;
+
+        padding: 9px 14px;
+
+        min-height: 58px;
+
+        border-radius: 14px;
+
+        text-align: left;
+    }
+
+    .dashboard-header.control-dashboard-header
+    > div:first-child {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .dashboard-header.control-dashboard-header
+    .dashboard-eyebrow {
+        font-size: 8px;
+        letter-spacing: 1.4px;
+    }
+
+    .dashboard-header.control-dashboard-header h1 {
+        font-size: 20px;
+        line-height: 1.1;
+    }
+
+    .dashboard-header.control-dashboard-header
+    > div:first-child
+    > p:last-child {
+        margin-top: 2px;
+
+        font-size: 9px;
+        line-height: 1.15;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .dashboard-header.control-dashboard-header
+    .dashboard-live {
+        flex-shrink: 0;
+
+        padding: 5px 8px;
+
+        gap: 5px;
+
+        font-size: 8px;
+    }
+
+    .dashboard-header.control-dashboard-header
+    .dashboard-live
+    span {
+        width: 5px;
+        height: 5px;
+
+        box-shadow:
+            0 0 0 2px #dcfce7;
+    }
+
+
+    /* =====================================================
+       SENSOR GRID
+    ===================================================== */
+
+    .dashboard-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+
+        margin-bottom: 16px;
+    }
+
+
+    /* =====================================================
+       SENSOR CARD
+    ===================================================== */
+
+    .sensor-card {
+        width: 100%;
+
+        padding: 14px;
+
+        border-radius: 15px;
+
+        text-align: center;
+    }
+
+    .sensor-card-top {
+        align-items: center;
+        justify-content: center;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .sensor-card-heading {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .sensor-card-heading h2 {
+        font-size: 13px;
+    }
+
+    .sensor-card-heading p {
+        font-size: 9px;
+    }
+
+    .sensor-icon {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 12px;
+
+        order: -1;
+    }
+
+    .sensor-icon .material-icons {
+        font-size: 19px;
+    }
+
+    .sensor-reading {
+        justify-content: center;
+
+        margin-top: 15px;
+    }
+
+    .sensor-value {
+        font-size: 26px;
+    }
+
+    .sensor-unit {
+        font-size: 10px;
+    }
+
+    .safe-range {
+        margin-top: 7px;
+
+        font-size: 9px;
+
+        text-align: center;
+    }
+
+    .status-badge {
+        display: flex;
+
+        width: fit-content;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        margin-top: 9px;
+
+        min-width: 82px;
+        min-height: 26px;
+
+        padding: 5px 8px;
+
+        font-size: 9px;
+    }
+
+    .status-dot {
+        width: 6px;
+        height: 6px;
+
+        flex-basis: 6px;
+    }
+
+
+    /* =====================================================
+       SECTION
+    ===================================================== */
+
+    .dashboard-section {
+        margin-bottom: 16px;
+    }
+
+    .section-card {
+        width: 100%;
+
+        padding: 15px;
+
+        border-radius: 15px;
+    }
+
+
+    /* =====================================================
+       SECTION HEADER
+    ===================================================== */
+
+    .section-header {
+        align-items: center;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+        gap: 10px;
+    }
+
+    .section-title {
+        width: 100%;
+
+        justify-content: center;
+
+        text-align: center;
+    }
+
+    .section-title h2 {
+        font-size: 15px;
+    }
+
+    .section-title p {
+        font-size: 9px;
+    }
+
+    .section-icon {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 11px;
+    }
+
+    .section-icon .material-icons {
+        font-size: 18px;
+    }
+
+    .main-status {
+        align-self: center;
+
+        font-size: 9px;
+    }
+
+
+    /* =====================================================
+       MAIN TANK
+    ===================================================== */
+
+    .tank-grid {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .tank-level-card {
+        grid-column: auto;
+    }
+
+    .info-card {
+        width: 100%;
+
+        padding: 14px;
+
+        text-align: center;
+    }
+
+    .info-card-title {
+        justify-content: center;
+    }
+
+    .tank-details {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+    .detail-card {
+        padding: 10px;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+        gap: 4px;
+    }
+
+    .monitoring-info {
+        align-items: flex-start;
+
+        text-align: left;
+    }
+
+
+    /* =====================================================
+       GRAPHS
+    ===================================================== */
+
+    .graph-grid {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .graph-card {
+        padding: 12px;
+
+        border-radius: 14px;
+    }
+
+    .graph-title {
+        margin-bottom: 8px;
+
+        font-size: 11px;
+    }
+
+    .graph-title .material-icons {
+        width: 27px;
+        height: 27px;
+
+        font-size: 16px;
+    }
+
+    .chart-container {
+        height: 170px;
+    }
+
+
+    /* =====================================================
+       HEADER SKELETON
+    ===================================================== */
+
+    .dashboard-header-loading h1 {
+        width: 120px;
+        height: 21px;
+    }
+
+    .dashboard-header-loading
+    > div:first-child
+    > p:last-child {
+        width: 175px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   480px DOWN
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .dashboard-header.control-dashboard-header {
+        padding: 8px 11px;
+
+        min-height: 54px;
+
+        gap: 6px;
+
+        border-radius: 13px;
+    }
+
+    .dashboard-header.control-dashboard-header
+    .dashboard-eyebrow {
+        font-size: 7px;
+        letter-spacing: 1.2px;
+    }
+
+    .dashboard-header.control-dashboard-header h1 {
+        font-size: 18px;
+        line-height: 1.05;
+    }
+
+    .dashboard-header.control-dashboard-header
+    > div:first-child
+    > p:last-child {
+        font-size: 8px;
+
+        margin-top: 1px;
+    }
+
+    .dashboard-header.control-dashboard-header
+    .dashboard-live {
+        padding: 4px 6px;
+
+        font-size: 7px;
+
+        gap: 4px;
+    }
+
+
+    /* =====================================================
+       SENSOR GRID
+    ===================================================== */
+
+    .dashboard-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+    .sensor-card {
+        padding: 12px 8px;
+
+        border-radius: 13px;
+    }
+
+    .sensor-card-top {
+        gap: 6px;
+    }
+
+    .sensor-icon {
+        width: 36px;
+        height: 36px;
+
+        border-radius: 10px;
+    }
+
+    .sensor-icon .material-icons {
+        font-size: 17px;
+    }
+
+    .sensor-card-heading h2 {
+        font-size: 12px;
+    }
+
+    .sensor-card-heading p {
+        font-size: 8px;
+    }
+
+    .sensor-reading {
+        margin-top: 12px;
+
+        gap: 3px;
+    }
+
+    .sensor-value {
+        font-size: 22px;
+
+        letter-spacing: -.4px;
+    }
+
+    .sensor-unit {
+        font-size: 9px;
+    }
+
+    .safe-range {
+        font-size: 8px;
+
+        white-space: nowrap;
+    }
+
+    .status-badge {
+        min-width: 70px;
+        min-height: 24px;
+
+        padding: 4px 6px;
+
+        font-size: 8px;
+
+        gap: 5px;
+
+        border-radius: 8px;
+    }
+
+    .status-dot {
+        width: 5px;
+        height: 5px;
+
+        flex-basis: 5px;
+    }
+
+
+    /* =====================================================
+       SECTIONS
+    ===================================================== */
+
+    .section-card {
+        padding: 13px;
+
+        border-radius: 14px;
+    }
+
+    .section-title {
+        gap: 8px;
+    }
+
+    .section-title h2 {
+        font-size: 14px;
+    }
+
+    .section-title p {
+        font-size: 8px;
+    }
+
+    .section-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+
+    /* =====================================================
+       TANK
+    ===================================================== */
+
+    .tank-details {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .detail-card span,
+    .detail-card strong {
+        font-size: 9px;
+    }
+
+
+    /* =====================================================
+       GRAPH
+    ===================================================== */
+
+    .graph-card {
+        padding: 11px;
+    }
+
+    .graph-title {
+        font-size: 10px;
+    }
+
+    .graph-title .material-icons {
+        width: 25px;
+        height: 25px;
+
+        font-size: 15px;
+    }
+
+    .chart-container {
+        height: 155px;
+    }
+
+
+    /* =====================================================
+       HEADER SKELETON
+    ===================================================== */
+
+    .dashboard-header-loading h1 {
+        width: 100px;
+        height: 19px;
+    }
+
+    .dashboard-header-loading
+    > div:first-child
+    > p:last-child {
+        width: 145px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+   360px DOWN
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .dashboard-grid {
+        gap: 6px;
+    }
+
+    .sensor-card {
+        padding: 10px 6px;
+    }
+
+    .sensor-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .sensor-icon .material-icons {
+        font-size: 15px;
+    }
+
+    .sensor-card-heading h2 {
+        font-size: 11px;
+    }
+
+    .sensor-card-heading p {
+        font-size: 7px;
+    }
+
+    .sensor-value {
+        font-size: 20px;
+    }
+
+    .sensor-unit {
+        font-size: 8px;
+    }
+
+    .safe-range {
+        font-size: 7px;
+    }
+
+    .status-badge {
+        min-width: 64px;
+
+        padding: 4px 5px;
+
+        font-size: 7px;
+    }
+
+    .dashboard-header.control-dashboard-header h1 {
+        font-size: 17px;
+    }
+
+    .dashboard-header.control-dashboard-header
+    .dashboard-live {
+        padding: 4px 5px;
+
+        font-size: 6px;
+    }
+
+
+    /* =====================================================
+       EXTRA SMALL GRAPH
+    ===================================================== */
+
+    .graph-card {
+        padding: 9px;
+    }
+
+    .graph-title {
+        gap: 5px;
+
+        font-size: 9px;
+    }
+
+    .graph-title .material-icons {
+        width: 23px;
+        height: 23px;
+
+        font-size: 14px;
+    }
+
+    .chart-container {
+        height: 145px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .sensor-card,
+    .info-card,
+    .detail-card,
+    .graph-card,
+    .section-card,
+    .dashboard-header.control-dashboard-header,
+    .sensor-icon,
+    .tank-circle,
+    .graph-title .material-icons,
+    .sensor-value {
+        transition: none !important;
+    }
+
+    .skeleton::after {
+        animation: none;
+    }
+
+    .graph-card::after,
+    .graph-card::before,
+    .sensor-card::after,
+    .sensor-card::before {
+        transition: none !important;
+    }
+}
