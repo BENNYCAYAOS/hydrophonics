@@ -13,18 +13,17 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-RUN php artisan config:clear \
-    && php artisan route:clear \
-    && php artisan view:clear
-
 RUN mkdir -p storage/framework/cache \
     storage/framework/sessions \
     storage/framework/views \
-    bootstrap/cache
+    bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
 
-RUN chmod -R 775 storage bootstrap/cache
-
-RUN printf ':80 {\n    root * /app/public\n    encode zstd gzip\n    php_server\n}\n' > /etc/caddy/Caddyfile
+RUN printf ':80 {\n\
+    root * /app/public\n\
+    encode zstd gzip\n\
+    php_server\n\
+}\n' > /etc/caddy/Caddyfile
 
 EXPOSE 80
 
