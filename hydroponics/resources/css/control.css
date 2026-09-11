@@ -1,0 +1,5621 @@
+/* =========================================================
+   HYDROSMART CONTROL PANEL
+   COMPACT + COLORFUL + RESPONSIVE
+   + COMPLETE SKELETON LOADING
+========================================================= */
+
+
+/* =========================================================
+   CONTROL PAGE
+========================================================= */
+
+.control-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 25px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CONTROL HEADER
+========================================================= */
+
+.control-dashboard-header {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    width: 100%;
+
+    padding: 10px 18px;
+
+    min-height: 64px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff 0%,
+            #f0fdf4 100%
+        );
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 15px rgba(15, 23, 42, .05);
+
+    overflow: hidden;
+}
+
+
+.control-dashboard-header::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #2563eb,
+            #10b981
+        );
+
+    border-radius: 16px 0 0 16px;
+}
+
+
+.control-dashboard-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    right: -65px;
+    top: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, .08);
+
+    pointer-events: none;
+}
+
+
+.control-dashboard-header > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+.control-dashboard-header > div:first-child {
+    min-width: 0;
+    flex: 1;
+}
+
+
+.control-dashboard-header .dashboard-eyebrow {
+    margin: 0 0 1px;
+
+    color: #2563eb;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+    line-height: 1.1;
+}
+
+
+.control-dashboard-header h1 {
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 24px;
+    font-weight: 800;
+
+    line-height: 1.15;
+}
+
+
+.control-dashboard-header > div:first-child > p:last-child {
+    margin: 2px 0 0;
+
+    color: #64748b;
+
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   LIVE STATUS
+========================================================= */
+
+.control-dashboard-header .dashboard-live {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    flex-shrink: 0;
+
+    padding: 5px 10px;
+
+    border: 1px solid #bbf7d0;
+
+    border-radius: 999px;
+
+    background: #f0fdf4;
+
+    color: #15803d;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 3px 10px rgba(22, 163, 74, .07);
+}
+
+
+.control-dashboard-header .dashboard-live span {
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 3px #dcfce7;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.control-section {
+    position: relative;
+
+    margin-bottom: 20px;
+
+    padding: 20px;
+
+    border: 1px solid #dbe5ef;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, .055);
+
+    overflow: hidden;
+}
+
+
+.control-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #38bdf8,
+            #10b981
+        );
+}
+
+
+.control-section-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 17px;
+}
+
+
+.control-section-header h2 {
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+
+.control-section-header p {
+    margin: 4px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   EC + PH WATER CONDITION
+========================================================= */
+
+.condition-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   CONDITION CARD BASE
+========================================================= */
+
+.condition-card {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-width: 0;
+
+    padding: 16px;
+
+    border-radius: 15px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   EC CARD
+========================================================= */
+
+.condition-card:has(.ec-icon) {
+    border: 1px solid #bfdbfe;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff 0%,
+            #f8fbff 100%
+        );
+}
+
+
+.condition-card:has(.ec-icon)::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background: #2563eb;
+}
+
+
+.condition-card:has(.ec-icon):hover {
+    transform: translateY(-3px);
+
+    border-color: #60a5fa;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe 0%,
+            #eff6ff 100%
+        );
+
+    box-shadow:
+        0 10px 24px rgba(37, 99, 235, .14);
+}
+
+
+/* =========================================================
+   PH CARD
+========================================================= */
+
+.condition-card:has(.ph-icon) {
+    border: 1px solid #bbf7d0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdf4 0%,
+            #f8fffb 100%
+        );
+}
+
+
+.condition-card:has(.ph-icon)::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background: #16a34a;
+}
+
+
+.condition-card:has(.ph-icon):hover {
+    transform: translateY(-3px);
+
+    border-color: #4ade80;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7 0%,
+            #f0fdf4 100%
+        );
+
+    box-shadow:
+        0 10px 24px rgba(22, 163, 74, .14);
+}
+
+
+/* =========================================================
+   CONDITION ICON
+========================================================= */
+
+.condition-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    transition:
+        transform .2s ease;
+}
+
+
+.condition-card:hover .condition-icon {
+    transform: scale(1.06);
+}
+
+
+.ec-icon {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+
+.ph-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+
+.condition-info {
+    min-width: 0;
+}
+
+
+.condition-info h3 {
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 14px;
+    font-weight: 750;
+}
+
+
+.condition-description {
+    margin: 2px 0 6px;
+
+    color: #64748b;
+
+    font-size: 10px;
+}
+
+
+.condition-value {
+    color: #1e293b;
+
+    font-size: 23px;
+    font-weight: 800;
+}
+
+
+.condition-value small {
+    color: #64748b;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+.condition-range {
+    margin: 2px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   WATER STATUS
+========================================================= */
+
+.water-status {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.status-danger {
+    color: #dc2626;
+
+    background: #fee2e2;
+
+    border: 1px solid #fecaca;
+}
+
+
+.status-success {
+    color: #15803d;
+
+    background: #dcfce7;
+
+    border: 1px solid #bbf7d0;
+}
+
+
+/* =========================================================
+   DOSING MODE
+========================================================= */
+
+.mode-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+.mode-card {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    width: 100%;
+
+    padding: 16px;
+
+    border: 2px solid #e2e8f0;
+
+    border-radius: 15px;
+
+    background: #ffffff;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.mode-card:hover {
+    border-color: #93c5fd;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #ffffff
+        );
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, .08);
+}
+
+
+.mode-card.active {
+    border-color: #2563eb;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f0fdf4
+        );
+
+    box-shadow:
+        0 7px 20px rgba(37, 99, 235, .10);
+}
+
+
+.mode-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+}
+
+
+.automatic-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+
+.manual-icon {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+
+.mode-content {
+    min-width: 0;
+}
+
+
+.mode-content h3 {
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 14px;
+    font-weight: 750;
+}
+
+
+.mode-content p {
+    margin: 3px 0 0;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    line-height: 1.45;
+}
+
+
+.mode-select-indicator {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #cbd5e1;
+}
+
+
+.mode-card.active .mode-select-indicator {
+    background: #2563eb;
+
+    box-shadow:
+        0 0 0 4px #dbeafe;
+}
+
+
+/* =========================================================
+   MODE STATUS
+========================================================= */
+
+.mode-status,
+.pump-system-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #475569;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+.mode-dot,
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   AUTOMATIC INFO
+========================================================= */
+
+.automatic-info {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-top: 13px;
+
+    padding: 12px 14px;
+
+    border: 1px solid #bbf7d0;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #ecfdf5
+        );
+
+    color: #166534;
+}
+
+
+.automatic-info > .material-icons {
+    font-size: 20px;
+}
+
+
+.automatic-info strong {
+    font-size: 12px;
+}
+
+
+.automatic-info p {
+    margin: 3px 0 0;
+
+    color: #4d7c0f;
+
+    font-size: 11px;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   DOSING PUMPS
+   3 CARDS STACKED VERTICALLY
+========================================================= */
+
+.pump-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   PUMP CARD
+========================================================= */
+
+.pump-card {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 16px;
+
+    border-radius: 15px;
+
+    box-sizing: border-box;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   PUMP COLORS
+========================================================= */
+
+.pump-card:nth-child(1) {
+    border: 1px solid #bfdbfe;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eff6ff,
+            #ffffff
+        );
+}
+
+
+.pump-card:nth-child(2) {
+    border: 1px solid #c7d2fe;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eef2ff,
+            #ffffff
+        );
+}
+
+
+.pump-card:nth-child(3) {
+    border: 1px solid #bbf7d0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f0fdf4,
+            #ffffff
+        );
+}
+
+
+/* =========================================================
+   PUMP HOVER
+========================================================= */
+
+.pump-card:nth-child(1):hover {
+    transform: translateY(-3px);
+
+    border-color: #60a5fa;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dbeafe,
+            #eff6ff
+        );
+
+    box-shadow:
+        0 10px 24px rgba(37, 99, 235, .13);
+}
+
+
+.pump-card:nth-child(2):hover {
+    transform: translateY(-3px);
+
+    border-color: #818cf8;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e0e7ff,
+            #eef2ff
+        );
+
+    box-shadow:
+        0 10px 24px rgba(79, 70, 229, .12);
+}
+
+
+.pump-card:nth-child(3):hover {
+    transform: translateY(-3px);
+
+    border-color: #4ade80;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dcfce7,
+            #f0fdf4
+        );
+
+    box-shadow:
+        0 10px 24px rgba(22, 163, 74, .12);
+}
+
+
+/* =========================================================
+   PUMP TOP
+========================================================= */
+
+.pump-card-top {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    min-width: 0;
+
+    gap: 11px;
+}
+
+
+.pump-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    flex: 0 0 46px;
+
+    border-radius: 12px;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    transition:
+        transform .2s ease;
+}
+
+
+.pump-card:nth-child(2) .pump-icon {
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+
+
+.pump-card:nth-child(3) .pump-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+
+.pump-card:hover .pump-icon {
+    transform: scale(1.06);
+}
+
+
+.pump-indicator {
+    width: 9px;
+    height: 9px;
+
+    flex: 0 0 9px;
+
+    margin-left: auto;
+
+    border-radius: 50%;
+
+    background: #94a3b8;
+}
+
+
+.pump-indicator.active {
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 4px #dcfce7;
+}
+
+
+/* =========================================================
+   PUMP TEXT
+========================================================= */
+
+.pump-title {
+    flex: 1;
+
+    min-width: 0;
+
+    margin-top: 0;
+}
+
+
+.pump-title h3 {
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 15px;
+    font-weight: 750;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.pump-title p {
+    margin: 4px 0 0;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    line-height: 1.3;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   PUMP TARGET
+========================================================= */
+
+.pump-target {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    min-width: 0;
+
+    gap: 8px;
+
+    margin-top: 13px;
+
+    padding: 9px 11px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 9px;
+
+    background: rgba(255,255,255,.75);
+
+    font-size: 10px;
+
+    box-sizing: border-box;
+}
+
+
+.pump-target span {
+    min-width: 0;
+
+    color: #64748b;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.pump-target strong {
+    flex-shrink: 0;
+
+    color: #2563eb;
+
+    white-space: nowrap;
+}
+
+
+.pump-card:nth-child(2) .pump-target strong {
+    color: #4f46e5;
+}
+
+
+.pump-card:nth-child(3) .pump-target strong {
+    color: #16a34a;
+}
+
+
+/* =========================================================
+   PUMP CONTROL
+========================================================= */
+
+.pump-control {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    min-width: 0;
+
+    gap: 12px;
+
+    margin-top: 15px;
+}
+
+
+.pump-control-label {
+    min-width: 0;
+
+    color: #475569;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   SWITCH
+========================================================= */
+
+.pump-switch {
+    position: relative;
+
+    display: inline-block;
+
+    width: 52px;
+    height: 29px;
+
+    flex: 0 0 52px;
+
+    cursor: pointer;
+}
+
+
+.pump-switch input {
+    width: 0;
+    height: 0;
+
+    opacity: 0;
+}
+
+
+.pump-slider {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 999px;
+
+    background: #cbd5e1;
+
+    transition: .25s ease;
+}
+
+
+.pump-slider::before {
+    position: absolute;
+
+    content: "";
+
+    left: 3px;
+    top: 3px;
+
+    width: 23px;
+    height: 23px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 1px 4px rgba(0,0,0,.15);
+
+    transition: .25s ease;
+}
+
+
+.pump-switch input:checked + .pump-slider {
+    background: #22c55e;
+}
+
+
+.pump-switch input:checked + .pump-slider::before {
+    transform: translateX(23px);
+}
+
+
+.pump-switch.disabled {
+    opacity: .45;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   PUMP STATE
+========================================================= */
+
+.pump-state {
+    margin-top: 8px;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    text-align: right;
+}
+
+
+.pump-state.on {
+    color: #16a34a;
+}
+
+
+.pump-message {
+    margin-top: 4px;
+
+    color: #2563eb;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    text-align: right;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   DOSING CALIBRATION
+========================================================= */
+
+.calibration-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+.calibration-card {
+    min-width: 0;
+
+    padding: 16px;
+
+    border: 1px solid #dbe5ef;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f8fbff,
+            #ffffff
+        );
+
+    transition: .2s ease;
+}
+
+
+.calibration-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #93c5fd;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, .08);
+}
+
+
+.calibration-card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 15px;
+}
+
+
+.calibration-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+}
+
+
+.calibration-card-header h3 {
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+.calibration-card-header p {
+    margin: 3px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+
+    line-height: 1.35;
+}
+
+
+.calibration-field {
+    margin-bottom: 12px;
+}
+
+
+.calibration-field:last-child {
+    margin-bottom: 0;
+}
+
+
+.calibration-field label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #475569;
+
+    font-size: 10px;
+
+    font-weight: 750;
+}
+
+
+.calibration-input-wrap {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.calibration-input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 9px 65px 9px 10px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #1e293b;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.calibration-input:focus {
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 0 3px rgba(59,130,246,.10);
+}
+
+
+.calibration-unit {
+    position: absolute;
+
+    right: 9px;
+
+    color: #64748b;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    pointer-events: none;
+}
+
+
+.calibration-runtime {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+    padding: 9px 10px;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f0fdf4
+        );
+}
+
+
+.calibration-runtime span {
+    color: #64748b;
+
+    font-size: 9px;
+
+    font-weight: 650;
+}
+
+
+.calibration-runtime strong {
+    color: #2563eb;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   GLOBAL CALIBRATION
+========================================================= */
+
+.dosing-global-settings {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-top: 15px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+
+.global-setting {
+    padding: 13px;
+
+    border: 1px solid #dbe5ef;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f8fafc
+        );
+}
+
+
+.global-setting label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #475569;
+
+    font-size: 10px;
+
+    font-weight: 750;
+}
+
+
+.global-setting .calibration-input {
+    background: #f8fafc;
+}
+
+
+/* =========================================================
+   CALIBRATION ACTIONS
+========================================================= */
+
+.calibration-actions {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+
+.save-calibration-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 38px;
+
+    padding: 8px 15px;
+
+    border: 1px solid #2563eb;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.save-calibration-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 16px rgba(37,99,235,.18);
+}
+
+
+.save-calibration-button:disabled {
+    opacity: .55;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+.calibration-message {
+    color: #64748b;
+
+    font-size: 10px;
+
+    font-weight: 650;
+}
+
+
+.calibration-message.success {
+    color: #15803d;
+}
+
+
+.calibration-message.error {
+    color: #dc2626;
+}
+
+
+/* =========================================================
+   CALIBRATION NOTE
+========================================================= */
+
+.calibration-note {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin-top: 13px;
+
+    padding: 11px 12px;
+
+    border: 1px solid #fde68a;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffbeb,
+            #fefce8
+        );
+
+    color: #92400e;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+.calibration-note .material-icons {
+    flex-shrink: 0;
+
+    color: #d97706;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   CALIBRATION STATUS
+========================================================= */
+
+.calibration-status-ready {
+    color: #15803d;
+}
+
+
+.calibration-status-warning {
+    color: #d97706;
+}
+
+
+.calibration-status-error {
+    color: #dc2626;
+}
+
+
+/* =========================================================
+   GUIDELINES
+========================================================= */
+
+.guideline-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+
+.guideline-card {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 11px;
+
+    padding: 14px;
+
+    border-radius: 13px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+
+/* =========================================================
+   GUIDELINE COLORS
+========================================================= */
+
+.guideline-card:nth-child(1) {
+    border: 1px solid #bfdbfe;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #ffffff
+        );
+}
+
+
+.guideline-card:nth-child(2) {
+    border: 1px solid #bbf7d0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #ffffff
+        );
+}
+
+
+.guideline-card:nth-child(3) {
+    border: 1px solid #fde68a;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffbeb,
+            #ffffff
+        );
+}
+
+
+/* =========================================================
+   GUIDELINE HOVER
+========================================================= */
+
+.guideline-card:nth-child(1):hover {
+    transform: translateY(-3px);
+
+    border-color: #60a5fa;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #eff6ff
+        );
+
+    box-shadow:
+        0 9px 20px rgba(37,99,235,.10);
+}
+
+
+.guideline-card:nth-child(2):hover {
+    transform: translateY(-3px);
+
+    border-color: #4ade80;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #f0fdf4
+        );
+
+    box-shadow:
+        0 9px 20px rgba(22,163,74,.10);
+}
+
+
+.guideline-card:nth-child(3):hover {
+    transform: translateY(-3px);
+
+    border-color: #facc15;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fef3c7,
+            #fffbeb
+        );
+
+    box-shadow:
+        0 9px 20px rgba(217,119,6,.10);
+}
+
+
+.guideline-card > .material-icons {
+    color: #2563eb;
+
+    font-size: 21px;
+
+    flex-shrink: 0;
+}
+
+
+.guideline-card:nth-child(2) > .material-icons {
+    color: #16a34a;
+}
+
+
+.guideline-card:nth-child(3) > .material-icons {
+    color: #d97706;
+}
+
+
+.guideline-card strong {
+    color: #1e293b;
+
+    font-size: 12px;
+}
+
+
+.guideline-card p {
+    margin: 4px 0 0;
+
+    color: #64748b;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SYSTEM LOGS
+========================================================= */
+
+.logs-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border: 1px solid #bfdbfe;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #f0fdf4
+        );
+
+    padding: 4px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 5px 15px rgba(37,99,235,.06);
+}
+
+
+.logs-table {
+    width: 100%;
+
+    min-width: 720px;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    font-size: 11px;
+}
+
+
+.logs-table th {
+    padding: 11px;
+
+    border-bottom: 1px solid #bfdbfe;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #dcfce7
+        );
+
+    color: #334155;
+
+    font-weight: 800;
+
+    text-align: left;
+}
+
+
+.logs-table td {
+    padding: 10px 11px;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    color: #64748b;
+
+    background: #ffffff;
+}
+
+
+.logs-table tbody tr:hover td {
+    background:
+        linear-gradient(
+            90deg,
+            #f8fbff,
+            #f0fdf4
+        );
+}
+
+
+.logs-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   =========================================================
+   CONTROL SKELETON LOADING
+   SAME STYLE AS ANALYTICS
+   =========================================================
+========================================================= */
+
+
+/* =========================================================
+   SKELETON BASE
+========================================================= */
+
+body.control-page-loading {
+    cursor: wait;
+}
+
+
+body.control-page-loading .control-page {
+    position: relative;
+
+    cursor: wait;
+}
+
+
+body.control-page-loading .control-page * {
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   SHIMMER
+========================================================= */
+
+@keyframes controlSkeletonShimmer {
+
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+
+}
+
+
+.control-skeleton-shimmer {
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   HEADER SKELETON
+========================================================= */
+
+body.control-page-loading
+.control-dashboard-header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #f8fafc
+        );
+
+    border-color: #e5e7eb;
+
+    box-shadow:
+        0 5px 15px rgba(15,23,42,.035);
+}
+
+
+body.control-page-loading
+.control-dashboard-header::before {
+
+    background:
+        linear-gradient(
+            180deg,
+            #e5e7eb,
+            #d1d5db
+        );
+}
+
+
+body.control-page-loading
+.control-dashboard-header::after {
+
+    display: none;
+}
+
+
+body.control-page-loading
+.control-dashboard-header
+.dashboard-eyebrow {
+
+    width: 75px;
+    height: 9px;
+
+    margin: 0 0 4px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.control-dashboard-header
+h1 {
+
+    width: 185px;
+    height: 26px;
+
+    margin: 0;
+
+    border-radius: 6px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.control-dashboard-header
+> div:first-child
+> p:last-child {
+
+    width: 230px;
+    height: 10px;
+
+    margin-top: 4px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.control-dashboard-header
+.dashboard-live {
+
+    width: 105px;
+    height: 26px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 999px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    box-shadow: none;
+}
+
+
+body.control-page-loading
+.control-dashboard-header
+.dashboard-live span {
+
+    display: none;
+}
+
+
+/* =========================================================
+   SECTION HEADER SKELETON
+========================================================= */
+
+body.control-page-loading
+.control-section-header
+h2 {
+
+    width: 180px;
+    height: 18px;
+
+    color: transparent;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.control-section-header
+p {
+
+    width: 160px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CONDITION CARD SKELETON
+========================================================= */
+
+body.control-page-loading
+.condition-card {
+
+    border-color: #e5e7eb !important;
+
+    background: #f8fafc !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.condition-card::before {
+
+    background: #e5e7eb !important;
+}
+
+
+body.control-page-loading
+.condition-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    color: transparent;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.condition-icon
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.condition-info h3 {
+
+    width: 95px;
+    height: 14px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.condition-description {
+
+    width: 125px;
+    height: 9px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.condition-value {
+
+    width: 100px;
+    height: 24px;
+
+    margin-top: 3px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.condition-value small {
+
+    display: none;
+}
+
+
+body.control-page-loading
+.condition-range {
+
+    width: 125px;
+    height: 9px;
+
+    margin-top: 4px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   WATER STATUS SKELETON
+========================================================= */
+
+body.control-page-loading
+.water-status {
+
+    width: 150px;
+    height: 28px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 999px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   DOSING MODE SKELETON
+========================================================= */
+
+body.control-page-loading
+.mode-card {
+
+    border-color: #e5e7eb !important;
+
+    background: #f8fafc !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.mode-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    color: transparent;
+}
+
+
+body.control-page-loading
+.mode-icon
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.mode-content h3 {
+
+    width: 105px;
+    height: 14px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.mode-content p {
+
+    width: 145px;
+    height: 24px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.mode-select-indicator {
+
+    background: #d1d5db !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   MODE STATUS SKELETON
+========================================================= */
+
+body.control-page-loading
+.mode-status,
+body.control-page-loading
+.pump-system-status {
+
+    color: transparent;
+}
+
+
+body.control-page-loading
+.mode-dot,
+body.control-page-loading
+.status-dot {
+
+    width: 8px;
+    height: 8px;
+
+    background: #d1d5db;
+
+    box-shadow: none;
+}
+
+
+body.control-page-loading
+#modeStatusText,
+body.control-page-loading
+#pumpControlStatus {
+
+    width: 145px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   AUTOMATIC INFO SKELETON
+========================================================= */
+
+body.control-page-loading
+.automatic-info {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+
+    color: transparent;
+}
+
+
+body.control-page-loading
+.automatic-info
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.automatic-info strong {
+
+    display: block;
+
+    width: 170px;
+    height: 12px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.automatic-info p {
+
+    width: 260px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PUMP CARD SKELETON
+========================================================= */
+
+body.control-page-loading
+.pump-card {
+
+    border-color: #e5e7eb !important;
+
+    background: #f8fafc !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.pump-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    color: transparent !important;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.pump-icon
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.pump-title h3 {
+
+    width: 180px;
+    height: 15px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-title p {
+
+    width: 150px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-indicator {
+
+    background: #d1d5db !important;
+
+    box-shadow: none !important;
+}
+
+
+body.control-page-loading
+.pump-target {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+
+    box-shadow: none;
+}
+
+
+body.control-page-loading
+.pump-target span {
+
+    width: 100px;
+    height: 9px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-target strong {
+
+    width: 75px;
+    height: 10px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-control-label {
+
+    width: 105px;
+    height: 10px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PUMP SWITCH SKELETON
+========================================================= */
+
+body.control-page-loading
+.pump-switch {
+
+    cursor: wait;
+
+    opacity: 1;
+}
+
+
+body.control-page-loading
+.pump-slider {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-slider::before {
+
+    background: #ffffff;
+
+    box-shadow:
+        0 1px 4px rgba(0,0,0,.08);
+}
+
+
+body.control-page-loading
+.pump-state {
+
+    width: 45px;
+    height: 10px;
+
+    margin-left: auto;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-message {
+
+    width: 150px;
+    height: 9px;
+
+    margin-left: auto;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CALIBRATION CARD SKELETON
+========================================================= */
+
+body.control-page-loading
+.calibration-card {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+body.control-page-loading
+.calibration-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    color: transparent;
+}
+
+
+body.control-page-loading
+.calibration-icon
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.calibration-card-header h3 {
+
+    width: 130px;
+    height: 13px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.calibration-card-header p {
+
+    width: 115px;
+    height: 9px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CALIBRATION FIELDS SKELETON
+========================================================= */
+
+body.control-page-loading
+.calibration-field label {
+
+    width: 95px;
+    height: 10px;
+
+    margin-bottom: 6px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.calibration-input {
+
+    border-color: #e5e7eb;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    box-shadow: none;
+}
+
+
+body.control-page-loading
+.calibration-unit {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.calibration-runtime {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+}
+
+
+body.control-page-loading
+.calibration-runtime span {
+
+    width: 80px;
+    height: 9px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.calibration-runtime strong {
+
+    width: 70px;
+    height: 11px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   GLOBAL SETTINGS SKELETON
+========================================================= */
+
+body.control-page-loading
+.global-setting {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+}
+
+
+body.control-page-loading
+.global-setting label {
+
+    width: 120px;
+    height: 10px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CALIBRATION ACTION SKELETON
+========================================================= */
+
+body.control-page-loading
+.save-calibration-button {
+
+    min-width: 150px;
+
+    color: transparent;
+
+    border-color: #e5e7eb;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+body.control-page-loading
+.save-calibration-button
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.calibration-message {
+
+    width: 180px;
+    height: 10px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CALIBRATION NOTE SKELETON
+========================================================= */
+
+body.control-page-loading
+.calibration-note {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+
+    color: transparent;
+}
+
+
+body.control-page-loading
+.calibration-note
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+/* =========================================================
+   GUIDELINE SKELETON
+========================================================= */
+
+body.control-page-loading
+.guideline-card {
+
+    border-color: #e5e7eb !important;
+
+    background: #f8fafc !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.guideline-card
+.material-icons {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    border-radius: 5px;
+}
+
+
+body.control-page-loading
+.guideline-card strong {
+
+    display: block;
+
+    width: 100px;
+    height: 12px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.guideline-card p {
+
+    width: 150px;
+    height: 28px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   LOG TABLE SKELETON
+========================================================= */
+
+body.control-page-loading
+.logs-wrapper {
+
+    position: relative;
+
+    min-height: 210px;
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+
+    overflow: hidden;
+}
+
+
+body.control-page-loading
+.logs-table {
+
+    opacity: .15;
+}
+
+
+body.control-page-loading
+.logs-table
+thead {
+
+    opacity: .4;
+}
+
+
+body.control-page-loading
+.logs-table
+tbody {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.logs-wrapper::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+    top: 55px;
+
+    height: 125px;
+
+    border-radius: 8px;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #e5e7eb 0,
+            #e5e7eb 10px,
+            transparent 10px,
+            transparent 25px
+        );
+
+    background-size: 100% 25px;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   DISABLE HOVER DURING LOADING
+========================================================= */
+
+body.control-page-loading
+.control-section,
+body.control-page-loading
+.condition-card,
+body.control-page-loading
+.mode-card,
+body.control-page-loading
+.pump-card,
+body.control-page-loading
+.calibration-card,
+body.control-page-loading
+.guideline-card,
+body.control-page-loading
+.save-calibration-button {
+
+    transition: none !important;
+}
+
+
+body.control-page-loading
+.condition-card:hover,
+body.control-page-loading
+.mode-card:hover,
+body.control-page-loading
+.pump-card:hover,
+body.control-page-loading
+.calibration-card:hover,
+body.control-page-loading
+.guideline-card:hover,
+body.control-page-loading
+.save-calibration-button:hover {
+
+    transform: none !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .calibration-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .pump-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .guideline-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .calibration-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .control-page {
+        padding-bottom: 15px;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    .control-dashboard-header {
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 7px;
+
+        padding: 8px 12px;
+
+        min-height: 56px;
+
+        border-radius: 13px;
+    }
+
+
+    .control-dashboard-header > div:first-child {
+        min-width: 0;
+        flex: 1;
+    }
+
+
+    .control-dashboard-header .dashboard-eyebrow {
+        font-size: 7px;
+
+        letter-spacing: 1.2px;
+    }
+
+
+    .control-dashboard-header h1 {
+        font-size: 19px;
+    }
+
+
+    .control-dashboard-header > div:first-child > p:last-child {
+        font-size: 8px;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+
+    .control-dashboard-header .dashboard-live {
+        padding: 5px 7px;
+
+        gap: 4px;
+
+        font-size: 7px;
+    }
+
+
+    /* =====================================================
+       SECTION
+    ===================================================== */
+
+    .control-section {
+        margin-bottom: 14px;
+
+        padding: 14px;
+
+        border-radius: 15px;
+    }
+
+
+    .control-section-header {
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 3px;
+
+        margin-bottom: 13px;
+
+        text-align: center;
+    }
+
+
+    .control-section-header h2 {
+        font-size: 16px;
+    }
+
+
+    .control-section-header p {
+        font-size: 9px;
+    }
+
+
+    /* =====================================================
+       EC + PH
+    ===================================================== */
+
+    .condition-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+
+        width: 100%;
+    }
+
+
+    .condition-card {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 112px;
+
+        padding: 10px 7px;
+
+        gap: 6px;
+
+        border-radius: 12px;
+
+        box-sizing: border-box;
+
+        text-align: center;
+    }
+
+
+    .condition-card:has(.ec-icon)::before,
+    .condition-card:has(.ph-icon)::before {
+        width: 3px;
+    }
+
+
+    .condition-icon {
+        width: 36px;
+        height: 36px;
+
+        border-radius: 10px;
+    }
+
+
+    .condition-icon .material-icons {
+        font-size: 19px;
+    }
+
+
+    .condition-info {
+        width: 100%;
+
+        min-width: 0;
+
+        text-align: center;
+    }
+
+
+    .condition-info h3 {
+        font-size: 12px;
+
+        line-height: 1.2;
+    }
+
+
+    .condition-description {
+        margin: 2px 0 4px;
+
+        font-size: 8px;
+
+        line-height: 1.2;
+
+        white-space: nowrap;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+
+    .condition-value {
+        font-size: 18px;
+
+        line-height: 1.1;
+    }
+
+
+    .condition-value small {
+        font-size: 8px;
+    }
+
+
+    .condition-range {
+        margin-top: 3px;
+
+        font-size: 8px;
+
+        line-height: 1.2;
+    }
+
+
+    /* =====================================================
+       DOSING MODE
+    ===================================================== */
+
+    .mode-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+
+    .mode-card {
+        justify-content: center;
+
+        gap: 7px;
+
+        min-width: 0;
+
+        min-height: 78px;
+
+        padding: 10px 7px;
+
+        text-align: center;
+    }
+
+
+    .mode-icon {
+        width: 34px;
+        height: 34px;
+
+        border-radius: 9px;
+    }
+
+
+    .mode-content {
+        min-width: 0;
+
+        text-align: center;
+    }
+
+
+    .mode-content h3 {
+        font-size: 11px;
+    }
+
+
+    .mode-content p {
+        font-size: 8px;
+
+        line-height: 1.3;
+    }
+
+
+    .mode-select-indicator {
+        top: 7px;
+        right: 7px;
+
+        width: 7px;
+        height: 7px;
+    }
+
+
+    .mode-card.active .mode-select-indicator {
+        box-shadow:
+            0 0 0 3px #dbeafe;
+    }
+
+
+    /* =====================================================
+       AUTOMATIC INFO
+    ===================================================== */
+
+    .automatic-info {
+        justify-content: center;
+
+        text-align: center;
+
+        padding: 9px;
+
+        gap: 7px;
+    }
+
+
+    .automatic-info > .material-icons {
+        font-size: 18px;
+    }
+
+
+    .automatic-info strong {
+        font-size: 10px;
+    }
+
+
+    .automatic-info p {
+        font-size: 9px;
+
+        line-height: 1.35;
+    }
+
+
+    /* =====================================================
+       PUMPS
+    ===================================================== */
+
+    .pump-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        width: 100%;
+    }
+
+
+    .pump-card {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 0;
+
+        padding: 13px 11px;
+
+        border-radius: 12px;
+
+        box-sizing: border-box;
+
+        text-align: left;
+    }
+
+
+    .pump-card-top {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        width: 100%;
+
+        gap: 9px;
+    }
+
+
+    .pump-icon {
+        width: 40px;
+        height: 40px;
+
+        flex: 0 0 40px;
+
+        border-radius: 10px;
+    }
+
+
+    .pump-icon .material-icons {
+        font-size: 21px;
+    }
+
+
+    .pump-title {
+        flex: 1;
+
+        min-width: 0;
+
+        margin-top: 0;
+
+        text-align: left;
+    }
+
+
+    .pump-title h3 {
+        font-size: 12px;
+
+        line-height: 1.2;
+    }
+
+
+    .pump-title p {
+        margin-top: 3px;
+
+        font-size: 9px;
+
+        line-height: 1.25;
+    }
+
+
+    .pump-indicator {
+        width: 8px;
+        height: 8px;
+
+        flex: 0 0 8px;
+
+        margin-left: auto;
+    }
+
+
+    .pump-indicator.active {
+        box-shadow:
+            0 0 0 3px #dcfce7;
+    }
+
+
+    .pump-target {
+        width: 100%;
+
+        margin-top: 10px;
+
+        padding: 8px 9px;
+
+        border-radius: 8px;
+
+        font-size: 9px;
+
+        gap: 7px;
+
+        text-align: left;
+    }
+
+
+    .pump-target span,
+    .pump-target strong {
+        font-size: 9px;
+    }
+
+
+    .pump-control {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        width: 100%;
+
+        margin-top: 11px;
+
+        gap: 10px;
+    }
+
+
+    .pump-control-label {
+        font-size: 10px;
+    }
+
+
+    .pump-switch {
+        width: 48px;
+        height: 27px;
+
+        flex: 0 0 48px;
+    }
+
+
+    .pump-slider::before {
+        left: 3px;
+        top: 3px;
+
+        width: 21px;
+        height: 21px;
+    }
+
+
+    .pump-switch input:checked + .pump-slider::before {
+        transform: translateX(21px);
+    }
+
+
+    .pump-state {
+        margin-top: 7px;
+
+        font-size: 9px;
+
+        text-align: right;
+    }
+
+
+    .pump-message {
+        margin-top: 3px;
+
+        font-size: 8px;
+
+        line-height: 1.3;
+
+        text-align: right;
+    }
+
+
+    /* =====================================================
+       CALIBRATION
+    ===================================================== */
+
+    .calibration-grid {
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+    }
+
+
+    .calibration-card {
+        padding: 11px;
+
+        text-align: center;
+    }
+
+
+    .calibration-card-header {
+        justify-content: center;
+
+        text-align: center;
+    }
+
+
+    .calibration-field {
+        text-align: left;
+    }
+
+
+    .dosing-global-settings {
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+    }
+
+
+    .global-setting {
+        text-align: left;
+    }
+
+
+    .calibration-actions {
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    .save-calibration-button {
+        width: 100%;
+    }
+
+
+    .calibration-message {
+        text-align: center;
+    }
+
+
+    /* =====================================================
+       GUIDELINES
+    ===================================================== */
+
+    .guideline-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+
+    .guideline-card {
+        align-items: center;
+
+        justify-content: center;
+
+        min-width: 0;
+
+        padding: 10px 8px;
+
+        border-radius: 11px;
+
+        text-align: center;
+    }
+
+
+    .guideline-card:nth-child(3) {
+        grid-column: 1 / -1;
+
+        width: calc(50% - 4px);
+
+        justify-self: center;
+    }
+
+
+    .guideline-card > .material-icons {
+        font-size: 18px;
+    }
+
+
+    .guideline-card > div {
+        min-width: 0;
+
+        text-align: center;
+    }
+
+
+    .guideline-card strong {
+        font-size: 10px;
+    }
+
+
+    .guideline-card p {
+        font-size: 8px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =====================================================
+       LOGS
+    ===================================================== */
+
+    .logs-wrapper {
+        padding: 3px;
+
+        border-radius: 11px;
+    }
+
+
+    .logs-table {
+        min-width: 650px;
+
+        font-size: 10px;
+    }
+
+
+    .logs-table th,
+    .logs-table td {
+        padding: 8px;
+    }
+
+
+    /* =====================================================
+       MOBILE SKELETON
+    ===================================================== */
+
+    body.control-page-loading
+    .control-dashboard-header
+    .dashboard-eyebrow {
+
+        width: 55px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    h1 {
+
+        width: 145px;
+        height: 21px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    > div:first-child
+    > p:last-child {
+
+        width: 175px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    .dashboard-live {
+
+        width: 75px;
+        height: 23px;
+    }
+
+
+    body.control-page-loading
+    .control-section-header
+    h2 {
+
+        width: 140px;
+        height: 16px;
+    }
+
+
+    body.control-page-loading
+    .control-section-header
+    p {
+
+        width: 130px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .condition-info h3 {
+
+        width: 70px;
+        height: 12px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .condition-description {
+
+        width: 85px;
+        height: 8px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .condition-value {
+
+        width: 75px;
+        height: 20px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .condition-range {
+
+        width: 85px;
+        height: 8px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .mode-content h3 {
+
+        width: 75px;
+        height: 11px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .mode-content p {
+
+        width: 95px;
+        height: 18px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .pump-title h3 {
+
+        width: 125px;
+        height: 12px;
+    }
+
+
+    body.control-page-loading
+    .pump-title p {
+
+        width: 105px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .pump-target span {
+
+        width: 75px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .pump-target strong {
+
+        width: 55px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .pump-control-label {
+
+        width: 80px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .pump-state {
+
+        width: 35px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .pump-message {
+
+        width: 105px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .logs-wrapper {
+
+        min-height: 180px;
+    }
+
+
+    body.control-page-loading
+    .logs-wrapper::after {
+
+        top: 45px;
+
+        height: 105px;
+
+        left: 9px;
+        right: 9px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .control-dashboard-header {
+        padding: 7px 10px;
+
+        min-height: 52px;
+    }
+
+
+    .control-dashboard-header h1 {
+        font-size: 17px;
+    }
+
+
+    .control-dashboard-header .dashboard-live {
+        padding: 4px 6px;
+
+        font-size: 6.5px;
+    }
+
+
+    .control-section {
+        padding: 10px;
+
+        margin-bottom: 10px;
+
+        border-radius: 12px;
+    }
+
+
+    .control-section-header h2 {
+        font-size: 14px;
+    }
+
+
+    .control-section-header p {
+        font-size: 8px;
+    }
+
+
+    .condition-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 6px;
+    }
+
+
+    .condition-card {
+        min-height: 102px;
+
+        padding: 8px 5px;
+
+        gap: 5px;
+
+        border-radius: 10px;
+    }
+
+
+    .condition-icon {
+        width: 32px;
+        height: 32px;
+
+        border-radius: 8px;
+    }
+
+
+    .condition-icon .material-icons {
+        font-size: 17px;
+    }
+
+
+    .condition-info h3 {
+        font-size: 11px;
+    }
+
+
+    .condition-description {
+        font-size: 7px;
+    }
+
+
+    .condition-value {
+        font-size: 16px;
+    }
+
+
+    .condition-value small {
+        font-size: 7px;
+    }
+
+
+    .condition-range {
+        font-size: 7px;
+    }
+
+
+    .mode-grid {
+        gap: 6px;
+    }
+
+
+    .mode-card {
+        min-height: 70px;
+
+        padding: 8px 5px;
+
+        gap: 5px;
+    }
+
+
+    .mode-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .mode-content h3 {
+        font-size: 10px;
+    }
+
+
+    .mode-content p {
+        font-size: 7px;
+    }
+
+
+    .pump-grid {
+        grid-template-columns: 1fr;
+
+        gap: 7px;
+    }
+
+
+    .pump-card {
+        min-height: 0;
+
+        padding: 10px 8px;
+
+        border-radius: 10px;
+    }
+
+
+    .pump-card-top {
+        gap: 7px;
+    }
+
+
+    .pump-icon {
+        width: 36px;
+        height: 36px;
+
+        flex: 0 0 36px;
+
+        border-radius: 9px;
+    }
+
+
+    .pump-icon .material-icons {
+        font-size: 19px;
+    }
+
+
+    .pump-title {
+        min-width: 0;
+    }
+
+
+    .pump-title h3 {
+        font-size: 11px;
+
+        line-height: 1.2;
+    }
+
+
+    .pump-title p {
+        font-size: 8px;
+
+        line-height: 1.25;
+    }
+
+
+    .pump-indicator {
+        width: 7px;
+        height: 7px;
+
+        flex: 0 0 7px;
+    }
+
+
+    .pump-target {
+        margin-top: 8px;
+
+        padding: 6px 7px;
+
+        font-size: 8px;
+    }
+
+
+    .pump-target span,
+    .pump-target strong {
+        font-size: 8px;
+    }
+
+
+    .pump-control {
+        margin-top: 9px;
+
+        gap: 7px;
+    }
+
+
+    .pump-control-label {
+        font-size: 9px;
+    }
+
+
+    .pump-switch {
+        width: 45px;
+        height: 25px;
+
+        flex: 0 0 45px;
+    }
+
+
+    .pump-slider::before {
+        width: 19px;
+        height: 19px;
+
+        left: 3px;
+        top: 3px;
+    }
+
+
+    .pump-switch input:checked + .pump-slider::before {
+        transform: translateX(20px);
+    }
+
+
+    .pump-state {
+        margin-top: 6px;
+
+        font-size: 8px;
+    }
+
+
+    .pump-message {
+        font-size: 7px;
+
+        line-height: 1.25;
+    }
+
+
+    .guideline-grid {
+        gap: 6px;
+    }
+
+
+    .guideline-card {
+        padding: 8px 6px;
+    }
+
+
+    .guideline-card:nth-child(3) {
+        width: calc(50% - 3px);
+    }
+
+
+    .guideline-card > .material-icons {
+        font-size: 17px;
+    }
+
+
+    .guideline-card strong {
+        font-size: 9px;
+    }
+
+
+    .guideline-card p {
+        font-size: 7px;
+    }
+
+
+    .automatic-info {
+        padding: 8px;
+
+        font-size: 8px;
+    }
+
+
+    .automatic-info > .material-icons {
+        font-size: 16px;
+    }
+
+
+    /* =====================================================
+       SMALL MOBILE SKELETON
+    ===================================================== */
+
+    body.control-page-loading
+    .control-dashboard-header
+    .dashboard-eyebrow {
+
+        width: 45px;
+        height: 6px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    h1 {
+
+        width: 120px;
+        height: 19px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    > div:first-child
+    > p:last-child {
+
+        width: 145px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    .dashboard-live {
+
+        width: 65px;
+        height: 20px;
+    }
+
+
+    body.control-page-loading
+    .condition-info h3 {
+
+        width: 60px;
+        height: 10px;
+    }
+
+
+    body.control-page-loading
+    .condition-description {
+
+        width: 70px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .condition-value {
+
+        width: 65px;
+        height: 18px;
+    }
+
+
+    body.control-page-loading
+    .condition-range {
+
+        width: 70px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .mode-content h3 {
+
+        width: 65px;
+        height: 9px;
+    }
+
+
+    body.control-page-loading
+    .mode-content p {
+
+        width: 80px;
+        height: 15px;
+    }
+
+
+    body.control-page-loading
+    .pump-title h3 {
+
+        width: 110px;
+        height: 10px;
+    }
+
+
+    body.control-page-loading
+    .pump-title p {
+
+        width: 90px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .pump-target span {
+
+        width: 65px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .pump-target strong {
+
+        width: 50px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .pump-control-label {
+
+        width: 70px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .pump-state {
+
+        width: 30px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .pump-message {
+
+        width: 90px;
+        height: 7px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .control-page-loading *,
+    body.control-page-loading * {
+
+        animation: none !important;
+
+        transition: none !important;
+    }
+
+}
+/* =========================================================
+   CONTROL PAGE - DOSING CALIBRATION SKELETON
+   UI ONLY
+========================================================= */
+
+/* ---------------------------------------------------------
+   SKELETON BASE
+--------------------------------------------------------- */
+
+.control-page-loading .skeleton {
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   DOSING CALIBRATION SECTION
+--------------------------------------------------------- */
+
+.control-page-loading .control-section:has(.calibration-grid) {
+    position: relative;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION SECTION HEADER
+--------------------------------------------------------- */
+
+.control-page-loading
+.control-section:has(.calibration-grid)
+.control-section-header h2 {
+
+    width: 190px;
+    height: 20px;
+
+    margin: 0;
+
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+.control-page-loading
+.control-section:has(.calibration-grid)
+.control-section-header p {
+
+    width: 280px;
+    height: 11px;
+
+    margin-top: 8px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION CARDS
+--------------------------------------------------------- */
+
+.control-page-loading .calibration-grid .calibration-card {
+
+    background: #ffffff !important;
+
+    border-color: #e5e7eb !important;
+
+    box-shadow: none !important;
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION CARD TITLE
+--------------------------------------------------------- */
+
+.control-page-loading .calibration-grid .calibration-card h3 {
+
+    width: 150px;
+    height: 15px;
+
+    margin-bottom: 16px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION LABELS
+--------------------------------------------------------- */
+
+.control-page-loading .calibration-grid .calibration-card label {
+
+    display: block;
+
+    width: 100px;
+    height: 10px;
+
+    margin-bottom: 7px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION INPUTS
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-grid
+.calibration-card
+input {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    pointer-events: none;
+}
+
+.control-page-loading
+.calibration-grid
+.calibration-card
+input::placeholder {
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   RUNTIME PREVIEW
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-grid
+.calibration-card
+.calibration-runtime {
+
+    color: transparent !important;
+    background: transparent !important;
+}
+
+.control-page-loading
+.calibration-grid
+.calibration-card
+.calibration-runtime::before {
+
+    content: "";
+
+    display: block;
+
+    width: 120px;
+    height: 11px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL SETTINGS
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-global-settings {
+
+    pointer-events: none;
+}
+
+.control-page-loading
+.calibration-global-settings h3 {
+
+    width: 130px;
+    height: 15px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   SAVE CALIBRATION AREA
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-actions {
+
+    pointer-events: none;
+}
+
+.control-page-loading
+#saveCalibrationButton {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION MESSAGE
+--------------------------------------------------------- */
+
+.control-page-loading
+#calibrationMessage {
+
+    width: 180px;
+    height: 11px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION STATUS
+--------------------------------------------------------- */
+
+.control-page-loading
+#calibrationStatus {
+
+    width: 120px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   GENERAL CALIBRATION TEXT
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-grid
+.calibration-card
+span,
+.control-page-loading
+.calibration-grid
+.calibration-card
+small {
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   SHIMMER
+--------------------------------------------------------- */
+
+@keyframes controlSkeletonShimmer {
+
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   DISABLE HOVER DURING LOADING
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-grid
+.calibration-card:hover {
+
+    transform: none !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .control-page-loading .skeleton,
+    .control-page-loading
+    .calibration-grid
+    .calibration-card h3,
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header h2,
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header p,
+    .control-page-loading
+    .calibration-grid
+    .calibration-card
+    label,
+    .control-page-loading
+    .calibration-grid
+    .calibration-card
+    input,
+    .control-page-loading
+    .calibration-grid
+    .calibration-card
+    .calibration-runtime::before,
+    .control-page-loading
+    .calibration-global-settings h3,
+    .control-page-loading
+    #saveCalibrationButton,
+    .control-page-loading
+    #calibrationMessage,
+    .control-page-loading
+    #calibrationStatus {
+
+        animation: none !important;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header h2 {
+
+        width: 150px;
+        height: 17px;
+    }
+
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header p {
+
+        width: 220px;
+        height: 10px;
+    }
+
+    .control-page-loading
+    .calibration-grid
+    .calibration-card h3 {
+
+        width: 130px;
+        height: 14px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header h2 {
+
+        width: 135px;
+        height: 16px;
+    }
+
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header p {
+
+        width: 190px;
+    }
+
+}
+/* =========================================================
+   DOSING CALIBRATION - MIXING / GLOBAL SETTINGS SKELETON
+========================================================= */
+
+/* Global settings container */
+.control-page-loading .calibration-global-settings {
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL SETTINGS TITLE
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-global-settings h3 {
+
+    width: 145px;
+    height: 15px;
+
+    margin: 0 0 16px 0;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL SETTINGS LABELS
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-global-settings label {
+
+    display: block;
+
+    width: 105px;
+    height: 10px;
+
+    margin-bottom: 7px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   MIXING TIME INPUT
+--------------------------------------------------------- */
+
+.control-page-loading
+#mixTimeSeconds {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+
+    animation:
+        controlSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   MAX TOTAL DOSE INPUT
+--------------------------------------------------------- */
+
+.control-page-loading
+#maxTotalDoseML {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+
+    animation:
+        controlSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   MIXING / MAX DOSE WRAPPER
+   SUPPORT DIFFERENT HTML STRUCTURES
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-global-settings
+.field-group,
+.control-page-loading
+.calibration-global-settings
+.form-group,
+.control-page-loading
+.calibration-global-settings
+.calibration-field {
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   PLACEHOLDER TEXT
+--------------------------------------------------------- */
+
+.control-page-loading
+#mixTimeSeconds::placeholder,
+.control-page-loading
+#maxTotalDoseML::placeholder {
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL SETTINGS SMALL TEXT
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-global-settings
+small,
+.control-page-loading
+.calibration-global-settings
+span {
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .control-page-loading
+    .calibration-global-settings h3 {
+
+        width: 125px;
+        height: 14px;
+    }
+
+    .control-page-loading
+    .calibration-global-settings label {
+
+        width: 95px;
+        height: 9px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .control-page-loading
+    .calibration-global-settings h3 {
+
+        width: 115px;
+        height: 13px;
+    }
+
+}
+/* =========================================================
+   DOSING CALIBRATION - UNIT TEXT SKELETON
+   sec / mL / seconds
+========================================================= */
+
+.control-page-loading
+.calibration-global-settings .unit,
+.control-page-loading
+.calibration-global-settings .unit-text,
+.control-page-loading
+.calibration-global-settings .input-unit,
+.control-page-loading
+.calibration-global-settings span {
+
+    color: transparent !important;
+
+    width: 35px;
+    height: 11px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+}
