@@ -6,7 +6,10 @@
 
 <x-slot name="header">
 
-    <div class="dashboard-header control-dashboard-header">
+    <div
+        class="dashboard-header control-dashboard-header control-header-loading"
+        data-control-header-loading="true"
+    >
 
         <div>
 
@@ -38,14 +41,21 @@
      CONTROL PAGE
 ========================================================== --}}
 
-<div class="control-page">
+<div
+    class="control-page control-loading"
+    id="controlPage"
+    data-control-loading="true"
+>
 
 
     {{-- =====================================================
          MAIN TANK CONDITION
     ====================================================== --}}
 
-    <section class="control-section">
+    <section
+        class="control-section"
+        data-loading-section="water-condition"
+    >
 
         <div class="control-section-header">
 
@@ -76,7 +86,10 @@
 
             {{-- EC --}}
 
-            <div class="condition-card">
+            <div
+                class="condition-card is-loading"
+                data-loading-card="ec"
+            >
 
                 <div class="condition-icon ec-icon">
 
@@ -119,7 +132,10 @@
 
             {{-- pH --}}
 
-            <div class="condition-card">
+            <div
+                class="condition-card is-loading"
+                data-loading-card="ph"
+            >
 
                 <div class="condition-icon ph-icon">
 
@@ -165,7 +181,10 @@
          DOSING MODE
     ====================================================== --}}
 
-    <section class="control-section">
+    <section
+        class="control-section"
+        data-loading-section="dosing-mode"
+    >
 
         <div class="control-section-header">
 
@@ -305,7 +324,10 @@
          DOSING CALIBRATION
     ====================================================== --}}
 
-    <section class="control-section">
+    <section
+        class="control-section"
+        data-loading-section="calibration"
+    >
 
         <div class="control-section-header">
 
@@ -350,9 +372,11 @@
                 <div class="calibration-card-header">
 
                     <div class="calibration-icon">
+
                         <span class="material-icons">
                             science
                         </span>
+
                     </div>
 
                     <div>
@@ -447,9 +471,11 @@
                 <div class="calibration-card-header">
 
                     <div class="calibration-icon">
+
                         <span class="material-icons">
                             science
                         </span>
+
                     </div>
 
                     <div>
@@ -544,9 +570,11 @@
                 <div class="calibration-card-header">
 
                     <div class="calibration-icon">
+
                         <span class="material-icons">
                             water_drop
                         </span>
+
                     </div>
 
                     <div>
@@ -631,6 +659,7 @@
             </div>
 
         </div>
+
 
 
         {{-- =================================================
@@ -741,7 +770,10 @@
          DOSING PUMPS
     ====================================================== --}}
 
-    <section class="control-section">
+    <section
+        class="control-section"
+        data-loading-section="pumps"
+    >
 
         <div class="control-section-header">
 
@@ -810,6 +842,7 @@
                 <div
                     id="{{ $pump['id'] }}Card"
                     class="pump-card"
+                    data-pump-card="{{ $pump['id'] }}"
                 >
 
                     <div class="pump-card-top">
@@ -905,7 +938,10 @@
          DOSING GUIDELINES
     ====================================================== --}}
 
-    <section class="control-section">
+    <section
+        class="control-section"
+        data-loading-section="guidelines"
+    >
 
         <div class="control-section-header">
 
@@ -1000,7 +1036,10 @@
          SYSTEM LOGS
     ====================================================== --}}
 
-    <section class="control-section">
+    <section
+        class="control-section"
+        data-loading-section="logs"
+    >
 
         <div class="control-section-header">
 
@@ -1061,5 +1100,6 @@
     'resources/css/control.css',
     'resources/js/control.js'
 ])
+
 
 </x-app-layout>

@@ -240,6 +240,826 @@
 
 
 /* =====================================================
+   ANALYTICS SKELETON LOADING
+   MATCH DASHBOARD STYLE
+===================================================== */
+
+/*
+   UI ONLY
+
+   Does NOT control:
+   - Firebase
+   - Sensors
+   - Charts
+   - Pumps
+   - Alerts
+   - Analytics calculations
+
+   Only hides visual content and displays
+   skeleton placeholders while Firebase loads.
+*/
+
+
+/* -----------------------------------------------------
+   SKELETON BASE
+----------------------------------------------------- */
+
+.analytics-page .analytics-skeleton,
+.analytics-page-loading .analytics-skeleton {
+    background: #e5e7eb;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+
+    border-radius: 8px;
+
+    color: transparent !important;
+
+    pointer-events: none;
+}
+
+
+/* -----------------------------------------------------
+   SKELETON SHIMMER
+----------------------------------------------------- */
+
+@keyframes analyticsSkeletonShimmer {
+
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+
+}
+
+
+/* -----------------------------------------------------
+   MAIN ANALYTICS LOADING STATE
+----------------------------------------------------- */
+
+body.analytics-page-loading .analytics-page {
+    position: relative;
+}
+
+
+/* -----------------------------------------------------
+   HIDE REAL ANALYTICS CONTENT
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.analytics-page
+.analytics-card
+.analytics-card-header
+.analytics-title
+.analytics-title h2
+.analytics-title p
+.analytics-icon
+.sensor-legend
+.sensor-summary-grid
+.pump-summary
+.performance-info
+.alert-grid {
+    /*
+       Keep layout dimensions but visually
+       replace content with skeleton treatment.
+    */
+}
+
+
+/* -----------------------------------------------------
+   ANALYTICS HEADER SKELETON
+----------------------------------------------------- */
+
+body.analytics-page-loading .analytics-header {
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Header title area */
+
+body.analytics-page-loading
+.analytics-header
+.analytics-eyebrow {
+
+    width: 75px;
+    height: 9px;
+
+    margin-bottom: 6px;
+
+    border-radius: 4px;
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+}
+
+
+body.analytics-page-loading
+.analytics-header
+h1 {
+
+    width: 180px;
+    height: 26px;
+
+    border-radius: 6px;
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+}
+
+
+body.analytics-page-loading
+.analytics-header
+p:last-child {
+
+    width: 230px;
+    height: 10px;
+
+    margin-top: 5px;
+
+    border-radius: 4px;
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+}
+
+
+/* LIVE pill */
+
+body.analytics-page-loading
+.analytics-live {
+
+    width: 105px;
+    height: 26px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+
+    color: transparent !important;
+
+    box-shadow: none;
+}
+
+
+body.analytics-page-loading
+.analytics-live span {
+
+    display: none;
+}
+
+
+/* -----------------------------------------------------
+   ANALYTICS CARD HEADER SKELETON
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.analytics-card-header {
+
+    pointer-events: none;
+}
+
+
+body.analytics-page-loading
+.analytics-title {
+
+    gap: 12px;
+}
+
+
+/* Analytics icon */
+
+body.analytics-page-loading
+.analytics-icon {
+
+    flex-shrink: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+
+    color: transparent !important;
+}
+
+
+body.analytics-page-loading
+.analytics-icon
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+/* Analytics title */
+
+body.analytics-page-loading
+.analytics-title
+h2 {
+
+    width: 180px;
+    height: 18px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+
+    color: transparent !important;
+}
+
+
+body.analytics-page-loading
+.analytics-title
+p {
+
+    width: 130px;
+    height: 10px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+
+    color: transparent !important;
+}
+
+
+/* -----------------------------------------------------
+   CHART SKELETON
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.analytics-chart-large {
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+}
+
+
+body.analytics-page-loading
+.analytics-chart-large canvas {
+
+    visibility: hidden;
+}
+
+
+/* -----------------------------------------------------
+   PUMP CHART SKELETON
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.pump-chart-container {
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+}
+
+
+body.analytics-page-loading
+.pump-chart-container canvas {
+
+    visibility: hidden;
+}
+
+
+/* -----------------------------------------------------
+   PERFORMANCE CHART SKELETON
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.performance-chart {
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+}
+
+
+body.analytics-page-loading
+.performance-chart canvas {
+
+    visibility: hidden;
+}
+
+
+/* -----------------------------------------------------
+   SENSOR LEGEND SKELETON
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.sensor-legend {
+
+    pointer-events: none;
+}
+
+
+body.analytics-page-loading
+.sensor-legend div {
+
+    width: 65px;
+    height: 10px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+
+    color: transparent;
+}
+
+
+body.analytics-page-loading
+.sensor-legend .legend-dot {
+
+    visibility: hidden;
+}
+
+
+/* -----------------------------------------------------
+   SENSOR SUMMARY SKELETON
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.sensor-summary-grid
+.summary-item {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-color: #e5e7eb !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f1f5f9 0%,
+            #f8fafc 50%,
+            #f1f5f9 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+
+    box-shadow: none !important;
+
+    pointer-events: none;
+}
+
+
+body.analytics-page-loading
+.summary-item
+.summary-icon {
+
+    background: #dfe3e8 !important;
+
+    color: transparent !important;
+
+    box-shadow: none !important;
+}
+
+
+body.analytics-page-loading
+.summary-item
+.summary-icon
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.analytics-page-loading
+.summary-item
+div:not(.summary-icon)
+span {
+
+    width: 70px !important;
+    height: 9px !important;
+
+    margin: 0 !important;
+
+    border-radius: 4px;
+
+    background: #dfe3e8 !important;
+
+    color: transparent !important;
+}
+
+
+body.analytics-page-loading
+.summary-item
+div:not(.summary-icon)
+strong {
+
+    width: 80px !important;
+    height: 20px !important;
+
+    margin-top: 8px !important;
+
+    border-radius: 5px;
+
+    background: #dfe3e8 !important;
+
+    color: transparent !important;
+}
+
+
+/* -----------------------------------------------------
+   PUMP SUMMARY SKELETON
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.pump-summary
+.pump-stat {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-color: #e5e7eb !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f1f5f9 0%,
+            #f8fafc 50%,
+            #f1f5f9 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+
+    box-shadow: none !important;
+
+    pointer-events: none;
+}
+
+
+body.analytics-page-loading
+.pump-stat
+> span {
+
+    background: #dfe3e8 !important;
+
+    box-shadow: none !important;
+}
+
+
+body.analytics-page-loading
+.pump-stat
+small {
+
+    width: 80px !important;
+    height: 9px !important;
+
+    border-radius: 4px;
+
+    background: #dfe3e8 !important;
+
+    color: transparent !important;
+}
+
+
+body.analytics-page-loading
+.pump-stat
+strong {
+
+    width: 90px !important;
+    height: 15px !important;
+
+    margin-top: 8px !important;
+
+    border-radius: 4px;
+
+    background: #dfe3e8 !important;
+
+    color: transparent !important;
+}
+
+
+/* -----------------------------------------------------
+   PERFORMANCE ROW SKELETON
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.performance-row {
+
+    background:
+        linear-gradient(
+            90deg,
+            #f1f5f9 0%,
+            #f8fafc 50%,
+            #f1f5f9 100%
+        ) !important;
+
+    background-size: 200% 100%;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+
+    color: transparent !important;
+
+    pointer-events: none;
+}
+
+
+body.analytics-page-loading
+.performance-row span {
+
+    width: 100px;
+
+    height: 11px;
+
+    border-radius: 4px;
+
+    background: #dfe3e8;
+
+    color: transparent !important;
+}
+
+
+body.analytics-page-loading
+.performance-row span::first-letter {
+
+    color: transparent;
+}
+
+
+body.analytics-page-loading
+.performance-row i {
+
+    background: #dfe3e8 !important;
+}
+
+
+body.analytics-page-loading
+.performance-row strong {
+
+    width: 45px;
+    height: 14px;
+
+    border-radius: 4px;
+
+    background: #dfe3e8;
+
+    color: transparent !important;
+}
+
+
+/* -----------------------------------------------------
+   ALERT SUMMARY SKELETON
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.alert-grid
+.alert-item {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-color: #e5e7eb !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f1f5f9 0%,
+            #f8fafc 50%,
+            #f1f5f9 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        analyticsSkeletonShimmer 1.4s ease-in-out infinite;
+
+    box-shadow: none !important;
+
+    pointer-events: none;
+}
+
+
+body.analytics-page-loading
+.alert-item
+.material-icons {
+
+    color: transparent !important;
+
+    background: #dfe3e8;
+
+    border-radius: 7px;
+}
+
+
+body.analytics-page-loading
+.alert-item
+span:not(.material-icons) {
+
+    width: 75px;
+
+    height: 9px;
+
+    border-radius: 4px;
+
+    background: #dfe3e8;
+
+    color: transparent !important;
+}
+
+
+body.analytics-page-loading
+.alert-item
+strong {
+
+    width: 45px;
+
+    height: 17px;
+
+    margin-top: 8px !important;
+
+    border-radius: 4px;
+
+    background: #dfe3e8;
+
+    color: transparent !important;
+}
+
+
+/* -----------------------------------------------------
+   PREVENT HOVER DURING LOADING
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.analytics-card,
+body.analytics-page-loading
+.summary-item,
+body.analytics-page-loading
+.pump-stat,
+body.analytics-page-loading
+.alert-item,
+body.analytics-page-loading
+.performance-row {
+
+    transform: none !important;
+
+    transition: none !important;
+}
+
+
+/* -----------------------------------------------------
+   LOADING CURSOR
+----------------------------------------------------- */
+
+body.analytics-page-loading
+.analytics-page {
+
+    cursor: wait;
+}
+
+
+/* =====================================================
    CARD
 ===================================================== */
 
@@ -1987,6 +2807,7 @@
 
 
     /* Sensor number */
+
     .summary-item > div:not(.summary-icon) strong {
         margin-top: 25px;
 
@@ -2112,10 +2933,200 @@
 
 
     /* Alert number */
+
     .alert-item strong {
         margin-top: 23px;
 
         font-size: 17px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE SKELETON ADJUSTMENTS
+   KEEP SAME CARD DIMENSIONS
+===================================================== */
+
+@media (max-width: 480px) {
+
+    body.analytics-page-loading
+    .analytics-header
+    .analytics-eyebrow {
+
+        width: 55px;
+        height: 7px;
+    }
+
+
+    body.analytics-page-loading
+    .analytics-header
+    h1 {
+
+        width: 130px;
+        height: 20px;
+    }
+
+
+    body.analytics-page-loading
+    .analytics-header
+    p:last-child {
+
+        width: 165px;
+        height: 8px;
+    }
+
+
+    body.analytics-page-loading
+    .analytics-live {
+
+        width: 75px;
+        height: 22px;
+    }
+
+
+    body.analytics-page-loading
+    .analytics-title
+    h2 {
+
+        width: 125px;
+        height: 15px;
+    }
+
+
+    body.analytics-page-loading
+    .analytics-title
+    p {
+
+        width: 95px;
+        height: 8px;
+    }
+
+
+    body.analytics-page-loading
+    .analytics-icon {
+
+        width: 34px;
+        height: 34px;
+    }
+
+
+    body.analytics-page-loading
+    .analytics-chart-large {
+
+        min-height: 260px;
+    }
+
+
+    body.analytics-page-loading
+    .pump-chart-container {
+
+        min-height: 220px;
+    }
+
+
+    body.analytics-page-loading
+    .summary-item
+    div:not(.summary-icon)
+    span {
+
+        width: 55px !important;
+        height: 8px !important;
+    }
+
+
+    body.analytics-page-loading
+    .summary-item
+    div:not(.summary-icon)
+    strong {
+
+        width: 65px !important;
+        height: 18px !important;
+    }
+
+
+    body.analytics-page-loading
+    .pump-stat
+    small {
+
+        width: 60px !important;
+        height: 8px !important;
+    }
+
+
+    body.analytics-page-loading
+    .pump-stat
+    strong {
+
+        width: 70px !important;
+        height: 13px !important;
+    }
+
+
+    body.analytics-page-loading
+    .alert-item
+    span:not(.material-icons) {
+
+        width: 55px !important;
+        height: 8px !important;
+    }
+
+
+    body.analytics-page-loading
+    .alert-item
+    strong {
+
+        width: 35px !important;
+        height: 15px !important;
+    }
+
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .analytics-page .analytics-skeleton,
+    body.analytics-page-loading
+    .analytics-header,
+    body.analytics-page-loading
+    .analytics-header
+    .analytics-eyebrow,
+    body.analytics-page-loading
+    .analytics-header
+    h1,
+    body.analytics-page-loading
+    .analytics-header
+    p:last-child,
+    body.analytics-page-loading
+    .analytics-live,
+    body.analytics-page-loading
+    .analytics-icon,
+    body.analytics-page-loading
+    .analytics-title h2,
+    body.analytics-page-loading
+    .analytics-title p,
+    body.analytics-page-loading
+    .analytics-chart-large,
+    body.analytics-page-loading
+    .pump-chart-container,
+    body.analytics-page-loading
+    .performance-chart,
+    body.analytics-page-loading
+    .sensor-legend div,
+    body.analytics-page-loading
+    .summary-item,
+    body.analytics-page-loading
+    .pump-stat,
+    body.analytics-page-loading
+    .alert-item,
+    body.analytics-page-loading
+    .performance-row {
+
+        animation: none !important;
     }
 
 }

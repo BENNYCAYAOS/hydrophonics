@@ -16,6 +16,146 @@ import {
 
 
 // =========================================================
+// ALERTS SKELETON LOADING
+// UI ONLY
+// =========================================================
+
+const ALERTS_MIN_LOADING_TIME = 1500;
+const ALERTS_MAX_LOADING_TIME = 10000;
+
+const alertsLoadingStart = Date.now();
+
+const alertsReady = {
+    ec: false,
+    ph: false,
+    temperature: false,
+    waterLevel: false,
+    history: false
+};
+
+let alertsLoadingFinished = false;
+
+
+// Start skeleton immediately
+document.body.classList.add(
+    "alerts-page-loading"
+);
+
+
+// =========================================================
+// FINISH SKELETON LOADING
+// =========================================================
+
+function finishAlertsLoadingIfReady() {
+
+    if (alertsLoadingFinished) {
+        return;
+    }
+
+
+    const allReady =
+        Object.values(alertsReady)
+            .every(Boolean);
+
+
+    if (!allReady) {
+        return;
+    }
+
+
+    const elapsed =
+        Date.now() -
+        alertsLoadingStart;
+
+
+    const remaining =
+        Math.max(
+            0,
+            ALERTS_MIN_LOADING_TIME -
+            elapsed
+        );
+
+
+    setTimeout(() => {
+
+        if (alertsLoadingFinished) {
+            return;
+        }
+
+
+        alertsLoadingFinished = true;
+
+
+        document.body.classList.remove(
+            "alerts-page-loading"
+        );
+
+
+        document.body.classList.add(
+            "alerts-page-loaded"
+        );
+
+    }, remaining);
+
+}
+
+
+// =========================================================
+// MARK READY
+// =========================================================
+
+function markAlertsReady(key) {
+
+    if (
+        !Object.prototype.hasOwnProperty.call(
+            alertsReady,
+            key
+        )
+    ) {
+        return;
+    }
+
+
+    alertsReady[key] = true;
+
+
+    finishAlertsLoadingIfReady();
+
+}
+
+
+// =========================================================
+// SAFETY FALLBACK
+// =========================================================
+
+setTimeout(() => {
+
+    if (alertsLoadingFinished) {
+        return;
+    }
+
+
+    alertsLoadingFinished = true;
+
+
+    document.body.classList.remove(
+        "alerts-page-loading"
+    );
+
+
+    document.body.classList.add(
+        "alerts-page-loaded"
+    );
+
+
+    console.warn(
+        "Alerts skeleton loading fallback triggered."
+    );
+
+}, ALERTS_MAX_LOADING_TIME);
+
+
+// =========================================================
 // FIREBASE PATHS
 // =========================================================
 
@@ -147,24 +287,6 @@ function escapeHtml(value) {
 // =========================================================
 // EXTRACT SENSOR VALUE
 // =========================================================
-//
-// Supports:
-//
-// sensors/ec = 1800
-//
-// OR
-//
-// sensors/ec = {
-//     value: 1800
-// }
-//
-// OR
-//
-// sensors/ec = {
-//     reading: 1800
-// }
-//
-// =========================================================
 
 function extractSensorValue(data) {
 
@@ -174,9 +296,7 @@ function extractSensorValue(data) {
     );
 
 
-    // -------------------------------
     // NULL
-    // -------------------------------
 
     if (
         data === null ||
@@ -188,9 +308,7 @@ function extractSensorValue(data) {
     }
 
 
-    // -------------------------------
     // NUMBER
-    // -------------------------------
 
     if (
         typeof data === "number"
@@ -203,9 +321,7 @@ function extractSensorValue(data) {
     }
 
 
-    // -------------------------------
     // STRING
-    // -------------------------------
 
     if (
         typeof data === "string"
@@ -221,9 +337,7 @@ function extractSensorValue(data) {
     }
 
 
-    // -------------------------------
     // OBJECT
-    // -------------------------------
 
     if (
         typeof data === "object"
@@ -908,6 +1022,7 @@ function processAlert(
 
 
     // First reading
+
     if (
         previous === undefined
     ) {
@@ -941,6 +1056,7 @@ function processAlert(
 
 
     // Severity changed
+
     if (
         previous !== current
     ) {
@@ -1097,9 +1213,7 @@ function renderCurrentAlerts() {
                                 <div class="alert-card-icon">
 
                                     <span class="material-icons">
-
                                         ${info.icon}
-
                                     </span>
 
                                 </div>
@@ -1108,16 +1222,12 @@ function renderCurrentAlerts() {
                                 <div>
 
                                     <h3 class="alert-card-title">
-
                                         ${escapeHtml(title)}
-
                                     </h3>
 
 
                                     <p class="alert-card-description">
-
                                         ${escapeHtml(description)}
-
                                     </p>
 
                                 </div>
@@ -1126,11 +1236,9 @@ function renderCurrentAlerts() {
 
 
                             <span class="alert-severity">
-
                                 ${escapeHtml(
                                     sensor.status.label
                                 )}
-
                             </span>
 
                         </div>
@@ -1141,18 +1249,14 @@ function renderCurrentAlerts() {
                             <div>
 
                                 <span class="alert-value-label">
-
                                     Current Reading
-
                                 </span>
 
 
                                 <p class="alert-value">
-
                                     ${escapeHtml(
                                         formattedValue
                                     )}
-
                                 </p>
 
                             </div>
@@ -1161,20 +1265,16 @@ function renderCurrentAlerts() {
                             <div class="alert-value-right">
 
                                 <span class="alert-value-label">
-
                                     Recommended
-
                                 </span>
 
 
                                 <p class="alert-value">
-
                                     ${escapeHtml(
                                         getRecommendedValue(
                                             sensor.key
                                         )
                                     )}
-
                                 </p>
 
                             </div>
@@ -1185,9 +1285,7 @@ function renderCurrentAlerts() {
                         <div class="alert-action">
 
                             <p class="alert-action-title">
-
                                 Status
-
                             </p>
 
 
@@ -1419,42 +1517,34 @@ function renderAlertHistory(
                     <tr>
 
                         <td>
-
                             ${escapeHtml(
                                 alert.date ?? "--"
                             )}
-
                         </td>
 
 
                         <td>
-
                             ${escapeHtml(
                                 alert.time ?? "--"
                             )}
-
                         </td>
 
 
                         <td>
-
                             ${escapeHtml(
                                 alert.sensorName ??
                                 alert.sensor ??
                                 "--"
                             )}
-
                         </td>
 
 
                         <td>
-
                             ${escapeHtml(
                                 alert.formattedValue ??
                                 alert.value ??
                                 "--"
                             )}
-
                         </td>
 
 
@@ -1474,12 +1564,10 @@ function renderAlertHistory(
 
 
                         <td>
-
                             ${escapeHtml(
                                 alert.description ??
                                 "Monitor sensor condition."
                             )}
-
                         </td>
 
                     </tr>
@@ -1515,6 +1603,7 @@ function listenToSensor(
 
 
     onValue(
+
         sensorRef,
 
         snapshot => {
@@ -1560,6 +1649,10 @@ function listenToSensor(
 
             renderCurrentAlerts();
 
+
+            // Skeleton ready
+            markAlertsReady(key);
+
         },
 
         error => {
@@ -1569,7 +1662,12 @@ function listenToSensor(
                 error
             );
 
+
+            // Do not keep skeleton forever
+            markAlertsReady(key);
+
         }
+
     );
 
 }
@@ -1599,6 +1697,7 @@ function startFirebaseListeners() {
 
 
     // EC
+
     listenToSensor(
         EC_PATH,
         "ec",
@@ -1607,6 +1706,7 @@ function startFirebaseListeners() {
 
 
     // pH
+
     listenToSensor(
         PH_PATH,
         "ph",
@@ -1615,6 +1715,7 @@ function startFirebaseListeners() {
 
 
     // Temperature
+
     listenToSensor(
         TEMPERATURE_PATH,
         "temperature",
@@ -1623,6 +1724,7 @@ function startFirebaseListeners() {
 
 
     // Water Level
+
     listenToSensor(
         WATER_LEVEL_PATH,
         "waterLevel",
@@ -1631,6 +1733,7 @@ function startFirebaseListeners() {
 
 
     // Alert History
+
     console.log(
         `Starting Firebase listener: ${ALERT_HISTORY_PATH}`
     );
@@ -1655,6 +1758,13 @@ function startFirebaseListeners() {
                 snapshot.val()
             );
 
+
+            // Skeleton ready
+
+            markAlertsReady(
+                "history"
+            );
+
         },
 
         error => {
@@ -1662,6 +1772,13 @@ function startFirebaseListeners() {
             console.error(
                 "Alert history listener error:",
                 error
+            );
+
+
+            // Prevent infinite loading
+
+            markAlertsReady(
+                "history"
             );
 
         }
@@ -1690,7 +1807,7 @@ async function bootAlerts() {
         );
 
 
-        // firebaseLogin from your firebase.js
+        // firebaseLogin from firebase.js
         // is already a Promise.
 
         if (
@@ -1743,9 +1860,7 @@ async function bootAlerts() {
                             <div class="alert-card-icon">
 
                                 <span class="material-icons">
-
                                     error
-
                                 </span>
 
                             </div>
@@ -1754,16 +1869,12 @@ async function bootAlerts() {
                             <div>
 
                                 <h3 class="alert-card-title">
-
                                     Firebase Connection Failed
-
                                 </h3>
 
 
                                 <p class="alert-card-description">
-
                                     Unable to authenticate with Firebase.
-
                                 </p>
 
                             </div>
@@ -1772,9 +1883,7 @@ async function bootAlerts() {
 
 
                         <span class="alert-severity">
-
                             ERROR
-
                         </span>
 
                     </div>
@@ -1785,16 +1894,12 @@ async function bootAlerts() {
                         <div>
 
                             <span class="alert-value-label">
-
                                 System Status
-
                             </span>
 
 
                             <p class="alert-value">
-
                                 Offline
-
                             </p>
 
                         </div>
@@ -1805,16 +1910,12 @@ async function bootAlerts() {
                     <div class="alert-action">
 
                         <p class="alert-action-title">
-
                             Error
-
                         </p>
 
 
                         <p class="alert-action-text">
-
                             Check Firebase Authentication and Realtime Database rules.
-
                         </p>
 
                     </div>
@@ -1824,6 +1925,20 @@ async function bootAlerts() {
             `;
 
         }
+
+
+        // Allow skeleton to finish on authentication failure
+
+        Object.keys(alertsReady).forEach(
+            key => {
+
+                alertsReady[key] = true;
+
+            }
+        );
+
+
+        finishAlertsLoadingIfReady();
 
     }
 

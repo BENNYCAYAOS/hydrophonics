@@ -1,4 +1,4 @@
-/* =====================================================
+ /* =====================================================
    HYDROSMART DASHBOARD
    UI ONLY
 
@@ -9,6 +9,12 @@
    - Charts
    - Gauges
    - Main tank logic
+
+   RESPONSIBILITIES:
+   - Card hover UI
+   - Graph color themes
+   - Skeleton loading UI
+   - Loading state removal
 ===================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,24 +26,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document
         .querySelectorAll(
-            '.sensor-card, .graph-card, .info-card'
+            '.sensor-card, .graph-card, .info-card, .detail-card, .section-card'
         )
         .forEach(card => {
 
             card.addEventListener('mouseenter', () => {
 
-                card.classList.add(
-                    'dashboard-hover'
-                );
+                /*
+                 * Do not activate hover while loading.
+                 */
+                if (
+                    card.classList.contains('is-loading') ||
+                    document.body.classList.contains('dashboard-loading')
+                ) {
+                    return;
+                }
+
+                card.classList.add('dashboard-hover');
 
             });
 
 
             card.addEventListener('mouseleave', () => {
 
-                card.classList.remove(
-                    'dashboard-hover'
-                );
+                card.classList.remove('dashboard-hover');
 
             });
 
@@ -46,35 +58,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* =================================================
        GRAPH COLOR THEMES
-
-       These colors match the sensor themes:
-
-       pH              = Purple
-       EC              = Blue
-       Water Temp      = Orange
-       Water Level     = Teal / Green
     ================================================= */
 
     const graphColorMap = {
 
         '.ph-graph': {
+
             color: '#7c3aed',
-            background: 'rgba(124, 58, 237, 0.12)'
+
+            background:
+                'rgba(124, 58, 237, 0.12)'
+
         },
+
 
         '.ec-graph': {
+
             color: '#2563eb',
-            background: 'rgba(37, 99, 235, 0.12)'
+
+            background:
+                'rgba(37, 99, 235, 0.12)'
+
         },
+
 
         '.temp-graph': {
+
             color: '#ea580c',
-            background: 'rgba(234, 88, 12, 0.12)'
+
+            background:
+                'rgba(234, 88, 12, 0.12)'
+
         },
 
+
         '.water-graph': {
+
             color: '#0f766e',
-            background: 'rgba(15, 118, 110, 0.12)'
+
+            background:
+                'rgba(15, 118, 110, 0.12)'
+
         }
 
     };
@@ -91,29 +115,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 .querySelectorAll(selector)
                 .forEach(graph => {
 
-                    /*
-                     * Main graph color
-                     */
-
                     graph.style.setProperty(
                         '--graph-color',
                         theme.color
                     );
 
 
-                    /*
-                     * Light graph background
-                     */
-
                     graph.style.setProperty(
                         '--graph-background',
                         theme.background
                     );
 
-
-                    /*
-                     * Legend indicator color
-                     */
 
                     graph.style.setProperty(
                         '--legend-color',
@@ -128,11 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* =================================================
        GRAPH LEGEND COLOR ELEMENTS
-
-       This handles normal HTML legend elements
-       if they exist inside the graph cards.
-
-       It does NOT modify Chart.js data.
     ================================================= */
 
     document
@@ -146,13 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             if (!color) {
+
                 return;
+
             }
 
-
-            /*
-             * Common custom legend selectors
-             */
 
             graph
                 .querySelectorAll(
@@ -160,14 +165,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 )
                 .forEach(indicator => {
 
-                    indicator.style.backgroundColor = color;
+                    indicator.style.backgroundColor =
+                        color;
 
                 });
 
-
-            /*
-             * Legend span elements
-             */
 
             graph
                 .querySelectorAll(
@@ -175,7 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 )
                 .forEach(indicator => {
 
-                    indicator.style.backgroundColor = color;
+                    indicator.style.backgroundColor =
+                        color;
 
                 });
 
@@ -186,50 +189,117 @@ document.addEventListener('DOMContentLoaded', () => {
        SKELETON ELEMENTS
     ================================================= */
 
-
-    /* ---------------------------------------------
-       DASHBOARD HEADER
-    --------------------------------------------- */
-
-    const header = document.querySelector(
-        '.dashboard-header-loading'
-    );
+    const dashboardContent =
+        document.querySelector(
+            '#dashboardContent'
+        );
 
 
-    /* ---------------------------------------------
-       SENSOR CARDS
-    --------------------------------------------- */
-
-    const sensorCards = document.querySelectorAll(
-        '.sensor-card.is-loading'
-    );
+    const header =
+        document.querySelector(
+            '.dashboard-header-loading'
+        );
 
 
-    /* ---------------------------------------------
-       GRAPH HEADER
-    --------------------------------------------- */
-
-    const graphHeader = document.querySelector(
-        '.graph-header-loading'
-    );
+    const sensorCards =
+        document.querySelectorAll(
+            '.sensor-card.is-loading'
+        );
 
 
-    /* ---------------------------------------------
-       GRAPH CARDS
-    --------------------------------------------- */
-
-    const graphCards = document.querySelectorAll(
-        '.graph-card.is-loading'
-    );
+    const graphHeader =
+        document.querySelector(
+            '.graph-header-loading'
+        );
 
 
-    /* ---------------------------------------------
-       MAIN TANK
-    --------------------------------------------- */
+    const graphCards =
+        document.querySelectorAll(
+            '.graph-card.is-loading'
+        );
 
-    const mainTank = document.querySelector(
-        '.main-tank-loading'
-    );
+
+    const mainTank =
+        document.querySelector(
+            '.main-tank-loading'
+        );
+
+
+    const graphSection =
+        document.querySelector(
+            '.realtime-graphs-section'
+        );
+
+
+    /* =================================================
+       INITIAL LOADING STATE
+    ================================================= */
+
+    if (dashboardContent) {
+
+        dashboardContent.classList.add(
+            'dashboard-loading',
+            'is-loading'
+        );
+
+    }
+
+
+    if (header) {
+
+        header.classList.add(
+            'dashboard-header-loading',
+            'is-loading'
+        );
+
+    }
+
+
+    sensorCards.forEach(card => {
+
+        card.classList.add(
+            'is-loading'
+        );
+
+    });
+
+
+    if (graphHeader) {
+
+        graphHeader.classList.add(
+            'graph-header-loading',
+            'is-loading'
+        );
+
+    }
+
+
+    graphCards.forEach(card => {
+
+        card.classList.add(
+            'is-loading'
+        );
+
+    });
+
+
+    if (mainTank) {
+
+        mainTank.classList.add(
+            'main-tank-loading',
+            'is-loading'
+        );
+
+    }
+
+
+    if (graphSection) {
+
+        graphSection.classList.add(
+            'is-loading'
+        );
+
+    }
 
 
     /* =================================================
@@ -239,22 +309,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const finishLoading = () => {
 
 
-        /* ---------------------------------------------
-           DASHBOARD HEADER
-        --------------------------------------------- */
+        /* =============================================
+           GLOBAL DASHBOARD
+        ============================================= */
 
-        if (header) {
+        if (dashboardContent) {
 
-            header.classList.remove(
-                'dashboard-header-loading'
+            dashboardContent.classList.remove(
+                'dashboard-loading',
+                'is-loading'
             );
 
         }
 
 
-        /* ---------------------------------------------
+        /* =============================================
+           HEADER
+        ============================================= */
+
+        if (header) {
+
+            header.classList.remove(
+                'dashboard-header-loading',
+                'is-loading'
+            );
+
+        }
+
+
+        /* =============================================
            SENSOR CARDS
-        --------------------------------------------- */
+        ============================================= */
 
         sensorCards.forEach(card => {
 
@@ -262,25 +347,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 'is-loading'
             );
 
+            card.classList.remove(
+                'dashboard-hover'
+            );
+
         });
 
 
-        /* ---------------------------------------------
+        /* =============================================
            GRAPH HEADER
-        --------------------------------------------- */
+        ============================================= */
 
         if (graphHeader) {
 
             graphHeader.classList.remove(
-                'graph-header-loading'
+                'graph-header-loading',
+                'is-loading'
             );
 
         }
 
 
-        /* ---------------------------------------------
+        /* =============================================
            GRAPH CARDS
-        --------------------------------------------- */
+        ============================================= */
 
         graphCards.forEach(card => {
 
@@ -288,36 +378,95 @@ document.addEventListener('DOMContentLoaded', () => {
                 'is-loading'
             );
 
+            card.classList.remove(
+                'dashboard-hover'
+            );
+
         });
 
 
-        /* ---------------------------------------------
+        /* =============================================
            MAIN TANK
-        --------------------------------------------- */
+        ============================================= */
 
         if (mainTank) {
 
             mainTank.classList.remove(
-                'main-tank-loading'
+                'main-tank-loading',
+                'is-loading'
             );
 
         }
+
+
+        /* =============================================
+           GRAPH SECTION
+        ============================================= */
+
+        if (graphSection) {
+
+            graphSection.classList.remove(
+                'is-loading'
+            );
+
+        }
+
+
+        /* =============================================
+           RE-APPLY GRAPH LEGEND COLORS
+           AFTER LOADING
+        ============================================= */
+
+        document
+            .querySelectorAll('.graph-card')
+            .forEach(graph => {
+
+                const color =
+                    getComputedStyle(graph)
+                        .getPropertyValue(
+                            '--legend-color'
+                        )
+                        .trim();
+
+
+                if (!color) {
+
+                    return;
+
+                }
+
+
+                graph
+                    .querySelectorAll(
+                        '.legend-color, .legend-box, .chart-legend-color'
+                    )
+                    .forEach(indicator => {
+
+                        indicator.style.backgroundColor =
+                            color;
+
+                    });
+
+
+                graph
+                    .querySelectorAll(
+                        '.chartjs-legend-item span'
+                    )
+                    .forEach(indicator => {
+
+                        indicator.style.backgroundColor =
+                            color;
+
+                    });
+
+            });
 
     };
 
 
     /* =================================================
        INITIAL UI LOADING
-
-       1500ms skeleton display.
-
-       DOES NOT TOUCH:
-       - Firebase
-       - Sensor values
-       - Sensor listeners
-       - Charts
-       - Gauges
-       - maintank.js
+       1500ms
     ================================================= */
 
     setTimeout(() => {
@@ -325,5 +474,6 @@ document.addEventListener('DOMContentLoaded', () => {
         finishLoading();
 
     }, 1500);
+
 
 });

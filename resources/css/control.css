@@ -1,6 +1,7 @@
 /* =========================================================
    HYDROSMART CONTROL PANEL
    COMPACT + COLORFUL + RESPONSIVE
+   + COMPLETE SKELETON LOADING
 ========================================================= */
 
 
@@ -361,17 +362,16 @@
 
 /* =========================================================
    PH CARD
-   PURPLE
 ========================================================= */
 
 .condition-card:has(.ph-icon) {
-    border: 1px solid #ddd6fe;
+    border: 1px solid #bbf7d0;
 
     background:
         linear-gradient(
             135deg,
-            #f5f3ff 0%,
-            #faf9ff 100%
+            #f0fdf4 0%,
+            #f8fffb 100%
         );
 }
 
@@ -387,24 +387,24 @@
 
     width: 4px;
 
-    background: #7c3aed;
+    background: #16a34a;
 }
 
 
 .condition-card:has(.ph-icon):hover {
     transform: translateY(-3px);
 
-    border-color: #a78bfa;
+    border-color: #4ade80;
 
     background:
         linear-gradient(
             135deg,
-            #ede9fe 0%,
-            #f5f3ff 100%
+            #dcfce7 0%,
+            #f0fdf4 100%
         );
 
     box-shadow:
-        0 10px 24px rgba(124, 58, 237, .14);
+        0 10px 24px rgba(22, 163, 74, .14);
 }
 
 
@@ -441,14 +441,9 @@
 }
 
 
-/* =========================================================
-   PH ICON
-   PURPLE
-========================================================= */
-
 .ph-icon {
-    background: #ede9fe;
-    color: #7c3aed;
+    background: #dcfce7;
+    color: #16a34a;
 }
 
 
@@ -919,7 +914,6 @@
 
 /* =========================================================
    PUMP TOP
-   ICON + TEXT + INDICATOR
 ========================================================= */
 
 .pump-card-top {
@@ -1149,7 +1143,6 @@
 
 /* =========================================================
    SWITCH
-   SLIGHTLY LARGER
 ========================================================= */
 
 .pump-switch {
@@ -1947,6 +1940,1553 @@
 
 
 /* =========================================================
+   =========================================================
+   CONTROL SKELETON LOADING
+   SAME STYLE AS ANALYTICS
+   =========================================================
+========================================================= */
+
+
+/* =========================================================
+   SKELETON BASE
+========================================================= */
+
+body.control-page-loading {
+    cursor: wait;
+}
+
+
+body.control-page-loading .control-page {
+    position: relative;
+
+    cursor: wait;
+}
+
+
+body.control-page-loading .control-page * {
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   SHIMMER
+========================================================= */
+
+@keyframes controlSkeletonShimmer {
+
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+
+}
+
+
+.control-skeleton-shimmer {
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   HEADER SKELETON
+========================================================= */
+
+body.control-page-loading
+.control-dashboard-header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #f8fafc
+        );
+
+    border-color: #e5e7eb;
+
+    box-shadow:
+        0 5px 15px rgba(15,23,42,.035);
+}
+
+
+body.control-page-loading
+.control-dashboard-header::before {
+
+    background:
+        linear-gradient(
+            180deg,
+            #e5e7eb,
+            #d1d5db
+        );
+}
+
+
+body.control-page-loading
+.control-dashboard-header::after {
+
+    display: none;
+}
+
+
+body.control-page-loading
+.control-dashboard-header
+.dashboard-eyebrow {
+
+    width: 75px;
+    height: 9px;
+
+    margin: 0 0 4px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.control-dashboard-header
+h1 {
+
+    width: 185px;
+    height: 26px;
+
+    margin: 0;
+
+    border-radius: 6px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.control-dashboard-header
+> div:first-child
+> p:last-child {
+
+    width: 230px;
+    height: 10px;
+
+    margin-top: 4px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.control-dashboard-header
+.dashboard-live {
+
+    width: 105px;
+    height: 26px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 999px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    box-shadow: none;
+}
+
+
+body.control-page-loading
+.control-dashboard-header
+.dashboard-live span {
+
+    display: none;
+}
+
+
+/* =========================================================
+   SECTION HEADER SKELETON
+========================================================= */
+
+body.control-page-loading
+.control-section-header
+h2 {
+
+    width: 180px;
+    height: 18px;
+
+    color: transparent;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.control-section-header
+p {
+
+    width: 160px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CONDITION CARD SKELETON
+========================================================= */
+
+body.control-page-loading
+.condition-card {
+
+    border-color: #e5e7eb !important;
+
+    background: #f8fafc !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.condition-card::before {
+
+    background: #e5e7eb !important;
+}
+
+
+body.control-page-loading
+.condition-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    color: transparent;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.condition-icon
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.condition-info h3 {
+
+    width: 95px;
+    height: 14px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.condition-description {
+
+    width: 125px;
+    height: 9px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.condition-value {
+
+    width: 100px;
+    height: 24px;
+
+    margin-top: 3px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.condition-value small {
+
+    display: none;
+}
+
+
+body.control-page-loading
+.condition-range {
+
+    width: 125px;
+    height: 9px;
+
+    margin-top: 4px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   WATER STATUS SKELETON
+========================================================= */
+
+body.control-page-loading
+.water-status {
+
+    width: 150px;
+    height: 28px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 999px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   DOSING MODE SKELETON
+========================================================= */
+
+body.control-page-loading
+.mode-card {
+
+    border-color: #e5e7eb !important;
+
+    background: #f8fafc !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.mode-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    color: transparent;
+}
+
+
+body.control-page-loading
+.mode-icon
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.mode-content h3 {
+
+    width: 105px;
+    height: 14px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.mode-content p {
+
+    width: 145px;
+    height: 24px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.mode-select-indicator {
+
+    background: #d1d5db !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   MODE STATUS SKELETON
+========================================================= */
+
+body.control-page-loading
+.mode-status,
+body.control-page-loading
+.pump-system-status {
+
+    color: transparent;
+}
+
+
+body.control-page-loading
+.mode-dot,
+body.control-page-loading
+.status-dot {
+
+    width: 8px;
+    height: 8px;
+
+    background: #d1d5db;
+
+    box-shadow: none;
+}
+
+
+body.control-page-loading
+#modeStatusText,
+body.control-page-loading
+#pumpControlStatus {
+
+    width: 145px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   AUTOMATIC INFO SKELETON
+========================================================= */
+
+body.control-page-loading
+.automatic-info {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+
+    color: transparent;
+}
+
+
+body.control-page-loading
+.automatic-info
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.automatic-info strong {
+
+    display: block;
+
+    width: 170px;
+    height: 12px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.automatic-info p {
+
+    width: 260px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PUMP CARD SKELETON
+========================================================= */
+
+body.control-page-loading
+.pump-card {
+
+    border-color: #e5e7eb !important;
+
+    background: #f8fafc !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.pump-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    color: transparent !important;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.pump-icon
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.pump-title h3 {
+
+    width: 180px;
+    height: 15px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-title p {
+
+    width: 150px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-indicator {
+
+    background: #d1d5db !important;
+
+    box-shadow: none !important;
+}
+
+
+body.control-page-loading
+.pump-target {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+
+    box-shadow: none;
+}
+
+
+body.control-page-loading
+.pump-target span {
+
+    width: 100px;
+    height: 9px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-target strong {
+
+    width: 75px;
+    height: 10px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-control-label {
+
+    width: 105px;
+    height: 10px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PUMP SWITCH SKELETON
+========================================================= */
+
+body.control-page-loading
+.pump-switch {
+
+    cursor: wait;
+
+    opacity: 1;
+}
+
+
+body.control-page-loading
+.pump-slider {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-slider::before {
+
+    background: #ffffff;
+
+    box-shadow:
+        0 1px 4px rgba(0,0,0,.08);
+}
+
+
+body.control-page-loading
+.pump-state {
+
+    width: 45px;
+    height: 10px;
+
+    margin-left: auto;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.pump-message {
+
+    width: 150px;
+    height: 9px;
+
+    margin-left: auto;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CALIBRATION CARD SKELETON
+========================================================= */
+
+body.control-page-loading
+.calibration-card {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+body.control-page-loading
+.calibration-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    color: transparent;
+}
+
+
+body.control-page-loading
+.calibration-icon
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.calibration-card-header h3 {
+
+    width: 130px;
+    height: 13px;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.calibration-card-header p {
+
+    width: 115px;
+    height: 9px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CALIBRATION FIELDS SKELETON
+========================================================= */
+
+body.control-page-loading
+.calibration-field label {
+
+    width: 95px;
+    height: 10px;
+
+    margin-bottom: 6px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.calibration-input {
+
+    border-color: #e5e7eb;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    box-shadow: none;
+}
+
+
+body.control-page-loading
+.calibration-unit {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.calibration-runtime {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+}
+
+
+body.control-page-loading
+.calibration-runtime span {
+
+    width: 80px;
+    height: 9px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.calibration-runtime strong {
+
+    width: 70px;
+    height: 11px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   GLOBAL SETTINGS SKELETON
+========================================================= */
+
+body.control-page-loading
+.global-setting {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+}
+
+
+body.control-page-loading
+.global-setting label {
+
+    width: 120px;
+    height: 10px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CALIBRATION ACTION SKELETON
+========================================================= */
+
+body.control-page-loading
+.save-calibration-button {
+
+    min-width: 150px;
+
+    color: transparent;
+
+    border-color: #e5e7eb;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+body.control-page-loading
+.save-calibration-button
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.calibration-message {
+
+    width: 180px;
+    height: 10px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CALIBRATION NOTE SKELETON
+========================================================= */
+
+body.control-page-loading
+.calibration-note {
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+
+    color: transparent;
+}
+
+
+body.control-page-loading
+.calibration-note
+.material-icons {
+
+    visibility: hidden;
+}
+
+
+/* =========================================================
+   GUIDELINE SKELETON
+========================================================= */
+
+body.control-page-loading
+.guideline-card {
+
+    border-color: #e5e7eb !important;
+
+    background: #f8fafc !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+}
+
+
+body.control-page-loading
+.guideline-card
+.material-icons {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+
+    border-radius: 5px;
+}
+
+
+body.control-page-loading
+.guideline-card strong {
+
+    display: block;
+
+    width: 100px;
+    height: 12px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.control-page-loading
+.guideline-card p {
+
+    width: 150px;
+    height: 28px;
+
+    border-radius: 4px;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   LOG TABLE SKELETON
+========================================================= */
+
+body.control-page-loading
+.logs-wrapper {
+
+    position: relative;
+
+    min-height: 210px;
+
+    border-color: #e5e7eb;
+
+    background: #f8fafc;
+
+    overflow: hidden;
+}
+
+
+body.control-page-loading
+.logs-table {
+
+    opacity: .15;
+}
+
+
+body.control-page-loading
+.logs-table
+thead {
+
+    opacity: .4;
+}
+
+
+body.control-page-loading
+.logs-table
+tbody {
+
+    visibility: hidden;
+}
+
+
+body.control-page-loading
+.logs-wrapper::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+    top: 55px;
+
+    height: 125px;
+
+    border-radius: 8px;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #e5e7eb 0,
+            #e5e7eb 10px,
+            transparent 10px,
+            transparent 25px
+        );
+
+    background-size: 100% 25px;
+
+    animation:
+        controlSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   DISABLE HOVER DURING LOADING
+========================================================= */
+
+body.control-page-loading
+.control-section,
+body.control-page-loading
+.condition-card,
+body.control-page-loading
+.mode-card,
+body.control-page-loading
+.pump-card,
+body.control-page-loading
+.calibration-card,
+body.control-page-loading
+.guideline-card,
+body.control-page-loading
+.save-calibration-button {
+
+    transition: none !important;
+}
+
+
+body.control-page-loading
+.condition-card:hover,
+body.control-page-loading
+.mode-card:hover,
+body.control-page-loading
+.pump-card:hover,
+body.control-page-loading
+.calibration-card:hover,
+body.control-page-loading
+.guideline-card:hover,
+body.control-page-loading
+.save-calibration-button:hover {
+
+    transform: none !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
    TABLET
 ========================================================= */
 
@@ -1965,8 +3505,6 @@
 ========================================================= */
 
 @media (max-width: 900px) {
-
-    /* Pumps remain vertically stacked */
 
     .pump-grid {
         grid-template-columns: 1fr;
@@ -2022,7 +3560,6 @@
 
     .control-dashboard-header > div:first-child {
         min-width: 0;
-
         flex: 1;
     }
 
@@ -2314,7 +3851,6 @@
 
     /* =====================================================
        PUMPS
-       3 CARDS STACKED VERTICALLY
     ===================================================== */
 
     .pump-grid {
@@ -2350,11 +3886,6 @@
         text-align: left;
     }
 
-
-    /* =====================================================
-       PUMP TOP
-       ICON + TEXT + STATUS
-    ===================================================== */
 
     .pump-card-top {
         display: flex;
@@ -2427,10 +3958,6 @@
     }
 
 
-    /* =====================================================
-       PUMP TARGET
-    ===================================================== */
-
     .pump-target {
         width: 100%;
 
@@ -2454,10 +3981,6 @@
     }
 
 
-    /* =====================================================
-       PUMP CONTROL
-    ===================================================== */
-
     .pump-control {
         display: flex;
 
@@ -2477,10 +4000,6 @@
         font-size: 10px;
     }
 
-
-    /* =====================================================
-       BIGGER MOBILE SWITCH
-    ===================================================== */
 
     .pump-switch {
         width: 48px;
@@ -2503,10 +4022,6 @@
         transform: translateX(21px);
     }
 
-
-    /* =====================================================
-       PUMP STATE
-    ===================================================== */
 
     .pump-state {
         margin-top: 7px;
@@ -2672,6 +4187,206 @@
         padding: 8px;
     }
 
+
+    /* =====================================================
+       MOBILE SKELETON
+    ===================================================== */
+
+    body.control-page-loading
+    .control-dashboard-header
+    .dashboard-eyebrow {
+
+        width: 55px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    h1 {
+
+        width: 145px;
+        height: 21px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    > div:first-child
+    > p:last-child {
+
+        width: 175px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    .dashboard-live {
+
+        width: 75px;
+        height: 23px;
+    }
+
+
+    body.control-page-loading
+    .control-section-header
+    h2 {
+
+        width: 140px;
+        height: 16px;
+    }
+
+
+    body.control-page-loading
+    .control-section-header
+    p {
+
+        width: 130px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .condition-info h3 {
+
+        width: 70px;
+        height: 12px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .condition-description {
+
+        width: 85px;
+        height: 8px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .condition-value {
+
+        width: 75px;
+        height: 20px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .condition-range {
+
+        width: 85px;
+        height: 8px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .mode-content h3 {
+
+        width: 75px;
+        height: 11px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .mode-content p {
+
+        width: 95px;
+        height: 18px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    body.control-page-loading
+    .pump-title h3 {
+
+        width: 125px;
+        height: 12px;
+    }
+
+
+    body.control-page-loading
+    .pump-title p {
+
+        width: 105px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .pump-target span {
+
+        width: 75px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .pump-target strong {
+
+        width: 55px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .pump-control-label {
+
+        width: 80px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .pump-state {
+
+        width: 35px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .pump-message {
+
+        width: 105px;
+        height: 8px;
+    }
+
+
+    body.control-page-loading
+    .logs-wrapper {
+
+        min-height: 180px;
+    }
+
+
+    body.control-page-loading
+    .logs-wrapper::after {
+
+        top: 45px;
+
+        height: 105px;
+
+        left: 9px;
+        right: 9px;
+    }
+
 }
 
 
@@ -2719,10 +4434,6 @@
     }
 
 
-    /* =====================================================
-       EC + PH — COMPACT SIDE BY SIDE
-    ===================================================== */
-
     .condition-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
@@ -2739,11 +4450,6 @@
         gap: 5px;
 
         border-radius: 10px;
-    }
-
-
-    .condition-card:has(.ph-icon)::before {
-        width: 3px;
     }
 
 
@@ -2785,10 +4491,6 @@
     }
 
 
-    /* =====================================================
-       MODE
-    ===================================================== */
-
     .mode-grid {
         gap: 6px;
     }
@@ -2818,10 +4520,6 @@
         font-size: 7px;
     }
 
-
-    /* =====================================================
-       PUMPS — 3 CARDS STACKED VERTICALLY
-    ===================================================== */
 
     .pump-grid {
         grid-template-columns: 1fr;
@@ -2913,10 +4611,6 @@
     }
 
 
-    /* =====================================================
-       SWITCH
-    ===================================================== */
-
     .pump-switch {
         width: 45px;
         height: 25px;
@@ -2953,10 +4647,6 @@
     }
 
 
-    /* =====================================================
-       GUIDELINES
-    ===================================================== */
-
     .guideline-grid {
         gap: 6px;
     }
@@ -2987,10 +4677,6 @@
     }
 
 
-    /* =====================================================
-       AUTOMATIC INFO
-    ===================================================== */
-
     .automatic-info {
         padding: 8px;
 
@@ -3002,4 +4688,934 @@
         font-size: 16px;
     }
 
+
+    /* =====================================================
+       SMALL MOBILE SKELETON
+    ===================================================== */
+
+    body.control-page-loading
+    .control-dashboard-header
+    .dashboard-eyebrow {
+
+        width: 45px;
+        height: 6px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    h1 {
+
+        width: 120px;
+        height: 19px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    > div:first-child
+    > p:last-child {
+
+        width: 145px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .control-dashboard-header
+    .dashboard-live {
+
+        width: 65px;
+        height: 20px;
+    }
+
+
+    body.control-page-loading
+    .condition-info h3 {
+
+        width: 60px;
+        height: 10px;
+    }
+
+
+    body.control-page-loading
+    .condition-description {
+
+        width: 70px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .condition-value {
+
+        width: 65px;
+        height: 18px;
+    }
+
+
+    body.control-page-loading
+    .condition-range {
+
+        width: 70px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .mode-content h3 {
+
+        width: 65px;
+        height: 9px;
+    }
+
+
+    body.control-page-loading
+    .mode-content p {
+
+        width: 80px;
+        height: 15px;
+    }
+
+
+    body.control-page-loading
+    .pump-title h3 {
+
+        width: 110px;
+        height: 10px;
+    }
+
+
+    body.control-page-loading
+    .pump-title p {
+
+        width: 90px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .pump-target span {
+
+        width: 65px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .pump-target strong {
+
+        width: 50px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .pump-control-label {
+
+        width: 70px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .pump-state {
+
+        width: 30px;
+        height: 7px;
+    }
+
+
+    body.control-page-loading
+    .pump-message {
+
+        width: 90px;
+        height: 7px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .control-page-loading *,
+    body.control-page-loading * {
+
+        animation: none !important;
+
+        transition: none !important;
+    }
+
+}
+/* =========================================================
+   CONTROL PAGE - DOSING CALIBRATION SKELETON
+   UI ONLY
+========================================================= */
+
+/* ---------------------------------------------------------
+   SKELETON BASE
+--------------------------------------------------------- */
+
+.control-page-loading .skeleton {
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   DOSING CALIBRATION SECTION
+--------------------------------------------------------- */
+
+.control-page-loading .control-section:has(.calibration-grid) {
+    position: relative;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION SECTION HEADER
+--------------------------------------------------------- */
+
+.control-page-loading
+.control-section:has(.calibration-grid)
+.control-section-header h2 {
+
+    width: 190px;
+    height: 20px;
+
+    margin: 0;
+
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+.control-page-loading
+.control-section:has(.calibration-grid)
+.control-section-header p {
+
+    width: 280px;
+    height: 11px;
+
+    margin-top: 8px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION CARDS
+--------------------------------------------------------- */
+
+.control-page-loading .calibration-grid .calibration-card {
+
+    background: #ffffff !important;
+
+    border-color: #e5e7eb !important;
+
+    box-shadow: none !important;
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION CARD TITLE
+--------------------------------------------------------- */
+
+.control-page-loading .calibration-grid .calibration-card h3 {
+
+    width: 150px;
+    height: 15px;
+
+    margin-bottom: 16px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION LABELS
+--------------------------------------------------------- */
+
+.control-page-loading .calibration-grid .calibration-card label {
+
+    display: block;
+
+    width: 100px;
+    height: 10px;
+
+    margin-bottom: 7px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION INPUTS
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-grid
+.calibration-card
+input {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    pointer-events: none;
+}
+
+.control-page-loading
+.calibration-grid
+.calibration-card
+input::placeholder {
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   RUNTIME PREVIEW
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-grid
+.calibration-card
+.calibration-runtime {
+
+    color: transparent !important;
+    background: transparent !important;
+}
+
+.control-page-loading
+.calibration-grid
+.calibration-card
+.calibration-runtime::before {
+
+    content: "";
+
+    display: block;
+
+    width: 120px;
+    height: 11px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL SETTINGS
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-global-settings {
+
+    pointer-events: none;
+}
+
+.control-page-loading
+.calibration-global-settings h3 {
+
+    width: 130px;
+    height: 15px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   SAVE CALIBRATION AREA
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-actions {
+
+    pointer-events: none;
+}
+
+.control-page-loading
+#saveCalibrationButton {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION MESSAGE
+--------------------------------------------------------- */
+
+.control-page-loading
+#calibrationMessage {
+
+    width: 180px;
+    height: 11px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   CALIBRATION STATUS
+--------------------------------------------------------- */
+
+.control-page-loading
+#calibrationStatus {
+
+    width: 120px;
+    height: 10px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+    animation: controlSkeletonShimmer 1.4s linear infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   GENERAL CALIBRATION TEXT
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-grid
+.calibration-card
+span,
+.control-page-loading
+.calibration-grid
+.calibration-card
+small {
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   SHIMMER
+--------------------------------------------------------- */
+
+@keyframes controlSkeletonShimmer {
+
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   DISABLE HOVER DURING LOADING
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-grid
+.calibration-card:hover {
+
+    transform: none !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .control-page-loading .skeleton,
+    .control-page-loading
+    .calibration-grid
+    .calibration-card h3,
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header h2,
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header p,
+    .control-page-loading
+    .calibration-grid
+    .calibration-card
+    label,
+    .control-page-loading
+    .calibration-grid
+    .calibration-card
+    input,
+    .control-page-loading
+    .calibration-grid
+    .calibration-card
+    .calibration-runtime::before,
+    .control-page-loading
+    .calibration-global-settings h3,
+    .control-page-loading
+    #saveCalibrationButton,
+    .control-page-loading
+    #calibrationMessage,
+    .control-page-loading
+    #calibrationStatus {
+
+        animation: none !important;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header h2 {
+
+        width: 150px;
+        height: 17px;
+    }
+
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header p {
+
+        width: 220px;
+        height: 10px;
+    }
+
+    .control-page-loading
+    .calibration-grid
+    .calibration-card h3 {
+
+        width: 130px;
+        height: 14px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header h2 {
+
+        width: 135px;
+        height: 16px;
+    }
+
+    .control-page-loading
+    .control-section:has(.calibration-grid)
+    .control-section-header p {
+
+        width: 190px;
+    }
+
+}
+/* =========================================================
+   DOSING CALIBRATION - MIXING / GLOBAL SETTINGS SKELETON
+========================================================= */
+
+/* Global settings container */
+.control-page-loading .calibration-global-settings {
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL SETTINGS TITLE
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-global-settings h3 {
+
+    width: 145px;
+    height: 15px;
+
+    margin: 0 0 16px 0;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL SETTINGS LABELS
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-global-settings label {
+
+    display: block;
+
+    width: 105px;
+    height: 10px;
+
+    margin-bottom: 7px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   MIXING TIME INPUT
+--------------------------------------------------------- */
+
+.control-page-loading
+#mixTimeSeconds {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+
+    animation:
+        controlSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   MAX TOTAL DOSE INPUT
+--------------------------------------------------------- */
+
+.control-page-loading
+#maxTotalDoseML {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    border-color: transparent !important;
+
+    box-shadow: none !important;
+
+    animation:
+        controlSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   MIXING / MAX DOSE WRAPPER
+   SUPPORT DIFFERENT HTML STRUCTURES
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-global-settings
+.field-group,
+.control-page-loading
+.calibration-global-settings
+.form-group,
+.control-page-loading
+.calibration-global-settings
+.calibration-field {
+
+    pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   PLACEHOLDER TEXT
+--------------------------------------------------------- */
+
+.control-page-loading
+#mixTimeSeconds::placeholder,
+.control-page-loading
+#maxTotalDoseML::placeholder {
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   GLOBAL SETTINGS SMALL TEXT
+--------------------------------------------------------- */
+
+.control-page-loading
+.calibration-global-settings
+small,
+.control-page-loading
+.calibration-global-settings
+span {
+
+    color: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .control-page-loading
+    .calibration-global-settings h3 {
+
+        width: 125px;
+        height: 14px;
+    }
+
+    .control-page-loading
+    .calibration-global-settings label {
+
+        width: 95px;
+        height: 9px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .control-page-loading
+    .calibration-global-settings h3 {
+
+        width: 115px;
+        height: 13px;
+    }
+
+}
+/* =========================================================
+   DOSING CALIBRATION - UNIT TEXT SKELETON
+   sec / mL / seconds
+========================================================= */
+
+.control-page-loading
+.calibration-global-settings .unit,
+.control-page-loading
+.calibration-global-settings .unit-text,
+.control-page-loading
+.calibration-global-settings .input-unit,
+.control-page-loading
+.calibration-global-settings span {
+
+    color: transparent !important;
+
+    width: 35px;
+    height: 11px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        controlSkeletonShimmer
+        1.4s
+        linear
+        infinite;
 }

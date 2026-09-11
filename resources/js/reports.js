@@ -3,6 +3,7 @@
    FIREBASE CONNECTED VERSION
    SENSOR RECORDS = ONE SENSOR PER ROW
    RESPONSIVE RECORD DISPLAY + PRINT SUPPORT
+   SKELETON LOADING = UI ONLY
 ========================================================= */
 
 import {
@@ -49,6 +50,35 @@ const LOGS_PATH =
 
 const ALERT_HISTORY_PATH =
     "alertHistory";
+
+
+/* =========================================================
+   REPORTS SKELETON LOADING
+   UI ONLY
+========================================================= */
+
+let reportsPageLoading = true;
+
+const REPORTS_SKELETON_DURATION = 1500;
+
+
+function hideReportsSkeleton() {
+
+    if (!reportsPageLoading) {
+
+        return;
+
+    }
+
+
+    reportsPageLoading = false;
+
+
+    document.body.classList.remove(
+        "reports-page-loading"
+    );
+
+}
 
 
 /* =========================================================
@@ -1261,36 +1291,6 @@ function listenToAlerts() {
    SENSOR STATUS
 ========================================================= */
 
-/*
-   IMPORTANT:
-
-   Status is now calculated PER SENSOR.
-
-   pH:
-       Normal   = 5.5 - 6.5
-       Warning  = 5.0 - <5.5 OR >6.5 - 7.0
-       Critical = <5.0 OR >7.0
-
-   EC:
-       Normal   = 0.8 - 1.2 mS/cm
-       Warning  = 0.6 - <0.8 OR >1.2 - 2.5
-       Critical = <0.6 OR >2.5
-
-   Temperature:
-       Normal   = 18 - 26 °C
-       Warning  = 15 - <18 OR >26 - 30
-       Critical = <15 OR >30
-
-   Water Level:
-       Normal   = >40%
-       Warning  = >30% - 40%
-       Critical = <=30%
-
-   NOTE:
-   Water level critical point follows the
-   30% / 300 L main tank threshold.
-*/
-
 function getSensorStatus(
     sensor,
     value
@@ -1560,15 +1560,6 @@ function getSensorStatus(
    SNAPSHOT OVERALL STATUS
 ========================================================= */
 
-/*
-   Used only for summary calculations.
-
-   This does NOT control the Sensor Records rows.
-
-   Sensor Records uses getSensorStatus()
-   separately for every sensor.
-*/
-
 function getSnapshotOverallStatus(record) {
 
     const statuses = [];
@@ -1759,26 +1750,6 @@ function sortNewestFirst(records) {
 /* =========================================================
    CREATE INDIVIDUAL SENSOR ROWS
 ========================================================= */
-
-/*
-   THIS IS THE IMPORTANT PART.
-
-   One complete Firebase snapshot becomes:
-
-       Row 1 = pH
-       Row 2 = EC
-       Row 3 = Water Temperature
-       Row 4 = Water Level
-
-   Example:
-
-       02:17:16 | pH                | 8.15
-       02:17:16 | EC                | 1.28 mS/cm
-       02:17:16 | Water Temperature | 26.4 °C
-       02:17:16 | Water Level       | 75.7%
-
-   Therefore the table is now SENSOR-PER-ROW.
-*/
 
 function flattenSensorRecords(records) {
 
@@ -2329,14 +2300,6 @@ function generateSummary(
    SENSOR TABLE
 ========================================================= */
 
-/*
-   FINAL SENSOR TABLE:
-
-   Date | Time | Sensor | Reading | Status
-
-   Each sensor is a separate row.
-*/
-
 function renderSensorRecords(
     records,
     recordLimit = SCREEN_RECORD_LIMIT
@@ -2368,14 +2331,6 @@ function renderSensorRecords(
     let rowsToDisplay =
         sensorRows;
 
-
-    /*
-       Screen:
-       latest 5 sensor rows.
-
-       Print:
-       selected number of sensor rows.
-    */
 
     if (
         recordLimit !== "all"
@@ -3380,19 +3335,9 @@ function prepareCloneForPrinting(
 
 function openStandalonePrintWindow() {
 
-    /*
-       Determine how many records the user
-       wants to print.
-    */
-
     printRecordLimit =
         getSelectedPrintLimit();
 
-
-    /*
-       Generate the report using the selected
-       print amount.
-    */
 
     generateReport(
         printRecordLimit
@@ -3433,9 +3378,6 @@ function openStandalonePrintWindow() {
             "Please allow pop-ups for HYDROSMART to print the report."
         );
 
-        /*
-           Restore screen.
-        */
 
         generateReport(
             SCREEN_RECORD_LIMIT
@@ -3455,10 +3397,6 @@ function openStandalonePrintWindow() {
     );
 
 
-    /*
-       Copy page styles.
-    */
-
     const styles =
         Array.from(
             document.querySelectorAll(
@@ -3471,10 +3409,6 @@ function openStandalonePrintWindow() {
         )
         .join("\n");
 
-
-    /*
-       Extra print CSS.
-    */
 
     const printStyles = `
 
@@ -3753,10 +3687,6 @@ function openStandalonePrintWindow() {
             }
 
 
-            /*
-               Hide non-report interface.
-            */
-
             .reports-page-header,
             .reports-toolbar,
             .reports-filters,
@@ -3771,11 +3701,6 @@ function openStandalonePrintWindow() {
 
             }
 
-
-            /*
-               Preserve section visibility
-               selected by Report Type.
-            */
 
             [style*="display: none"] {
 
@@ -3848,10 +3773,6 @@ function openStandalonePrintWindow() {
     `;
 
 
-    /*
-       Build print document.
-    */
-
     printWindow.document.open();
 
 
@@ -3898,10 +3819,6 @@ function openStandalonePrintWindow() {
 
     printWindow.document.close();
 
-
-    /*
-       Wait for fonts and images.
-    */
 
     printWindow.addEventListener(
         "load",
@@ -3989,10 +3906,6 @@ function openStandalonePrintWindow() {
     );
 
 
-    /*
-       Close print window.
-    */
-
     printWindow.addEventListener(
         "afterprint",
         () => {
@@ -4002,9 +3915,6 @@ function openStandalonePrintWindow() {
 
                     printWindow.close();
 
-                    /*
-                       Restore screen to latest 5.
-                    */
 
                     generateReport(
                         SCREEN_RECORD_LIMIT
@@ -4101,10 +4011,6 @@ function exportExcel() {
     csv +=
         "Date,Time,Sensor,Reading,Status\n";
 
-
-    /*
-       Export sensor data PER ROW.
-    */
 
     const sensorRows =
         flattenSensorRecords(
@@ -4442,6 +4348,30 @@ async function initializeFirebaseReports() {
 document.addEventListener(
     "DOMContentLoaded",
     () => {
+
+        /* =========================================
+           START REPORTS SKELETON
+           UI ONLY
+        ========================================== */
+
+        document.body.classList.add(
+            "reports-page-loading"
+        );
+
+
+        /*
+           Skeleton automatically disappears
+           after 1500ms.
+
+           This timer is independent from
+           Firebase/report functionality.
+        */
+
+        setTimeout(
+            hideReportsSkeleton,
+            REPORTS_SKELETON_DURATION
+        );
+
 
         const today =
             getToday();

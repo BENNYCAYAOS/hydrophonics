@@ -1,8 +1,3 @@
-// =========================================================
-// HYDROSMART ANALYTICS
-// FIREBASE REAL-TIME ANALYTICS
-// CONNECTED TO ALERTS DATA
-// =========================================================
 
 import {
     ref,
@@ -16,19 +11,227 @@ import {
 
 
 // =========================================================
+// ANALYTICS SKELETON LOADING
+// =========================================================
+
+const ANALYTICS_MIN_LOADING_TIME = 1500;
+
+let analyticsLoadingStartedAt = Date.now();
+
+let analyticsFirebaseReady = false;
+
+let analyticsSensorReady = false;
+
+let analyticsLogsReady = false;
+
+let analyticsAlertsReady = false;
+
+let analyticsLoadingFinished = false;
+
+
+// =========================================================
+// START ANALYTICS SKELETON
+// =========================================================
+
+function startAnalyticsSkeleton() {
+
+    analyticsLoadingStartedAt = Date.now();
+
+    analyticsFirebaseReady = false;
+
+    analyticsSensorReady = false;
+
+    analyticsLogsReady = false;
+
+    analyticsAlertsReady = false;
+
+    analyticsLoadingFinished = false;
+
+
+    const analyticsPage =
+        document.querySelector(".analytics-page");
+
+
+    if (analyticsPage) {
+
+        analyticsPage.classList.add(
+            "analytics-loading"
+        );
+
+    }
+
+
+    document.body.classList.add(
+        "analytics-page-loading"
+    );
+
+
+    const analyticsHeader =
+        document.querySelector(".analytics-header");
+
+
+    if (analyticsHeader) {
+
+        analyticsHeader.classList.add(
+            "analytics-header-loading"
+        );
+
+    }
+
+
+    console.log(
+        "Analytics skeleton loading started."
+    );
+
+}
+
+
+// =========================================================
+// CHECK ANALYTICS LOADING
+// =========================================================
+
+function checkAnalyticsLoading() {
+
+    if (analyticsLoadingFinished) {
+
+        return;
+
+    }
+
+
+    const allFirebaseReady =
+        analyticsFirebaseReady &&
+        analyticsSensorReady &&
+        analyticsLogsReady &&
+        analyticsAlertsReady;
+
+
+    if (!allFirebaseReady) {
+
+        return;
+
+    }
+
+
+    const elapsed =
+        Date.now() -
+        analyticsLoadingStartedAt;
+
+
+    const remaining =
+        Math.max(
+            0,
+            ANALYTICS_MIN_LOADING_TIME -
+            elapsed
+        );
+
+
+    setTimeout(
+        finishAnalyticsSkeleton,
+        remaining
+    );
+
+}
+
+
+// =========================================================
+// FINISH ANALYTICS SKELETON
+// =========================================================
+
+function finishAnalyticsSkeleton() {
+
+    if (analyticsLoadingFinished) {
+
+        return;
+
+    }
+
+
+    analyticsLoadingFinished = true;
+
+
+    const analyticsPage =
+        document.querySelector(".analytics-page");
+
+
+    if (analyticsPage) {
+
+        analyticsPage.classList.remove(
+            "analytics-loading"
+        );
+
+    }
+
+
+    document.body.classList.remove(
+        "analytics-page-loading"
+    );
+
+
+    const analyticsHeader =
+        document.querySelector(".analytics-header");
+
+
+    if (analyticsHeader) {
+
+        analyticsHeader.classList.remove(
+            "analytics-header-loading"
+        );
+
+    }
+
+
+    console.log(
+        "Analytics skeleton loading finished."
+    );
+
+}
+
+
+// =========================================================
+// START SKELETON IMMEDIATELY
+// =========================================================
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        startAnalyticsSkeleton,
+        {
+            once: true
+        }
+    );
+
+}
+
+else {
+
+    startAnalyticsSkeleton();
+
+}
+
+
+// =========================================================
 // TARGET VALUES
 // =========================================================
 
 const EC_MIN = 1700;
+
 const EC_MAX = 2000;
 
 const PH_MIN = 5.5;
+
 const PH_MAX = 6.5;
 
 const TEMP_MIN = 18;
+
 const TEMP_MAX = 26;
 
 const WATER_LEVEL_NORMAL = 60;
+
 const WATER_LEVEL_WARNING = 30;
 
 
@@ -236,24 +439,6 @@ const alertHistoryReference =
 
 // =========================================================
 // EXTRACT FIREBASE VALUE
-// =========================================================
-//
-// Supports:
-//
-// 1800
-//
-// OR
-//
-// {
-//     value: 1800
-// }
-//
-// OR
-//
-// {
-//     reading: 1800
-// }
-//
 // =========================================================
 
 function extractSensorValue(data) {
@@ -1082,12 +1267,14 @@ function updatePerformance() {
 
         }
 
+
         if (warningPercent) {
 
             warningPercent.textContent =
                 "0%";
 
         }
+
 
         if (criticalPercent) {
 
@@ -1108,9 +1295,11 @@ function updatePerformance() {
                     0
                 ];
 
+
             performanceChart.update();
 
         }
+
 
         return;
 
@@ -1197,6 +1386,33 @@ function startSensorListeners() {
     );
 
 
+    let phLoaded = false;
+
+    let ecLoaded = false;
+
+    let temperatureLoaded = false;
+
+    let waterLevelLoaded = false;
+
+
+    function checkSensorReady() {
+
+        if (
+            phLoaded &&
+            ecLoaded &&
+            temperatureLoaded &&
+            waterLevelLoaded
+        ) {
+
+            analyticsSensorReady = true;
+
+            checkAnalyticsLoading();
+
+        }
+
+    }
+
+
     // =====================================================
     // pH
     // =====================================================
@@ -1245,9 +1461,14 @@ function startSensorListeners() {
             );
 
 
+            phLoaded = true;
+
+
             updateSummary();
 
             updatePerformance();
+
+            checkSensorReady();
 
         },
 
@@ -1308,9 +1529,14 @@ function startSensorListeners() {
             );
 
 
+            ecLoaded = true;
+
+
             updateSummary();
 
             updatePerformance();
+
+            checkSensorReady();
 
         },
 
@@ -1358,9 +1584,14 @@ function startSensorListeners() {
             );
 
 
+            temperatureLoaded = true;
+
+
             updateSummary();
 
             updatePerformance();
+
+            checkSensorReady();
 
         },
 
@@ -1424,9 +1655,14 @@ function startSensorListeners() {
             );
 
 
+            waterLevelLoaded = true;
+
+
             updateSummary();
 
             updatePerformance();
+
+            checkSensorReady();
 
         },
 
@@ -1474,6 +1710,10 @@ function startLogsListener() {
             if (!data) {
 
                 updatePumpUsage();
+
+                analyticsLogsReady = true;
+
+                checkAnalyticsLoading();
 
                 return;
 
@@ -1540,6 +1780,11 @@ function startLogsListener() {
 
             updatePumpUsage();
 
+
+            analyticsLogsReady = true;
+
+            checkAnalyticsLoading();
+
         },
 
         error => {
@@ -1591,6 +1836,10 @@ function startAlertHistoryListener() {
 
                 updateAlertUsage();
 
+                analyticsAlertsReady = true;
+
+                checkAnalyticsLoading();
+
                 return;
 
             }
@@ -1619,7 +1868,8 @@ function startAlertHistoryListener() {
                     // =================================================
 
                     if (
-                        sensor === "pH".toLowerCase() ||
+                        sensor ===
+                        "pH".toLowerCase() ||
                         sensor.includes("ph")
                     ) {
 
@@ -1689,6 +1939,11 @@ function startAlertHistoryListener() {
 
 
             updateAlertUsage();
+
+
+            analyticsAlertsReady = true;
+
+            checkAnalyticsLoading();
 
         },
 
@@ -1824,6 +2079,9 @@ function startFirebaseListeners() {
     console.log(
         "========================================"
     );
+
+
+    analyticsFirebaseReady = true;
 
 
     startSensorListeners();
@@ -1988,3 +2246,4 @@ console.log(
 console.log(
     "========================================"
 );
+

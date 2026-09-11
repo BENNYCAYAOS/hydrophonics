@@ -17,6 +17,16 @@
 // AUTOMATIC DOSING IS NOT EXECUTED IN THE BROWSER.
 //
 // =========================================================
+//
+// UI ADDITION:
+// COMPLETE CONTROL PANEL SKELETON LOADING
+//
+// Skeleton is UI-only.
+// It does NOT change pump logic, dosing logic,
+// Firebase paths, calibration calculations,
+// or ESP32 authority.
+//
+// =========================================================
 
 
 import {
@@ -34,14 +44,250 @@ import {
 
 
 // =========================================================
+// CONTROL SKELETON LOADING
+// =========================================================
+
+const CONTROL_MIN_LOADING_TIME = 1500;
+
+let controlLoadingStartedAt = Date.now();
+
+let controlFirebaseReady = false;
+let controlECReady = false;
+let controlPHReady = false;
+let controlModeReady = false;
+let controlPumpsReady = false;
+let controlCalibrationReady = false;
+let controlLogsReady = false;
+
+let controlLoadingFinished = false;
+
+
+// =========================================================
+// START CONTROL SKELETON
+// =========================================================
+
+function startControlSkeleton() {
+
+    controlLoadingStartedAt =
+        Date.now();
+
+    controlFirebaseReady = false;
+    controlECReady = false;
+    controlPHReady = false;
+    controlModeReady = false;
+    controlPumpsReady = false;
+    controlCalibrationReady = false;
+    controlLogsReady = false;
+
+    controlLoadingFinished = false;
+
+
+    document.body.classList.add(
+        "control-page-loading"
+    );
+
+
+    const controlPage =
+        document.querySelector(
+            ".control-page"
+        );
+
+
+    if (controlPage) {
+
+        controlPage.classList.add(
+            "control-loading"
+        );
+
+    }
+
+
+    const header =
+        document.querySelector(
+            ".control-dashboard-header"
+        );
+
+
+    if (header) {
+
+        header.classList.add(
+            "control-header-loading"
+        );
+
+    }
+
+}
+
+
+// =========================================================
+// CHECK CONTROL LOADING
+// =========================================================
+
+function checkControlLoading() {
+
+    if (
+        controlLoadingFinished
+    ) {
+
+        return;
+
+    }
+
+
+    const allReady =
+        controlFirebaseReady &&
+        controlECReady &&
+        controlPHReady &&
+        controlModeReady &&
+        controlPumpsReady &&
+        controlCalibrationReady &&
+        controlLogsReady;
+
+
+    if (!allReady) {
+
+        return;
+
+    }
+
+
+    const elapsed =
+        Date.now() -
+        controlLoadingStartedAt;
+
+
+    const remaining =
+        Math.max(
+            0,
+            CONTROL_MIN_LOADING_TIME -
+            elapsed
+        );
+
+
+    if (remaining > 0) {
+
+        setTimeout(
+            finishControlSkeleton,
+            remaining
+        );
+
+        return;
+
+    }
+
+
+    finishControlSkeleton();
+
+}
+
+
+// =========================================================
+// FINISH CONTROL SKELETON
+// =========================================================
+
+function finishControlSkeleton() {
+
+    if (
+        controlLoadingFinished
+    ) {
+
+        return;
+
+    }
+
+
+    controlLoadingFinished = true;
+
+
+    document.body.classList.remove(
+        "control-page-loading"
+    );
+
+
+    const controlPage =
+        document.querySelector(
+            ".control-page"
+        );
+
+
+    if (controlPage) {
+
+        controlPage.classList.remove(
+            "control-loading"
+        );
+
+    }
+
+
+    const header =
+        document.querySelector(
+            ".control-dashboard-header"
+        );
+
+
+    if (header) {
+
+        header.classList.remove(
+            "control-header-loading"
+        );
+
+    }
+
+
+    console.log(
+        "Control Panel skeleton loading finished."
+    );
+
+}
+
+
+// =========================================================
+// START SKELETON AS EARLY AS POSSIBLE
+// =========================================================
+
+if (
+    document.readyState === "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        startControlSkeleton,
+        {
+            once: true
+        }
+    );
+
+}
+else {
+
+    startControlSkeleton();
+
+}
+
+
+// =========================================================
 // START
 // =========================================================
 
-console.log("=================================");
-console.log("HYDROSMART CONTROL PANEL");
-console.log("Firebase connection starting...");
-console.log("ESP32 AUTOMATIC DOSING AUTHORITY");
-console.log("=================================");
+console.log(
+    "================================="
+);
+
+console.log(
+    "HYDROSMART CONTROL PANEL"
+);
+
+console.log(
+    "Firebase connection starting..."
+);
+
+console.log(
+    "ESP32 AUTOMATIC DOSING AUTHORITY"
+);
+
+console.log(
+    "================================="
+);
 
 
 // =========================================================
@@ -372,6 +618,11 @@ console.log(
 );
 
 
+controlFirebaseReady = !!database;
+
+checkControlLoading();
+
+
 // =========================================================
 // EC LISTENER
 // =========================================================
@@ -394,10 +645,17 @@ onValue(
             ec = null;
 
             if (ecValueElement) {
-                ecValueElement.textContent = "--";
+
+                ecValueElement.textContent =
+                    "--";
+
             }
 
             updateStatus();
+
+            controlECReady = true;
+
+            checkControlLoading();
 
             return;
 
@@ -417,10 +675,17 @@ onValue(
             ec = null;
 
             if (ecValueElement) {
-                ecValueElement.textContent = "--";
+
+                ecValueElement.textContent =
+                    "--";
+
             }
 
             updateStatus();
+
+            controlECReady = true;
+
+            checkControlLoading();
 
             return;
 
@@ -443,6 +708,11 @@ onValue(
 
         updateStatus();
 
+
+        controlECReady = true;
+
+        checkControlLoading();
+
     },
 
     (error) => {
@@ -455,10 +725,20 @@ onValue(
         ec = null;
 
         if (ecValueElement) {
-            ecValueElement.textContent = "--";
+
+            ecValueElement.textContent =
+                "--";
+
         }
 
         updateStatus();
+
+
+        // Prevent skeleton from being stuck forever.
+
+        controlECReady = true;
+
+        checkControlLoading();
 
     }
 
@@ -487,10 +767,17 @@ onValue(
             ph = null;
 
             if (phValueElement) {
-                phValueElement.textContent = "--";
+
+                phValueElement.textContent =
+                    "--";
+
             }
 
             updateStatus();
+
+            controlPHReady = true;
+
+            checkControlLoading();
 
             return;
 
@@ -510,10 +797,17 @@ onValue(
             ph = null;
 
             if (phValueElement) {
-                phValueElement.textContent = "--";
+
+                phValueElement.textContent =
+                    "--";
+
             }
 
             updateStatus();
+
+            controlPHReady = true;
+
+            checkControlLoading();
 
             return;
 
@@ -540,6 +834,11 @@ onValue(
 
         updateStatus();
 
+
+        controlPHReady = true;
+
+        checkControlLoading();
+
     },
 
     (error) => {
@@ -552,10 +851,20 @@ onValue(
         ph = null;
 
         if (phValueElement) {
-            phValueElement.textContent = "--";
+
+            phValueElement.textContent =
+                "--";
+
         }
 
         updateStatus();
+
+
+        // Prevent skeleton from being stuck forever.
+
+        controlPHReady = true;
+
+        checkControlLoading();
 
     }
 
@@ -772,7 +1081,9 @@ function updateCalibrationRuntimePreview() {
     input => {
 
         if (!input) {
+
             return;
+
         }
 
         input.addEventListener(
@@ -809,6 +1120,10 @@ async function loadCalibration() {
             setCalibrationStatus(
                 "Not configured"
             );
+
+            controlCalibrationReady = true;
+
+            checkControlLoading();
 
             return;
 
@@ -914,6 +1229,11 @@ async function loadCalibration() {
             "Calibration loaded"
         );
 
+
+        controlCalibrationReady = true;
+
+        checkControlLoading();
+
     }
 
     catch (error) {
@@ -927,6 +1247,13 @@ async function loadCalibration() {
         setCalibrationStatus(
             "Load failed"
         );
+
+
+        // Prevent skeleton from being stuck forever.
+
+        controlCalibrationReady = true;
+
+        checkControlLoading();
 
     }
 
@@ -1278,7 +1605,9 @@ function showCalibrationMessage(
 ) {
 
     if (!calibrationMessage) {
+
         return;
+
     }
 
 
@@ -1413,12 +1742,9 @@ function updatePumpUI(
 // =========================================================
 // PUMP FIREBASE LISTENERS
 // =========================================================
-//
-// IMPORTANT:
-// This allows the Control Panel to see pump activity
-// initiated by the ESP32.
-//
-// =========================================================
+
+let controlPumpReadyCount = 0;
+
 
 pumps.forEach(
 
@@ -1445,6 +1771,21 @@ pumps.forEach(
                     state
                 );
 
+
+                controlPumpReadyCount++;
+
+
+                if (
+                    controlPumpReadyCount >=
+                    pumps.length
+                ) {
+
+                    controlPumpsReady = true;
+
+                    checkControlLoading();
+
+                }
+
             },
 
             error => {
@@ -1453,6 +1794,21 @@ pumps.forEach(
                     `Pump listener error: ${pump.id}`,
                     error
                 );
+
+
+                controlPumpReadyCount++;
+
+
+                if (
+                    controlPumpReadyCount >=
+                    pumps.length
+                ) {
+
+                    controlPumpsReady = true;
+
+                    checkControlLoading();
+
+                }
 
             }
 
@@ -1482,7 +1838,9 @@ async function saveSystemLog(
 
 
     if (!pump) {
+
         return;
+
     }
 
 
@@ -1573,7 +1931,9 @@ async function setPump(
 
 
     if (!pumpReference) {
+
         return false;
+
     }
 
 
@@ -1697,7 +2057,9 @@ pumps.forEach(
 
 
         if (!sw) {
+
             return;
+
         }
 
 
@@ -1770,7 +2132,9 @@ function enableManualPumps() {
 
 
             if (!sw) {
+
                 return;
+
             }
 
 
@@ -1816,7 +2180,9 @@ function disableManualPumps() {
 
 
             if (!sw) {
+
                 return;
+
             }
 
 
@@ -1874,6 +2240,11 @@ onValue(
 
         }
 
+
+        controlModeReady = true;
+
+        checkControlLoading();
+
     },
 
     error => {
@@ -1882,6 +2253,11 @@ onValue(
             "Dosing mode listener error:",
             error
         );
+
+
+        controlModeReady = true;
+
+        checkControlLoading();
 
     }
 
@@ -2077,7 +2453,13 @@ onValue(
     snapshot => {
 
         if (!logsTableBody) {
+
+            controlLogsReady = true;
+
+            checkControlLoading();
+
             return;
+
         }
 
 
@@ -2108,6 +2490,10 @@ onValue(
                 row
             );
 
+
+            controlLogsReady = true;
+
+            checkControlLoading();
 
             return;
 
@@ -2175,6 +2561,11 @@ onValue(
             }
         );
 
+
+        controlLogsReady = true;
+
+        checkControlLoading();
+
     },
 
     error => {
@@ -2183,6 +2574,11 @@ onValue(
             "Firebase logs READ ERROR:",
             error
         );
+
+
+        controlLogsReady = true;
+
+        checkControlLoading();
 
     }
 
@@ -2207,31 +2603,11 @@ updateCalibrationRuntimePreview();
 // disable automatic dosing every time the page is refreshed.
 //
 // =========================================================
-
-onValue(
-
-    dosingModeReference,
-
-    snapshot => {
-
-        const mode =
-            snapshot.val();
-
-
-        if (
-            mode === "automatic" ||
-            mode === "manual"
-        ) {
-
-            applyDosingModeUI(
-                mode
-            );
-
-        }
-
-    }
-
-);
+//
+// NOTE:
+// The main dosing mode listener above handles the current
+// Firebase mode and loading readiness.
+// =========================================================
 
 
 // =========================================================
@@ -2264,6 +2640,11 @@ console.log(
 
 console.log(
     "Logs path: /logs"
+);
+
+console.log(
+    "Skeleton minimum loading:",
+    `${CONTROL_MIN_LOADING_TIME}ms`
 );
 
 console.log(

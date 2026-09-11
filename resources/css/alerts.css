@@ -541,19 +541,16 @@
 
     0% {
         opacity: 1;
-
         transform: scale(1);
     }
 
     50% {
         opacity: 0.45;
-
         transform: scale(0.8);
     }
 
     100% {
         opacity: 1;
-
         transform: scale(1);
     }
 
@@ -831,7 +828,6 @@
 
 /* =====================================================
    ALERT HISTORY
-   FULL COLORED TABLE CONTAINER
 ===================================================== */
 
 .alert-table-wrapper {
@@ -850,10 +846,6 @@
 }
 
 
-/* =====================================================
-   ALERT HISTORY TABLE
-===================================================== */
-
 .alert-table {
     width: 100%;
 
@@ -868,10 +860,6 @@
     background: #e8f7f5 !important;
 }
 
-
-/* =====================================================
-   TABLE HEADER
-===================================================== */
 
 .alert-table th {
     padding: 12px;
@@ -894,10 +882,6 @@
 }
 
 
-/* =====================================================
-   TABLE DATA
-===================================================== */
-
 .alert-table td {
     padding: 12px;
 
@@ -911,11 +895,6 @@
 }
 
 
-/* =====================================================
-   ALL HISTORY ROWS
-   UNIFORM BACKGROUND COLOR
-===================================================== */
-
 .alert-table tbody tr {
     background: #e8f7f5 !important;
 }
@@ -927,11 +906,6 @@
     color: #334155;
 }
 
-
-/* =====================================================
-   REMOVE OLD ROW COLORS
-   ALL HISTORY ROWS SAME COLOR
-===================================================== */
 
 .alert-table .history-critical,
 .alert-table .history-warning,
@@ -949,10 +923,6 @@
 }
 
 
-/* =====================================================
-   TABLE ROW HOVER
-===================================================== */
-
 .alert-table tbody tr:hover td {
     background: #d8f1ee !important;
 
@@ -960,10 +930,6 @@
         background-color 0.2s ease;
 }
 
-
-/* =====================================================
-   TABLE FIRST ROW / HEADER
-===================================================== */
 
 .alert-table thead tr:first-child th:first-child {
     border-top-left-radius: 12px;
@@ -974,10 +940,6 @@
     border-top-right-radius: 12px;
 }
 
-
-/* =====================================================
-   TABLE LAST ROW
-===================================================== */
 
 .alert-table tbody tr:last-child td:first-child {
     border-bottom-left-radius: 12px;
@@ -991,7 +953,6 @@
 
 /* =====================================================
    SEVERITY — CRITICAL
-   RED BADGE ONLY
 ===================================================== */
 
 .alert-table .severity-critical {
@@ -1044,7 +1005,6 @@
 
 /* =====================================================
    SEVERITY — WARNING
-   YELLOW BADGE ONLY
 ===================================================== */
 
 .alert-table .severity-warning {
@@ -1097,7 +1057,6 @@
 
 /* =====================================================
    SEVERITY — NORMAL
-   GREEN BADGE ONLY
 ===================================================== */
 
 .alert-table .severity-normal {
@@ -1255,7 +1214,6 @@
 
 /* =====================================================
    MOBILE CONTENT
-   3 ALERT SUMMARY CARDS STAY HORIZONTAL
 ===================================================== */
 
 @media (max-width: 900px) {
@@ -1535,9 +1493,7 @@
     }
 
 
-    /* ================================================
-       ALERT SUMMARY
-    ================================================ */
+    /* ALERT SUMMARY */
 
     .alert-summary-grid {
 
@@ -1600,9 +1556,7 @@
     }
 
 
-    /* ================================================
-       HISTORY TABLE
-    ================================================ */
+    /* HISTORY TABLE */
 
     .alert-table-wrapper {
 
@@ -1714,10 +1668,7 @@
     }
 
 
-    /* ================================================
-       ALERT SUMMARY
-       3 CARDS — STILL HORIZONTAL
-    ================================================ */
+    /* ALERT SUMMARY */
 
     .alert-summary-grid {
 
@@ -1794,9 +1745,7 @@
     }
 
 
-    /* ================================================
-       HISTORY TABLE
-    ================================================ */
+    /* HISTORY TABLE */
 
     .alert-table-wrapper {
 
@@ -1838,9 +1787,7 @@
     }
 
 
-    /* ================================================
-       HISTORY SEVERITY
-    ================================================ */
+    /* HISTORY SEVERITY */
 
     .alert-table .severity-critical,
     .alert-table .severity-warning,
@@ -1863,6 +1810,1081 @@
         height: 5px;
 
         margin-right: 2px;
+    }
+
+}
+
+
+/* =========================================================
+   ALERTS SKELETON LOADING
+   UI ONLY
+========================================================= */
+
+@keyframes alertsSkeletonShimmer {
+
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+
+}
+
+
+/* =========================================================
+   HEADER SKELETON
+========================================================= */
+
+.alerts-page-loading .dashboard-header {
+    pointer-events: none;
+}
+
+
+.alerts-page-loading .dashboard-eyebrow {
+
+    width: 90px;
+
+    height: 9px;
+
+    margin-bottom: 5px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .dashboard-header h1 {
+
+    width: 155px;
+
+    height: 25px;
+
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .dashboard-header p:last-child {
+
+    width: 230px;
+
+    height: 10px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .dashboard-live {
+
+    width: 100px;
+
+    height: 25px;
+
+    padding: 0;
+
+    border-color: transparent;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .dashboard-live span {
+
+    background: transparent;
+
+    box-shadow: none;
+
+}
+
+
+/* =========================================================
+   SUMMARY CARD SKELETON
+========================================================= */
+
+.alerts-page-loading .alert-summary-card {
+
+    pointer-events: none;
+
+}
+
+
+.alerts-page-loading .alert-summary-label {
+
+    width: 90px;
+
+    height: 14px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-summary-number {
+
+    width: 45px;
+
+    height: 30px;
+
+    margin-top: 7px;
+
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-summary-description {
+
+    width: 135px;
+
+    height: 10px;
+
+    margin-top: 12px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-summary-icon {
+
+    border-color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+}
+
+
+.alerts-page-loading
+.alert-summary-icon
+.material-icons {
+
+    opacity: 0;
+
+}
+
+
+/* =========================================================
+   SECTION HEADER SKELETON
+========================================================= */
+
+.alerts-page-loading
+.alert-section-title h2 {
+
+    width: 150px;
+
+    height: 19px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading
+.alert-section-title p {
+
+    width: 220px;
+
+    height: 11px;
+
+    margin-top: 6px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-live {
+
+    width: 75px;
+
+    height: 24px;
+
+    padding: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-live-dot {
+
+    opacity: 0;
+
+}
+
+
+/* =========================================================
+   CURRENT ALERT CARD SKELETON
+========================================================= */
+
+.alerts-page-loading .alert-card {
+
+    pointer-events: none;
+
+    border-left-color: #e5e7eb !important;
+
+    background: #f8fafc !important;
+}
+
+
+.alerts-page-loading .alert-card-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+}
+
+
+.alerts-page-loading
+.alert-card-icon
+.material-icons {
+
+    opacity: 0;
+
+}
+
+
+.alerts-page-loading .alert-card-title {
+
+    width: 125px;
+
+    height: 15px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-card-description {
+
+    width: 200px;
+
+    height: 10px;
+
+    margin-top: 6px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading
+.alert-card
+.alert-severity {
+
+    width: 60px;
+
+    height: 18px;
+
+    padding: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-value-label {
+
+    display: block;
+
+    width: 95px;
+
+    height: 10px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-value {
+
+    width: 105px;
+
+    height: 15px;
+
+    margin-top: 5px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-action {
+
+    background: #f8fafc !important;
+
+    border-color: #e5e7eb !important;
+}
+
+
+.alerts-page-loading .alert-action-title {
+
+    width: 45px;
+
+    height: 10px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-action-text {
+
+    width: 85%;
+
+    height: 10px;
+
+    margin-top: 7px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+/* =========================================================
+   HISTORY TABLE SKELETON
+========================================================= */
+
+.alerts-page-loading .alert-table-wrapper {
+
+    pointer-events: none;
+
+    background: #f8fafc !important;
+
+    border-color: #e5e7eb !important;
+}
+
+
+.alerts-page-loading .alert-table {
+
+    background: #f8fafc !important;
+}
+
+
+.alerts-page-loading .alert-table th {
+
+    background: #f1f5f9 !important;
+
+    color: transparent !important;
+
+    border-color: #e5e7eb !important;
+}
+
+
+.alerts-page-loading .alert-table td {
+
+    background: #f8fafc !important;
+
+    border-color: #e5e7eb !important;
+
+    color: transparent !important;
+}
+
+
+/*
+   When the JS has not yet inserted history,
+   create visible skeleton area.
+*/
+
+.alerts-page-loading
+#alertHistoryBody:empty {
+
+    min-height: 180px;
+
+}
+
+
+.alerts-page-loading
+.alert-table th::after {
+
+    content: "";
+
+    display: block;
+
+    width: 65%;
+
+    height: 9px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+}
+
+
+/* =========================================================
+   INFORMATION SKELETON
+========================================================= */
+
+.alerts-page-loading .alert-information {
+
+    pointer-events: none;
+
+    background: #f8fafc !important;
+
+    border-color: #e5e7eb !important;
+}
+
+
+.alerts-page-loading .alert-information-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+}
+
+
+.alerts-page-loading
+.alert-information-icon
+.material-icons {
+
+    opacity: 0;
+
+}
+
+
+.alerts-page-loading .alert-information h3 {
+
+    width: 180px;
+
+    height: 14px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+.alerts-page-loading .alert-information p {
+
+    width: 90%;
+
+    height: 10px;
+
+    margin-top: 7px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        alertsSkeletonShimmer
+        1.4s
+        linear
+        infinite;
+
+    color: transparent !important;
+}
+
+
+/* =========================================================
+   DISABLE HOVER WHILE LOADING
+========================================================= */
+
+.alerts-page-loading
+.alert-summary-card:hover {
+
+    transform: none;
+
+}
+
+
+.alerts-page-loading
+.alert-card:hover {
+
+    transform: none;
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .alerts-page-loading
+    .dashboard-eyebrow,
+
+    .alerts-page-loading
+    .dashboard-header h1,
+
+    .alerts-page-loading
+    .dashboard-header p:last-child,
+
+    .alerts-page-loading
+    .dashboard-live,
+
+    .alerts-page-loading
+    .alert-summary-label,
+
+    .alerts-page-loading
+    .alert-summary-number,
+
+    .alerts-page-loading
+    .alert-summary-description,
+
+    .alerts-page-loading
+    .alert-summary-icon,
+
+    .alerts-page-loading
+    .alert-section-title h2,
+
+    .alerts-page-loading
+    .alert-section-title p,
+
+    .alerts-page-loading
+    .alert-live,
+
+    .alerts-page-loading
+    .alert-card-icon,
+
+    .alerts-page-loading
+    .alert-card-title,
+
+    .alerts-page-loading
+    .alert-card-description,
+
+    .alerts-page-loading
+    .alert-card .alert-severity,
+
+    .alerts-page-loading
+    .alert-value-label,
+
+    .alerts-page-loading
+    .alert-value,
+
+    .alerts-page-loading
+    .alert-action-title,
+
+    .alerts-page-loading
+    .alert-action-text,
+
+    .alerts-page-loading
+    .alert-information-icon,
+
+    .alerts-page-loading
+    .alert-information h3,
+
+    .alerts-page-loading
+    .alert-information p {
+
+        animation: none !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE SKELETON
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .alerts-page-loading
+    .dashboard-eyebrow {
+
+        width: 70px;
+
+        height: 8px;
+
+    }
+
+
+    .alerts-page-loading
+    .dashboard-header h1 {
+
+        width: 125px;
+
+        height: 20px;
+
+    }
+
+
+    .alerts-page-loading
+    .dashboard-header p:last-child {
+
+        width: 170px;
+
+        height: 8px;
+
+    }
+
+
+    .alerts-page-loading
+    .dashboard-live {
+
+        width: 82px;
+
+        height: 22px;
+
+    }
+
+
+    .alerts-page-loading
+    .alert-summary-label {
+
+        width: 65px;
+
+        height: 11px;
+
+    }
+
+
+    .alerts-page-loading
+    .alert-summary-number {
+
+        width: 35px;
+
+        height: 24px;
+
+    }
+
+
+    .alerts-page-loading
+    .alert-summary-description {
+
+        width: 90px;
+
+        height: 8px;
+
+    }
+
+
+    .alerts-page-loading
+    .alert-card-title {
+
+        width: 105px;
+
+        height: 14px;
+
+    }
+
+
+    .alerts-page-loading
+    .alert-card-description {
+
+        width: 160px;
+
+        height: 9px;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .alerts-page-loading
+    .dashboard-header h1 {
+
+        width: 110px;
+
+        height: 18px;
+
+    }
+
+
+    .alerts-page-loading
+    .dashboard-header p:last-child {
+
+        width: 145px;
+
+        height: 7px;
+
+    }
+
+
+    .alerts-page-loading
+    .dashboard-live {
+
+        width: 70px;
+
+        height: 20px;
+
+    }
+
+
+    .alerts-page-loading
+    .alert-summary-number {
+
+        width: 30px;
+
+        height: 21px;
+
+    }
+
+
+    .alerts-page-loading
+    .alert-summary-description {
+
+        width: 70px;
+
+        height: 7px;
+
     }
 
 }

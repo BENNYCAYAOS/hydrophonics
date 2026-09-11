@@ -1,7 +1,7 @@
-```css
 /* =========================================================
    HYDROSMART - SYSTEM STATUS
    COMPACT + COLORFUL + RESPONSIVE
+   + COMPLETE SKELETON LOADING
 ========================================================= */
 
 .system-status-page {
@@ -670,7 +670,6 @@
 
 /* =========================================================
    pH SENSOR
-   PURPLE
 ========================================================= */
 
 .health-card:nth-child(1) {
@@ -696,7 +695,6 @@
 
 /* =========================================================
    EC SENSOR
-   BLUE
 ========================================================= */
 
 .health-card:nth-child(2) {
@@ -722,7 +720,6 @@
 
 /* =========================================================
    WATER TEMPERATURE
-   ORANGE
 ========================================================= */
 
 .health-card:nth-child(3) {
@@ -748,7 +745,6 @@
 
 /* =========================================================
    WATER LEVEL
-   TEAL
 ========================================================= */
 
 .health-card:nth-child(4) {
@@ -1091,10 +1087,6 @@
 }
 
 
-/* =========================================================
-   DEVICE RESOURCE CARD
-========================================================= */
-
 .power-card {
     display: flex;
 
@@ -1121,10 +1113,6 @@
 }
 
 
-/* =========================================================
-   DEVICE RESOURCE ICON
-========================================================= */
-
 .power-card > .material-icons {
     display: flex !important;
 
@@ -1134,15 +1122,11 @@
     flex: 0 0 44px !important;
 
     width: 44px !important;
-
     min-width: 44px !important;
-
     max-width: 44px !important;
 
     height: 44px !important;
-
     min-height: 44px !important;
-
     max-height: 44px !important;
 
     box-sizing: border-box !important;
@@ -1163,9 +1147,7 @@
 }
 
 
-/* =========================================================
-   SENSOR MONITORING
-========================================================= */
+/* SENSOR MONITORING */
 
 .power-card:nth-child(1) > .material-icons {
     background: #dbeafe;
@@ -1180,9 +1162,7 @@
 }
 
 
-/* =========================================================
-   DOSING PUMPS
-========================================================= */
+/* DOSING PUMPS */
 
 .power-card:nth-child(2) > .material-icons {
     background: #d1fae5;
@@ -1199,9 +1179,7 @@
 }
 
 
-/* =========================================================
-   MAIN TANK
-========================================================= */
+/* MAIN TANK */
 
 .power-card:nth-child(3) > .material-icons {
     background: #ccfbf1;
@@ -1216,9 +1194,7 @@
 }
 
 
-/* =========================================================
-   DEVICE RESOURCE TEXT
-========================================================= */
+/* DEVICE RESOURCE TEXT */
 
 .power-card > div {
     min-width: 0;
@@ -1261,9 +1237,7 @@
 }
 
 
-/* =========================================================
-   DEVICE RESOURCE HOVER
-========================================================= */
+/* DEVICE RESOURCE HOVER */
 
 .power-card:hover {
     transform: translateY(-2px);
@@ -1317,7 +1291,6 @@
     flex: 0 0 40px;
 
     width: 40px;
-
     min-width: 40px;
 
     height: 40px;
@@ -1641,10 +1614,6 @@
     }
 
 
-    /* ---------------------------------------------
-       TWO COLUMN COMPACT CARDS
-    --------------------------------------------- */
-
     .system-info-grid,
     .health-grid,
     .tank-status-grid,
@@ -1734,10 +1703,6 @@
     }
 
 
-    /* ---------------------------------------------
-       PUMP STATUS
-    --------------------------------------------- */
-
     .pump-status-card {
         min-height: 68px;
 
@@ -1787,10 +1752,6 @@
     }
 
 
-    /* ---------------------------------------------
-       DOSING SUMMARY
-    --------------------------------------------- */
-
     .dosing-summary {
         grid-template-columns:
             repeat(3, minmax(0, 1fr));
@@ -1815,10 +1776,6 @@
         font-size: 12px;
     }
 
-
-    /* ---------------------------------------------
-       DEVICE RESOURCES
-    --------------------------------------------- */
 
     .power-card {
         min-height: 70px;
@@ -1882,10 +1839,6 @@
         font-size: 13px;
     }
 
-
-    /* ---------------------------------------------
-       SUMMARY
-    --------------------------------------------- */
 
     .summary-card {
         padding: 12px;
@@ -2119,6 +2072,1159 @@
 
     .summary-card strong {
         font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   SYSTEM STATUS
+   COMPLETE SKELETON LOADING
+========================================================= */
+
+/*
+    IMPORTANT:
+    Skeleton appears ONLY while:
+
+        body.system-status-page-loading
+
+    is present.
+
+    This means the normal System Status styling
+    remains untouched after loading.
+*/
+
+
+/* =========================================================
+   SKELETON SHIMMER ANIMATION
+========================================================= */
+
+@keyframes systemStatusSkeletonShimmer {
+
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+
+}
+
+
+/* =========================================================
+   COMMON SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.system-status-skeleton,
+body.system-status-page-loading
+.system-page-eyebrow,
+body.system-status-page-loading
+.system-page-header h1,
+body.system-status-page-loading
+.system-page-description,
+body.system-status-page-loading
+.system-live,
+body.system-status-page-loading
+.system-section-title h2,
+body.system-status-page-loading
+.system-section-title p,
+body.system-status-page-loading
+.system-badge,
+body.system-status-page-loading
+.health-badge,
+body.system-status-page-loading
+.system-info-label,
+body.system-status-page-loading
+.system-info-value,
+body.system-status-page-loading
+.system-info-description,
+body.system-status-page-loading
+.health-card h3,
+body.system-status-page-loading
+.health-card p,
+body.system-status-page-loading
+.health-card strong,
+body.system-status-page-loading
+.pump-status-content h3,
+body.system-status-page-loading
+.pump-status-content p,
+body.system-status-page-loading
+.pump-status-content strong,
+body.system-status-page-loading
+.dosing-summary span,
+body.system-status-page-loading
+.dosing-summary strong,
+body.system-status-page-loading
+.tank-status-card span,
+body.system-status-page-loading
+.tank-status-card strong,
+body.system-status-page-loading
+.power-card span:not(.material-icons),
+body.system-status-page-loading
+.power-card strong,
+body.system-status-page-loading
+.summary-card span,
+body.system-status-page-loading
+.summary-card strong {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        systemStatusSkeletonShimmer 1.5s ease-in-out infinite;
+
+    border-color: transparent !important;
+
+}
+
+
+/* =========================================================
+   HEADER SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.system-page-eyebrow {
+
+    width: 75px;
+
+    height: 9px;
+
+    margin-bottom: 4px;
+
+    border-radius: 4px;
+}
+
+
+body.system-status-page-loading
+.system-page-header h1 {
+
+    width: 180px;
+
+    height: 24px;
+
+    border-radius: 6px;
+}
+
+
+body.system-status-page-loading
+.system-page-description {
+
+    width: 280px;
+
+    height: 11px;
+
+    margin-top: 5px;
+
+    border-radius: 5px;
+}
+
+
+body.system-status-page-loading
+.system-live {
+
+    width: 100px;
+
+    height: 27px;
+
+    padding: 0;
+
+    border-radius: 999px;
+}
+
+
+body.system-status-page-loading
+.system-live-dot {
+
+    background: #e5e7eb !important;
+
+    box-shadow: none !important;
+
+    animation:
+        systemStatusSkeletonShimmer 1.5s ease-in-out infinite;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+}
+
+
+/* =========================================================
+   SECTION HEADER SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.system-section-title h2 {
+
+    width: 150px;
+
+    height: 19px;
+
+    border-radius: 5px;
+}
+
+
+body.system-status-page-loading
+.system-section-title p {
+
+    width: 220px;
+
+    height: 11px;
+
+    margin-top: 5px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   SECTION ICON SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.system-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    border-color: transparent !important;
+
+    animation:
+        systemStatusSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.system-status-page-loading
+.system-icon .material-icons {
+
+    color: transparent !important;
+}
+
+
+/* =========================================================
+   BADGE SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.system-badge,
+body.system-status-page-loading
+.health-badge {
+
+    min-width: 78px;
+
+    height: 24px;
+
+    padding: 0;
+
+    border-radius: 999px;
+}
+
+
+/* =========================================================
+   CONNECTIVITY CARD SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.system-info-card {
+
+    background:
+        rgba(255, 255, 255, .78);
+
+    border-color: #e5e7eb;
+
+    overflow: hidden;
+}
+
+
+body.system-status-page-loading
+.system-info-label {
+
+    width: 70px;
+
+    height: 11px;
+
+    border-radius: 4px;
+}
+
+
+body.system-status-page-loading
+.system-info-value {
+
+    width: 105px;
+
+    height: 22px;
+
+    margin-top: 7px;
+
+    border-radius: 5px;
+}
+
+
+body.system-status-page-loading
+.system-info-description {
+
+    width: 85%;
+
+    height: 10px;
+
+    margin-top: 6px;
+
+    border-radius: 4px;
+}
+
+
+/* =========================================================
+   SENSOR HEALTH CARD SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.health-card {
+
+    background: rgba(255, 255, 255, .80);
+
+    border-color: #e5e7eb;
+}
+
+
+body.system-status-page-loading
+.health-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    border-color: transparent !important;
+
+    animation:
+        systemStatusSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.system-status-page-loading
+.health-icon .material-icons {
+
+    color: transparent !important;
+}
+
+
+body.system-status-page-loading
+.health-card h3 {
+
+    width: 90px;
+
+    height: 15px;
+
+    border-radius: 5px;
+}
+
+
+body.system-status-page-loading
+.health-card p {
+
+    width: 120px;
+
+    height: 10px;
+
+    border-radius: 4px;
+}
+
+
+body.system-status-page-loading
+.health-card strong {
+
+    width: 80px;
+
+    height: 22px;
+
+    margin-top: 8px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   PUMP CARD SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.pump-status-card {
+
+    border-color: #e5e7eb;
+
+    background: rgba(255, 255, 255, .80);
+}
+
+
+body.system-status-page-loading
+.pump-status-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    border-color: transparent !important;
+
+    animation:
+        systemStatusSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.system-status-page-loading
+.pump-status-icon .material-icons {
+
+    color: transparent !important;
+}
+
+
+body.system-status-page-loading
+.pump-status-content h3 {
+
+    width: 115px;
+
+    height: 14px;
+
+    border-radius: 5px;
+}
+
+
+body.system-status-page-loading
+.pump-status-content p {
+
+    width: 95px;
+
+    height: 10px;
+
+    border-radius: 4px;
+}
+
+
+body.system-status-page-loading
+.pump-status-content strong {
+
+    display: block;
+
+    width: 55px;
+
+    height: 11px;
+
+    border-radius: 4px;
+}
+
+
+body.system-status-page-loading
+.pump-status-indicator {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    box-shadow: none !important;
+
+    animation:
+        systemStatusSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   DOSING SUMMARY SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.dosing-summary > div {
+
+    background: rgba(255, 255, 255, .80);
+
+    border-color: #e5e7eb;
+
+    overflow: hidden;
+}
+
+
+body.system-status-page-loading
+.dosing-summary span {
+
+    width: 70px;
+
+    height: 10px;
+
+    border-radius: 4px;
+}
+
+
+body.system-status-page-loading
+.dosing-summary strong {
+
+    width: 85px;
+
+    height: 16px;
+
+    margin-top: 6px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   MAIN TANK SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.tank-status-card {
+
+    background: rgba(255, 255, 255, .82);
+
+    border-color: #e5e7eb;
+}
+
+
+body.system-status-page-loading
+.tank-status-card span {
+
+    width: 75px;
+
+    height: 10px;
+
+    border-radius: 4px;
+}
+
+
+body.system-status-page-loading
+.tank-status-card strong {
+
+    width: 90px;
+
+    height: 21px;
+
+    margin-top: 7px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   DEVICE RESOURCE SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.power-card {
+
+    border-color: #e5e7eb;
+
+    background: rgba(255, 255, 255, .82);
+
+    box-shadow: none;
+
+    transition: none;
+}
+
+
+body.system-status-page-loading
+.power-card:hover {
+
+    transform: none;
+
+    border-color: #e5e7eb;
+
+    box-shadow: none;
+}
+
+
+body.system-status-page-loading
+.power-card > .material-icons {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    border-color: transparent !important;
+
+    color: transparent !important;
+
+    animation:
+        systemStatusSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.system-status-page-loading
+.power-card span:not(.material-icons) {
+
+    width: 100px;
+
+    height: 10px;
+
+    border-radius: 4px;
+}
+
+
+body.system-status-page-loading
+.power-card strong {
+
+    width: 120px;
+
+    height: 16px;
+
+    margin-top: 5px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   SUMMARY CARD SKELETON
+========================================================= */
+
+body.system-status-page-loading
+.summary-card {
+
+    border-color: #e5e7eb;
+
+    background: rgba(255, 255, 255, .82);
+}
+
+
+body.system-status-page-loading
+.summary-card > .material-icons {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    border-color: transparent !important;
+
+    color: transparent !important;
+
+    animation:
+        systemStatusSkeletonShimmer 1.5s ease-in-out infinite;
+}
+
+
+body.system-status-page-loading
+.summary-card span {
+
+    width: 85px;
+
+    height: 10px;
+
+    border-radius: 4px;
+}
+
+
+body.system-status-page-loading
+.summary-card strong {
+
+    width: 100px;
+
+    height: 16px;
+
+    margin-top: 5px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   PREVENT HOVER EFFECTS WHILE LOADING
+========================================================= */
+
+body.system-status-page-loading
+.power-card:hover {
+
+    transform: none !important;
+
+    border-color: #e5e7eb !important;
+
+    box-shadow: none !important;
+}
+
+
+/* =========================================================
+   SKELETON ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body.system-status-page-loading
+    .system-status-skeleton,
+    body.system-status-page-loading
+    .system-page-eyebrow,
+    body.system-status-page-loading
+    .system-page-header h1,
+    body.system-status-page-loading
+    .system-page-description,
+    body.system-status-page-loading
+    .system-live,
+    body.system-status-page-loading
+    .system-live-dot,
+    body.system-status-page-loading
+    .system-section-title h2,
+    body.system-status-page-loading
+    .system-section-title p,
+    body.system-status-page-loading
+    .system-icon,
+    body.system-status-page-loading
+    .health-icon,
+    body.system-status-page-loading
+    .pump-status-icon,
+    body.system-status-page-loading
+    .pump-status-indicator,
+    body.system-status-page-loading
+    .power-card > .material-icons,
+    body.system-status-page-loading
+    .summary-card > .material-icons {
+
+        animation: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   SKELETON - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    body.system-status-page-loading
+    .system-page-eyebrow {
+
+        width: 65px;
+
+        height: 8px;
+    }
+
+
+    body.system-status-page-loading
+    .system-page-header h1 {
+
+        width: 135px;
+
+        height: 19px;
+    }
+
+
+    body.system-status-page-loading
+    .system-page-description {
+
+        width: 200px;
+
+        height: 9px;
+    }
+
+
+    body.system-status-page-loading
+    .system-live {
+
+        width: 82px;
+
+        height: 24px;
+    }
+
+
+    body.system-status-page-loading
+    .system-section-title h2 {
+
+        width: 125px;
+
+        height: 17px;
+    }
+
+
+    body.system-status-page-loading
+    .system-section-title p {
+
+        width: 170px;
+
+        height: 10px;
+    }
+
+
+    body.system-status-page-loading
+    .system-info-value {
+
+        width: 85px;
+
+        height: 20px;
+    }
+
+
+    body.system-status-page-loading
+    .health-card strong {
+
+        width: 65px;
+
+        height: 20px;
+    }
+
+
+    body.system-status-page-loading
+    .dosing-summary strong {
+
+        width: 65px;
+
+        height: 14px;
+    }
+
+
+    body.system-status-page-loading
+    .tank-status-card strong {
+
+        width: 70px;
+
+        height: 18px;
+    }
+
+
+    body.system-status-page-loading
+    .power-card strong {
+
+        width: 100px;
+
+        height: 15px;
+    }
+
+
+    body.system-status-page-loading
+    .summary-card strong {
+
+        width: 80px;
+
+        height: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   SKELETON - SMALL MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body.system-status-page-loading
+    .system-page-header h1 {
+
+        width: 120px;
+
+        height: 18px;
+    }
+
+
+    body.system-status-page-loading
+    .system-page-description {
+
+        width: 160px;
+
+        height: 8px;
+    }
+
+
+    body.system-status-page-loading
+    .system-live {
+
+        width: 72px;
+
+        height: 22px;
+    }
+
+
+    body.system-status-page-loading
+    .system-section-title h2 {
+
+        width: 110px;
+
+        height: 16px;
+    }
+
+
+    body.system-status-page-loading
+    .system-section-title p {
+
+        width: 145px;
+
+        height: 9px;
+    }
+
+
+    body.system-status-page-loading
+    .system-info-label {
+
+        width: 60px;
+
+        height: 9px;
+    }
+
+
+    body.system-status-page-loading
+    .system-info-value {
+
+        width: 75px;
+
+        height: 19px;
+    }
+
+
+    body.system-status-page-loading
+    .system-info-description {
+
+        width: 75px;
+
+        height: 8px;
+    }
+
+
+    body.system-status-page-loading
+    .health-card h3 {
+
+        width: 70px;
+
+        height: 13px;
+    }
+
+
+    body.system-status-page-loading
+    .health-card p {
+
+        width: 90px;
+
+        height: 8px;
+    }
+
+
+    body.system-status-page-loading
+    .health-card strong {
+
+        width: 60px;
+
+        height: 19px;
+    }
+
+
+    body.system-status-page-loading
+    .tank-status-card span {
+
+        width: 60px;
+
+        height: 8px;
+    }
+
+
+    body.system-status-page-loading
+    .tank-status-card strong {
+
+        width: 65px;
+
+        height: 17px;
+    }
+
+
+    body.system-status-page-loading
+    .dosing-summary span {
+
+        width: 55px;
+
+        height: 8px;
+    }
+
+
+    body.system-status-page-loading
+    .dosing-summary strong {
+
+        width: 55px;
+
+        height: 13px;
+    }
+
+
+    body.system-status-page-loading
+    .power-card span:not(.material-icons) {
+
+        width: 80px;
+
+        height: 8px;
+    }
+
+
+    body.system-status-page-loading
+    .power-card strong {
+
+        width: 90px;
+
+        height: 14px;
+    }
+
+
+    body.system-status-page-loading
+    .summary-card span {
+
+        width: 65px;
+
+        height: 8px;
+    }
+
+
+    body.system-status-page-loading
+    .summary-card strong {
+
+        width: 70px;
+
+        height: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   SKELETON - EXTRA SMALL PHONE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    body.system-status-page-loading
+    .system-page-header h1 {
+
+        width: 105px;
+
+        height: 17px;
+    }
+
+
+    body.system-status-page-loading
+    .system-page-description {
+
+        display: none;
+    }
+
+
+    body.system-status-page-loading
+    .system-live {
+
+        width: 65px;
+
+        height: 21px;
+    }
+
+
+    body.system-status-page-loading
+    .system-section-title h2 {
+
+        width: 100px;
+
+        height: 15px;
+    }
+
+
+    body.system-status-page-loading
+    .system-section-title p {
+
+        width: 125px;
+
+        height: 8px;
+    }
+
+
+    body.system-status-page-loading
+    .system-info-value {
+
+        width: 65px;
+
+        height: 17px;
+    }
+
+
+    body.system-status-page-loading
+    .health-card h3 {
+
+        width: 60px;
+
+        height: 12px;
+    }
+
+
+    body.system-status-page-loading
+    .health-card strong {
+
+        width: 50px;
+
+        height: 17px;
+    }
+
+
+    body.system-status-page-loading
+    .tank-status-card strong {
+
+        width: 55px;
+
+        height: 16px;
+    }
+
+
+    body.system-status-page-loading
+    .dosing-summary strong {
+
+        width: 48px;
+
+        height: 12px;
+    }
+
+
+    body.system-status-page-loading
+    .power-card strong {
+
+        width: 75px;
+
+        height: 13px;
+    }
+
+
+    body.system-status-page-loading
+    .summary-card strong {
+
+        width: 60px;
+
+        height: 13px;
     }
 
 }

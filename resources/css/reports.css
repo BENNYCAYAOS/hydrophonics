@@ -1,3 +1,4 @@
+
 /* =========================================================
    HYDROSMART REPORTS
    COMPACT / THIN HEADER VERSION
@@ -629,16 +630,12 @@
    SUMMARY CARD COLOR BACKGROUNDS
 ========================================================= */
 
-/* pH - Purple */
-
 .summary-card:has(.ph-summary) {
     background: #faf5ff;
 
     border-color: #e9d5ff;
 }
 
-
-/* EC - Blue */
 
 .summary-card:has(.ec-summary) {
     background: #eff6ff;
@@ -647,16 +644,12 @@
 }
 
 
-/* Temperature - Orange */
-
 .summary-card:has(.temp-summary) {
     background: #fff7ed;
 
     border-color: #fed7aa;
 }
 
-
-/* Optimal - Green */
 
 .summary-card:has(.optimal-summary) {
     background: #f0fdf4;
@@ -665,16 +658,12 @@
 }
 
 
-/* Pump - Cyan */
-
 .summary-card:has(.pump-summary) {
     background: #ecfeff;
 
     border-color: #a5f3fc;
 }
 
-
-/* Alerts - Yellow */
 
 .summary-card:has(.alert-summary) {
     background: #fffbeb;
@@ -959,8 +948,6 @@
    COLORFUL TABLE HEADERS
 ========================================================= */
 
-/* Sensor / readings */
-
 .report-table.sensor-table thead th {
     background: #2563eb;
 
@@ -969,8 +956,6 @@
     border-bottom-color: #1d4ed8;
 }
 
-
-/* pH */
 
 .report-table.ph-table thead th {
     background: #7c3aed;
@@ -981,8 +966,6 @@
 }
 
 
-/* EC */
-
 .report-table.ec-table thead th {
     background: #2563eb;
 
@@ -992,8 +975,6 @@
 }
 
 
-/* Temperature */
-
 .report-table.temp-table thead th {
     background: #ea580c;
 
@@ -1002,8 +983,6 @@
     border-bottom-color: #c2410c;
 }
 
-
-/* Water level / tank */
 
 .report-table.tank-table thead th,
 .report-table.water-level-table thead th {
@@ -1015,8 +994,6 @@
 }
 
 
-/* Pump */
-
 .report-table.pump-table thead th {
     background: #0891b2;
 
@@ -1025,8 +1002,6 @@
     border-bottom-color: #0e7490;
 }
 
-
-/* Alerts */
 
 .report-table.alert-table thead th {
     background: #d97706;
@@ -1076,19 +1051,7 @@
 
 /* =========================================================
    LATEST 5 RECORDS
-   SCREEN DISPLAY
 ========================================================= */
-
-/*
-   Add class "show-latest-5" to the table.
-
-   Example:
-
-   <table class="report-table sensor-table show-latest-5">
-
-   The first 5 records remain visible.
-   Records from #6 onward are hidden on screen.
-*/
 
 .report-table.show-latest-5 tbody tr:nth-child(n + 6) {
     display: none;
@@ -1099,35 +1062,25 @@
    LATEST 5 COLOR ACCENTS
 ========================================================= */
 
-/* Sensor */
-
 .report-table.sensor-table.show-latest-5 tbody tr:nth-child(-n + 5) {
     border-left: 3px solid #bfdbfe;
 }
 
-
-/* pH */
 
 .report-table.ph-table.show-latest-5 tbody tr:nth-child(-n + 5) {
     border-left: 3px solid #ddd6fe;
 }
 
 
-/* EC */
-
 .report-table.ec-table.show-latest-5 tbody tr:nth-child(-n + 5) {
     border-left: 3px solid #bfdbfe;
 }
 
 
-/* Temperature */
-
 .report-table.temp-table.show-latest-5 tbody tr:nth-child(-n + 5) {
     border-left: 3px solid #fed7aa;
 }
 
-
-/* Tank */
 
 .report-table.tank-table.show-latest-5 tbody tr:nth-child(-n + 5),
 .report-table.water-level-table.show-latest-5 tbody tr:nth-child(-n + 5) {
@@ -1135,14 +1088,10 @@
 }
 
 
-/* Pump */
-
 .report-table.pump-table.show-latest-5 tbody tr:nth-child(-n + 5) {
     border-left: 3px solid #a5f3fc;
 }
 
-
-/* Alerts */
 
 .report-table.alert-table.show-latest-5 tbody tr:nth-child(-n + 5) {
     border-left: 3px solid #fde68a;
@@ -1946,10 +1895,6 @@
     }
 
 
-    /* =====================================================
-       PRINT SHOWS ALL RECORDS
-    ===================================================== */
-
     .report-table.show-latest-5 tbody tr {
         display: table-row !important;
     }
@@ -2127,6 +2072,968 @@
 
     .report-footer {
         margin-top: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   =========================================================
+   REPORTS SKELETON LOADING
+   UI ONLY
+   1500ms SHIMMER
+   DOES NOT CHANGE FIREBASE LOGIC
+   DOES NOT CHANGE REPORT LOGIC
+   =========================================================
+========================================================= */
+
+@keyframes reportsSkeletonShimmer {
+
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+
+}
+
+
+/* =========================================================
+   SKELETON BASE
+========================================================= */
+
+body.reports-page-loading
+.reports-page {
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   HEADER SKELETON
+========================================================= */
+
+body.reports-page-loading
+.reports-page-header {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+
+}
+
+
+body.reports-page-loading
+.reports-page-eyebrow,
+
+body.reports-page-loading
+.reports-page-header h1,
+
+body.reports-page-loading
+.reports-page-description {
+
+    color: transparent !important;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.reports-live {
+
+    color: transparent !important;
+
+    border-color: #e5e7eb !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.reports-live-dot {
+
+    background: #e5e7eb !important;
+
+    box-shadow:
+        none !important;
+}
+
+
+/* =========================================================
+   SECTION HEADER SKELETON
+========================================================= */
+
+body.reports-page-loading
+.report-section-header h2,
+
+body.reports-page-loading
+.report-section-header p {
+
+    color: transparent !important;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.report-section-header h2 {
+
+    min-width: 180px;
+
+    min-height: 24px;
+}
+
+
+body.reports-page-loading
+.report-section-header p {
+
+    min-width: 260px;
+
+    min-height: 14px;
+}
+
+
+/* =========================================================
+   FILTER SKELETON
+========================================================= */
+
+body.reports-page-loading
+.filter-field label {
+
+    color: transparent !important;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.filter-field input,
+
+body.reports-page-loading
+.filter-field select {
+
+    color: transparent !important;
+
+    border-color: #e5e7eb !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   GENERATE BUTTON SKELETON
+========================================================= */
+
+body.reports-page-loading
+.generate-button {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+
+    border-color: transparent !important;
+}
+
+
+body.reports-page-loading
+.generate-button .material-icons {
+
+    visibility: hidden;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS SKELETON
+========================================================= */
+
+body.reports-page-loading
+.report-actions-section
+.report-action {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.report-action .material-icons {
+
+    visibility: hidden;
+}
+
+
+/* =========================================================
+   REPORT COVER SKELETON
+========================================================= */
+
+body.reports-page-loading
+.report-brand img {
+
+    opacity: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        );
+
+    background-size:
+        200% 100%;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+
+    box-shadow: none;
+}
+
+
+body.reports-page-loading
+.report-brand h1,
+
+body.reports-page-loading
+.report-brand p,
+
+body.reports-page-loading
+.report-title h2,
+
+body.reports-page-loading
+.report-title p {
+
+    color: transparent !important;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.report-brand h1 {
+
+    min-width: 190px;
+
+    min-height: 25px;
+}
+
+
+body.reports-page-loading
+.report-brand p {
+
+    min-width: 240px;
+
+    min-height: 14px;
+}
+
+
+body.reports-page-loading
+.report-title h2 {
+
+    min-width: 230px;
+
+    min-height: 30px;
+}
+
+
+body.reports-page-loading
+.report-title p {
+
+    min-width: 300px;
+
+    min-height: 15px;
+}
+
+
+/* =========================================================
+   SUMMARY CARD SKELETON
+========================================================= */
+
+body.reports-page-loading
+.summary-card {
+
+    background: #ffffff !important;
+
+    border-color: #e5e7eb !important;
+
+    box-shadow: none !important;
+}
+
+
+body.reports-page-loading
+.summary-icon {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.summary-icon .material-icons {
+
+    visibility: hidden;
+}
+
+
+body.reports-page-loading
+.summary-content span,
+
+body.reports-page-loading
+.summary-content strong {
+
+    color: transparent !important;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.summary-content span {
+
+    width: 70px;
+
+    min-height: 12px;
+}
+
+
+body.reports-page-loading
+.summary-content strong {
+
+    width: 90px;
+
+    min-height: 23px;
+}
+
+
+/* =========================================================
+   TABLE SKELETON
+========================================================= */
+
+body.reports-page-loading
+.table-wrapper {
+
+    overflow: hidden;
+
+    border-color: #e5e7eb;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f3f4f6 0%,
+            #ffffff 50%,
+            #f3f4f6 100%
+        );
+
+    background-size:
+        200% 100%;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.report-table th {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.report-table td {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f3f4f6 0%,
+            #ffffff 50%,
+            #f3f4f6 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.report-table strong {
+
+    color: transparent !important;
+}
+
+
+/* =========================================================
+   FOOTER SKELETON
+========================================================= */
+
+body.reports-page-loading
+.report-footer strong,
+
+body.reports-page-loading
+.report-footer span {
+
+    color: transparent !important;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size:
+        200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite;
+}
+
+
+body.reports-page-loading
+.report-footer strong {
+
+    min-width: 150px;
+
+    min-height: 14px;
+}
+
+
+body.reports-page-loading
+.report-footer span {
+
+    min-width: 220px;
+
+    min-height: 12px;
+}
+
+
+/* =========================================================
+   SKELETON DOES NOT APPEAR IN PRINT
+========================================================= */
+
+@media print {
+
+    body.reports-page-loading
+    * {
+
+        animation: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body.reports-page-loading
+    * {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+    }
+
+}
+/* =========================================================
+   REPORTS SKELETON — LOGO / PRINT RECORDS / LATEST
+   UI ONLY
+========================================================= */
+
+
+/* =========================================================
+   REPORT LOGO SKELETON
+========================================================= */
+
+body.reports-page-loading
+.report-brand img {
+
+    opacity: 1 !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite !important;
+
+    box-shadow: none !important;
+}
+
+
+/* Hide actual logo image while loading */
+
+body.reports-page-loading
+.report-brand img {
+
+    filter: grayscale(1);
+
+}
+
+
+/* =========================================================
+   PRINT RECORDS SKELETON
+========================================================= */
+
+/*
+   Targets the Print Records label.
+   Works with:
+   - label
+   - span
+   - element containing "print-record"
+*/
+
+body.reports-page-loading
+.print-record-label,
+
+body.reports-page-loading
+.print-records-label,
+
+body.reports-page-loading
+label[for="printRecordCount"] {
+
+    color: transparent !important;
+
+    min-width: 105px;
+
+    min-height: 13px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite !important;
+}
+
+
+/* =========================================================
+   PRINT RECORDS SELECT / INPUT
+========================================================= */
+
+body.reports-page-loading
+#printRecordCount {
+
+    color: transparent !important;
+
+    border-color: #e5e7eb !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite !important;
+
+    pointer-events: none !important;
+}
+
+
+/* =========================================================
+   LATEST TEXT SKELETON
+========================================================= */
+
+/*
+   Targets common class names used for:
+   "Latest"
+   "Latest Records"
+   "Latest 5 Records"
+*/
+
+body.reports-page-loading
+.latest,
+
+body.reports-page-loading
+.latest-records,
+
+body.reports-page-loading
+.latest-records-title,
+
+body.reports-page-loading
+.latest-title {
+
+    color: transparent !important;
+
+    text-shadow: none !important;
+
+    min-width: 115px;
+
+    min-height: 18px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite !important;
+}
+
+
+/* =========================================================
+   LATEST INSIDE SECTION HEADER
+========================================================= */
+
+/*
+   If "Latest" is an h2/h3/span inside
+   .report-section-header, make it skeleton.
+*/
+
+body.reports-page-loading
+.report-section-header
+.latest,
+
+body.reports-page-loading
+.report-section-header
+.latest-records,
+
+body.reports-page-loading
+.report-section-header
+.latest-records-title,
+
+body.reports-page-loading
+.report-section-header
+.latest-title {
+
+    color: transparent !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e5e7eb 0%,
+            #f3f4f6 50%,
+            #e5e7eb 100%
+        ) !important;
+
+    background-size: 200% 100% !important;
+
+    animation:
+        reportsSkeletonShimmer
+        1.5s ease-in-out infinite !important;
+}
+
+
+/* =========================================================
+   LATEST 5 RECORDS TEXT
+========================================================= */
+
+body.reports-page-loading
+.latest-5,
+
+body.reports-page-loading
+.latest-5-records,
+
+body.reports-page-loading
+[class*="latest"] {
+
+    color: transparent !important;
+
+    text-shadow: none !important;
+}
+
+
+/* =========================================================
+   PRINT RECORDS CONTAINER
+========================================================= */
+
+body.reports-page-loading
+.print-record-selector,
+
+body.reports-page-loading
+.print-records,
+
+body.reports-page-loading
+.print-record-control {
+
+    pointer-events: none !important;
+}
+
+
+/* =========================================================
+   PRINT RECORDS ICON
+========================================================= */
+
+body.reports-page-loading
+.print-record-selector
+.material-icons,
+
+body.reports-page-loading
+.print-records
+.material-icons {
+
+    visibility: hidden !important;
+}
+
+
+/* =========================================================
+   KEEP SKELETON HIDDEN WHEN PRINTING
+========================================================= */
+
+@media print {
+
+    body.reports-page-loading
+    .report-brand img {
+
+        opacity: 1 !important;
+
+        filter: none !important;
+
+        background: none !important;
+
+        animation: none !important;
+    }
+
+
+    body.reports-page-loading
+    .latest,
+
+    body.reports-page-loading
+    .latest-records,
+
+    body.reports-page-loading
+    .latest-records-title,
+
+    body.reports-page-loading
+    .latest-title,
+
+    body.reports-page-loading
+    .latest-5,
+
+    body.reports-page-loading
+    .latest-5-records {
+
+        color: inherit !important;
+
+        background: none !important;
+
+        animation: none !important;
+    }
+
+
+    body.reports-page-loading
+    .print-record-selector,
+
+    body.reports-page-loading
+    .print-records,
+
+    body.reports-page-loading
+    .print-record-control {
+
+        pointer-events: auto !important;
     }
 
 }

@@ -35,6 +35,10 @@
 // Battery / Solar monitoring is NOT included because the
 // current ESP32 does not upload battery/solar telemetry.
 //
+// UI ADDITION
+// Skeleton loading is UI-only.
+// Firebase / sensor / pump logic remains unchanged.
+//
 // =========================================================
 
 
@@ -50,20 +54,172 @@ import {
 
 
 // =========================================================
+// SKELETON LOADING
+// =========================================================
+
+const SYSTEM_STATUS_MIN_LOADING_TIME = 1500;
+const SYSTEM_STATUS_MAX_LOADING_TIME = 10000;
+
+const systemStatusLoadingStart =
+    Date.now();
+
+let systemStatusLoadingFinished =
+    false;
+
+
+// =========================================================
+// ENABLE SKELETON
+// =========================================================
+
+function enableSystemStatusSkeleton() {
+
+    if (!document.body) {
+        return;
+    }
+
+    document.body.classList.add(
+        "system-status-page-loading"
+    );
+
+}
+
+
+// =========================================================
+// DISABLE SKELETON
+// =========================================================
+
+function disableSystemStatusSkeleton() {
+
+    if (!document.body) {
+        return;
+    }
+
+    if (
+        systemStatusLoadingFinished
+    ) {
+        return;
+    }
+
+    systemStatusLoadingFinished =
+        true;
+
+    const elapsed =
+        Date.now() -
+        systemStatusLoadingStart;
+
+    const remaining =
+        Math.max(
+            0,
+            SYSTEM_STATUS_MIN_LOADING_TIME -
+            elapsed
+        );
+
+
+    setTimeout(() => {
+
+        document.body.classList.remove(
+            "system-status-page-loading"
+        );
+
+        document.body.classList.add(
+            "system-status-page-loaded"
+        );
+
+    }, remaining);
+
+}
+
+
+// =========================================================
+// MAXIMUM LOADING FALLBACK
+// =========================================================
+//
+// Prevents the skeleton from staying forever if Firebase
+// authentication or connection fails.
+//
+// =========================================================
+
+setTimeout(() => {
+
+    if (!systemStatusLoadingFinished) {
+
+        systemStatusLoadingFinished =
+            true;
+
+
+        if (document.body) {
+
+            document.body.classList.remove(
+                "system-status-page-loading"
+            );
+
+            document.body.classList.add(
+                "system-status-page-loaded"
+            );
+
+        }
+
+    }
+
+}, SYSTEM_STATUS_MAX_LOADING_TIME);
+
+
+// =========================================================
+// START SKELETON
+// =========================================================
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        enableSystemStatusSkeleton,
+        {
+            once: true
+        }
+    );
+
+}
+else {
+
+    enableSystemStatusSkeleton();
+
+}
+
+
+// =========================================================
 // START
 // =========================================================
 
-console.log("=================================");
-console.log("HYDROSMART SYSTEM STATUS");
-console.log("Firebase monitoring starting...");
-console.log("=================================");
+console.log(
+    "================================="
+);
+
+console.log(
+    "HYDROSMART SYSTEM STATUS"
+);
+
+console.log(
+    "Firebase monitoring starting..."
+);
+
+console.log(
+    "System Status skeleton enabled."
+);
+
+console.log(
+    "================================="
+);
 
 
 // =========================================================
 // HELPERS
 // =========================================================
 
-const el = (id) => document.getElementById(id);
+const el = (id) =>
+    document.getElementById(id);
 
 
 // =========================================================
@@ -294,8 +450,6 @@ function findResourceContainer(
     }
 
 
-    // Try the most likely container classes first
-
     const selectors = [
         ".device-resource-item",
         ".device-resource-card",
@@ -323,9 +477,6 @@ function findResourceContainer(
 
     }
 
-
-    // Fallback:
-    // search a few parent levels
 
     let parent =
         statusElement.parentElement;
@@ -357,6 +508,7 @@ function findResourceContainer(
 
 
     return null;
+
 }
 
 
@@ -416,8 +568,6 @@ function setResourceIconState(
     }
 
 
-    // Remove previous state classes
-
     icon.classList.remove(
         "online",
         "offline",
@@ -427,10 +577,6 @@ function setResourceIconState(
 
 
     if (online) {
-
-        // =========================================
-        // BLUE ONLINE
-        // =========================================
 
         icon.classList.add(
             "online"
@@ -450,8 +596,6 @@ function setResourceIconState(
             "all 0.25s ease";
 
 
-        // SVG support
-
         if (
             icon.tagName &&
             icon.tagName.toLowerCase() === "svg"
@@ -465,8 +609,6 @@ function setResourceIconState(
 
         }
 
-
-        // Child SVG support
 
         const svg =
             icon.querySelector(
@@ -488,8 +630,6 @@ function setResourceIconState(
         }
 
 
-        // Child icon support
-
         const iconChild =
             icon.querySelector(
                 "i"
@@ -505,10 +645,6 @@ function setResourceIconState(
 
     }
     else {
-
-        // =========================================
-        // OFFLINE / WAITING
-        // =========================================
 
         icon.classList.add(
             "offline"
@@ -1071,12 +1207,6 @@ function updateAutomaticDosingStatus() {
 
 // =========================================================
 // pH SEVERITY
-// =========================================================
-//
-// 0 = Normal
-// 1 = Warning
-// 2 = Critical
-//
 // =========================================================
 
 function getPHSeverity(
@@ -1903,13 +2033,6 @@ function updateLastSync() {
 // =========================================================
 // CONNECTIVITY STATUS
 // =========================================================
-//
-// Firebase connection is the primary online state.
-//
-// Main Tank / ESP32 online telemetry is also read from
-// /mainTank/online.
-//
-// =========================================================
 
 function updateConnectivityStatus() {
 
@@ -2031,10 +2154,6 @@ function updateConnectivityStatus() {
 
     }
 
-
-    // =====================================================
-    // DEVICE RESOURCE ICONS
-    // =====================================================
 
     updateDeviceResources();
 
@@ -2210,34 +2329,18 @@ function processMainTankUpdate(
         true;
 
 
-    // =====================================================
-    // MAIN TANK ONLINE
-    // =====================================================
-
     mainTankOnline =
         data.online === true;
 
-
-    // =====================================================
-    // CRITICAL CONDITION
-    // =====================================================
 
     mainTankCritical =
         data.criticalCondition === true;
 
 
-    // =====================================================
-    // FLOAT SWITCH
-    // =====================================================
-
     mainTankFloatSwitch =
         data.floatSwitch ??
         "--";
 
-
-    // =====================================================
-    // UPDATE
-    // =====================================================
 
     updateTankStatus();
 
@@ -2250,10 +2353,6 @@ function processMainTankUpdate(
 
 // =========================================================
 // FIREBASE LISTENERS
-// =========================================================
-//
-// Everything starts AFTER Firebase authentication.
-//
 // =========================================================
 
 function startFirebaseMonitoring() {
@@ -3171,43 +3270,78 @@ firebaseLogin
 // READY
 // =========================================================
 
-console.log("=================================");
-console.log("HYDROSMART SYSTEM STATUS READY");
-console.log("---------------------------------");
-console.log("pH: /sensors/ph");
-console.log("EC: /sensors/ec");
+console.log(
+    "================================="
+);
+
+console.log(
+    "HYDROSMART SYSTEM STATUS READY"
+);
+
+console.log(
+    "---------------------------------"
+);
+
+console.log(
+    "pH: /sensors/ph"
+);
+
+console.log(
+    "EC: /sensors/ec"
+);
+
 console.log(
     "Temperature: /sensors/water_temperature"
 );
+
 console.log(
     "Water Level: /sensors/waterLevel"
 );
+
 console.log(
     "Main Tank: /mainTank"
 );
+
 console.log(
     "Nutrient A: /control/pumps/nutrientA"
 );
+
 console.log(
     "Nutrient B: /control/pumps/nutrientB"
 );
+
 console.log(
     "pH Down: /control/pumps/phDown"
 );
+
 console.log(
     "Dosing Mode: /control/dosingMode"
 );
+
 console.log(
     "Firebase Connection: /.info/connected"
 );
-console.log("---------------------------------");
+
+console.log(
+    "---------------------------------"
+);
+
 console.log(
     "Device Resources: ONLINE = BLUE"
 );
+
 console.log(
     "Main Tank: CONNECTED = BLUE"
 );
+
 console.log(
     "System Overview: ENABLED"
 );
-console.log("=================================");
+
+console.log(
+    "Skeleton Loading: 1500ms minimum"
+);
+
+console.log(
+    "================================="
+);
