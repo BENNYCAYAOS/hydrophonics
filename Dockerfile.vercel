@@ -24,6 +24,8 @@ RUN mkdir -p storage/framework/cache \
 
 RUN chmod -R 775 storage bootstrap/cache
 
+RUN printf ':80 {\n    root * /app/public\n    encode zstd gzip\n    php_server\n}\n' > /etc/caddy/Caddyfile
+
 EXPOSE 80
 
 CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile"]
