@@ -1,7 +1,15 @@
 {
-    "build": {
-        "env": {
-            "APP_ENV": "production"
-        }
+  "services": {
+    "app": {
+      "entrypoint": "Dockerfile.vercel"
     }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "app"
+      }
+    }
+  ]
 }
